@@ -1,0 +1,834 @@
+﻿@model FYMKWebApplication4.Models.Mentor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mentor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addresss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addresss)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConrirmEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConrirmEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrefrenceOnGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrefrenceOnGender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstLanguage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstLanguage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalConvivtion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CriminalConvivtion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DBSCertificate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DBSCertificate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedDBS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedDBS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GCSE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GCSE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Higher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Higher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudyingOrWorking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudyingOrWorking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstituteOrUniversity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstituteOrUniversity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseStudying)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseStudying)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volunteer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Volunteer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WhyYouWantToMentor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WhyYouWantToMentor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YourExperience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YourExperience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WhenAreYouAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WhenAreYouAvailable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkillHobbies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkillHobbies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialNeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialNeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Education)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Education)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enterpreneurship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Enterpreneurship)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Developing_Resilence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Developing_Resilence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volunteering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Volunteering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Changing_Career)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Changing_Career)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Building_Confidence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Building_Confidence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Getting_Involved_In_Community_Work)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Getting_Involved_In_Community_Work)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Career_Without_University)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Career_Without_University)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finding_Jobs_Locally)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finding_Jobs_Locally)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Developing_A_Professional_Network)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Developing_A_Professional_Network)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV_Writting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV_Writting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.University_Applications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.University_Applications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interview_Skills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interview_Skills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MyProperty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MyProperty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visual_Arts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visual_Arts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Watching_Films)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watching_Films)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creating_Videos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creating_Videos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reading_Fiction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reading_Fiction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Litary_Works)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Litary_Works)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Electronic_Video_Game)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Electronic_Video_Game)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Music)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Music)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Baking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cooking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cooking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volunteeringg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Volunteeringg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfessionalInterest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfessionalInterest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Science)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Science)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Information)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Information)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FInancial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FInancial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Educations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Educations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Business)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Business)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Legal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Legal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HealthCare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HealthCare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Engineering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Engineering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Non_Profit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Non_Profit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Politics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Politics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marketting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marketting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Other)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Outgoing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Outgoing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lively)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lively)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Businesss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Businesss)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Construtive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Construtive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emphathetic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emphathetic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intuitive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intuitive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passionate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passionate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reserved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reserved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reflective)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reflective)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vibrant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vibrant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Others)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Others)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Refenrence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Refenrence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addressss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addressss)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cityy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cityy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Countryy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Countryy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephonee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephonee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Refenrence2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Refenrence2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addresssss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addresssss)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cityyy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cityyy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Regionn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regionn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Codee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Countryyy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Countryyy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephoneee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephoneee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinalNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinalNote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GDPR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GDPR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
