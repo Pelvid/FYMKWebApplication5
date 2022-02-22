@@ -161,6 +161,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\FYMKAdminDashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Mentees1Controller.cs" />
     <Compile Include="Controllers\MenteesController.cs" />
@@ -239,6 +240,22 @@
     <Content Include="Views\Mentees1\Details.cshtml" />
     <Content Include="Views\Mentees1\Edit.cshtml" />
     <Content Include="Views\Mentees1\Index.cshtml" />
+    <Content Include="Views\_LayoutPage1.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\Index.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\adminalert.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\admincalender.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\admindashboard.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\adminmatch.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\adminmentee.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\adminmenteereview.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\adminmentor.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\adminmentorreview.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\adminprofile.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\adminprogram.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\adminsettings.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\chat.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\helpcentre.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\sidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
