@@ -1,0 +1,36 @@
+.nav-pills .nav-link:hover {
+    background-color: #8DCDE6;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color ease-out 0.5s;
+}
+
+.footer-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(252, 252, 252);
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.nav-link .active .text-white {
+    background-color: #21A3BD;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
