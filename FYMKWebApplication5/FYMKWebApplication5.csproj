@@ -209,6 +209,8 @@
     <Content Include="css\bootstrap-5.1.3-dist\js\bootstrap.esm.min.js" />
     <Content Include="css\bootstrap-5.1.3-dist\js\bootstrap.js" />
     <Content Include="css\bootstrap-5.1.3-dist\js\bootstrap.min.js" />
+    <Content Include="css\Chat.css" />
+    <Content Include="css\Chat.js" />
     <Content Include="css\custom.css" />
     <Content Include="css\dashboard.css" />
     <Content Include="css\dashboard.rtl.css" />
