@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace FYMKWebApplication4.Models
 {
+    //MentorCount mentorCount = new MentorCount();
+    
     public class Mentee
     {
         public int Id { get; set; }
@@ -248,4 +252,16 @@ namespace FYMKWebApplication4.Models
         //Navigation Property
         public Mentor Mentor { get; set; }
     }
+
+
+
+    class MentorCount
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
+
+
+
 }

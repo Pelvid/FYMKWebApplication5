@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <link href="~/css/LandingPage.css" rel="stylesheet" />
+    <title>FI administratvie unit</title>
+
+
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+    <!-- <link href="style.sass" rel="stylesheet"> -->
+
+    <script>
+    $l = $('.left')
+        $r = $('.right')
+
+        $l.mouseenter(function () {
+            $('.container').addClass('left-is-hovered');
+        }).mouseleave(function () {
+            $('.container').removeClass('left-is-hovered');
+        });
+
+        $r.mouseenter(function () {
+            $('.container').addClass('right-is-hovered');
+        }).mouseleave(function () {
+            $('.container').removeClass('right-is-hovered');
+        });</script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="one-half left">
+            <h1 style="font-family:roboto; font: 3em;">LEARN FROM THE BEST</h1>
+            <h3 style="font-family:roboto; font: 3em;">APPLY TO BE MENTORED</h3>
+            <a href="@Url.Action("Create","Mentees1")" class="cta">Let's Go</a>
+        </div>
+        <div class="one-half right">
+            <h1 style="font-family:roboto; font: 3em;">TRAIN ASPIRING LEADER</h1>
+            <h3 style="font-family:roboto; font: 3em;">APPLY TO BE A MENTOR</h3>
+            <a href="@Url.Action("Create","Mentors1")" class="cta">Let's Go</a>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script src="~/css/LandingPage.js"></script>
+</body>
+
+</html>

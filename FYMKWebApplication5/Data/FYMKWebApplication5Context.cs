@@ -22,5 +22,7 @@ namespace FYMKWebApplication5.Data
         public System.Data.Entity.DbSet<FYMKWebApplication4.Models.Mentee> Mentees { get; set; }
 
         public System.Data.Entity.DbSet<FYMKWebApplication4.Models.Mentor> Mentors { get; set; }
+
+        public System.Data.Entity.DbSet<FYMKWebApplication5.Models.AdminDashboard> AdminDashboards { get; set; }
     }
 }

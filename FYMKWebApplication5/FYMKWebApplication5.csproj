@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Elasticsearch.Net, Version=7.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elasticsearch.Net.7.17.0\lib\net461\Elasticsearch.Net.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -52,9 +55,39 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Nest, Version=7.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\NEST.7.17.0\lib\net461\Nest.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.1.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.1.0\lib\net46\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -161,9 +194,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AdminDashboardsController.cs" />
     <Compile Include="Controllers\FYMKAdminDashboardController.cs" />
     <Compile Include="Controllers\FYMKMentorDashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\Mentees1Controller.cs" />
     <Compile Include="Controllers\MenteesController.cs" />
     <Compile Include="Controllers\Mentors1Controller.cs" />
@@ -176,10 +211,23 @@
     <Compile Include="Migrations\202202152205033_Fymk.Designer.cs">
       <DependentUpon>202202152205033_Fymk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203020813554_Dashboard.cs" />
+    <Compile Include="Migrations\202203020813554_Dashboard.Designer.cs">
+      <DependentUpon>202203020813554_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdminDashboard.cs" />
     <Compile Include="Models\Mentee.cs" />
+    <Compile Include="Models\MenteeCount.cs" />
     <Compile Include="Models\Mentor.cs" />
+    <Compile Include="Models\MentorCount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -218,11 +266,86 @@
     <Content Include="css\Mentorchat.js" />
     <Content Include="css\MentorHelpCentre.css" />
     <Content Include="css\MentorHelpCentre.js" />
+    <Content Include="css\LandingPage.js" />
     <Content Include="css\sidebars.css" />
+    <Content Include="css\LandingPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="images\FYMK-Square-512.png" />
+    <Content Include="img\apple-icon.png" />
+    <Content Include="img\bg-profile.jpg" />
+    <Content Include="img\bg1.jpg" />
+    <Content Include="img\bruce-mars.jpg" />
+    <Content Include="img\carousel-1.jpg" />
+    <Content Include="img\carousel-2.jpg" />
+    <Content Include="img\carousel-3.jpg" />
+    <Content Include="img\components-card.png" />
+    <Content Include="img\down-arrow-dark.svg" />
+    <Content Include="img\down-arrow-white.svg" />
+    <Content Include="img\down-arrow.svg" />
+    <Content Include="img\favicon.png" />
+    <Content Include="img\FYMK-Square-512.png" />
+    <Content Include="img\group.png" />
+    <Content Include="img\home-decor-1.jpg" />
+    <Content Include="img\home-decor-2.jpg" />
+    <Content Include="img\home-decor-3.jpg" />
+    <Content Include="img\icons\flags\AU.png" />
+    <Content Include="img\icons\flags\BR.png" />
+    <Content Include="img\icons\flags\DE.png" />
+    <Content Include="img\icons\flags\GB.png" />
+    <Content Include="img\icons\flags\US.png" />
+    <Content Include="img\illustrations\icon-documentation.svg" />
+    <Content Include="img\illustrations\rocket-white.png" />
+    <Content Include="img\ivana-square.jpg" />
+    <Content Include="img\ivancik.jpg" />
+    <Content Include="img\kal-visuals-square.jpg" />
+    <Content Include="img\logo-ct-dark.png" />
+    <Content Include="img\logo-ct.png" />
+    <Content Include="img\logos\mastercard.png" />
+    <Content Include="img\logos\visa.png" />
+    <Content Include="img\marie.jpg" />
+    <Content Include="img\match ratio.jpg" />
+    <Content Include="img\mentee.jpg" />
+    <Content Include="img\mentor.jpg" />
+    <Content Include="img\network.png" />
+    <Content Include="img\scientist.png" />
+    <Content Include="img\shapes\pattern-lines.svg" />
+    <Content Include="img\shapes\shape-1.svg" />
+    <Content Include="img\shapes\shape-2.svg" />
+    <Content Include="img\shapes\shape-3.svg" />
+    <Content Include="img\shapes\wave-down.svg" />
+    <Content Include="img\shapes\wave-up.svg" />
+    <Content Include="img\shapes\waves-gray.svg" />
+    <Content Include="img\shapes\waves-white.svg" />
+    <Content Include="img\small-logos\icon-sun-cloud.png" />
+    <Content Include="img\small-logos\logo-atlassian.svg" />
+    <Content Include="img\small-logos\logo-invision.svg" />
+    <Content Include="img\small-logos\logo-jira.svg" />
+    <Content Include="img\small-logos\logo-slack.svg" />
+    <Content Include="img\small-logos\logo-spotify.svg" />
+    <Content Include="img\small-logos\logo-webdev.svg" />
+    <Content Include="img\small-logos\logo-xd.svg" />
+    <Content Include="img\social-media.gif" />
+    <Content Include="img\teacher.png" />
+    <Content Include="img\team-1.jpg" />
+    <Content Include="img\team-2.jpg" />
+    <Content Include="img\team-3.jpg" />
+    <Content Include="img\team-4.jpg" />
+    <Content Include="img\theme\angular.jpg" />
+    <Content Include="img\theme\bootstrap.jpg" />
+    <Content Include="img\theme\dribbble.png" />
+    <Content Include="img\theme\dropbox.png" />
+    <Content Include="img\theme\mastercard.png" />
+    <Content Include="img\theme\paypal.png" />
+    <Content Include="img\theme\react.jpg" />
+    <Content Include="img\theme\sketch.jpg" />
+    <Content Include="img\theme\slack.png" />
+    <Content Include="img\theme\spotify.jpeg" />
+    <Content Include="img\theme\tim.png" />
+    <Content Include="img\theme\unass.jpg" />
+    <Content Include="img\theme\visa.png" />
+    <Content Include="img\theme\vue.jpg" />
+    <Content Include="img\vr-bg.jpg" />
     <Content Include="js\dashboard.js" />
     <Content Include="js\sidebars.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -274,6 +397,19 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -324,6 +460,7 @@
     <Content Include="Views\FYMKMentorDashboard\Chat.cshtml" />
     <Content Include="Views\FYMKMentorDashboard\Setting.cshtml" />
     <Content Include="Views\FYMKMentorDashboard\HelpCentre.cshtml" />
+    <Content Include="Views\LandingPage\LandingPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -360,6 +497,13 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202202152205033_Fymk.resx">
       <DependentUpon>202202152205033_Fymk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203020813554_Dashboard.resx">
+      <DependentUpon>202203020813554_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
