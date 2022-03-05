@@ -20,9 +20,12 @@ namespace FYMKWebApplication5.Controllers
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
         SqlConnection con = new SqlConnection();
+        List<MentorTable> mentorTables = new List<MentorTable>();
+        List<MenteeTable> menteeTables = new List<MenteeTable>();
+
         List<MenteeCount> menteeCounts = new List<MenteeCount>();
         List<MentorCount> mentorCounts = new List<MentorCount>();
-        private readonly ILogger<FYMKAdminDashboardController> _logger;
+        //private readonly ILogger<FYMKAdminDashboardController> _logger;
 
 
         public FYMKAdminDashboardController()
@@ -58,11 +61,13 @@ namespace FYMKWebApplication5.Controllers
 
 
             //Session["MentorCount"] = MentorCount;
-         
+
             //Session["MatchRatio"] = MatchRatio;
             FetchData();
             Session["Menteecount"] = menteeCounts;
             Session["Mentorcount"] = mentorCounts;
+            Session["MenteeTable"] = menteeTables;
+            Session["MentorTable"] = mentorTables;
             return View(mentorCounts);
             
         }
@@ -70,12 +75,7 @@ namespace FYMKWebApplication5.Controllers
 
         private void FetchData()
         {
-            if (mentorCounts.Count > 0)
-                
-            {
-                mentorCounts.Clear();
-                
-            }
+           
 
             if (menteeCounts.Count > 0)
 
@@ -87,29 +87,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select (select Count (Id) From Mentees) as IdCount,(select Count (Id) From Mentors) as MeentorCnt";
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    mentorCounts.Add(new MentorCount()
-                    {
-                        Id = dr["MeentorCnt"].ToString()
-                    });
-                }
-                con.Close();
-
-            }
-            catch (Exception)
-            {
-
-                throw ;
-            }
-
-            try
-            {
-                con.Open();
-                com.Connection = con;
-                com.CommandText = "select (select Count (Id) From Mentees) as IdCount,(select Count (Id) From Mentors) as MeentorCnt";
+                com.CommandText = "select Count (Id) as IdCount From Mentees ";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -126,6 +104,97 @@ namespace FYMKWebApplication5.Controllers
 
                 throw;
             }
+
+
+            if (mentorCounts.Count > 0)
+
+            {
+                mentorCounts.Clear();
+
+            }
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Count (Id) as IdCount From Mentors";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    mentorCounts.Add(new MentorCount()
+                    {
+                        Id = dr["IdCount"].ToString()
+                    });
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            if(menteeTables.Count > 0)
+            {
+                menteeTables.Clear();
+            }
+
+            try
+            {
+
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email] From Mentees";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    menteeTables.Add(new MenteeTable() { FirstName = dr["FirstName"].ToString() 
+                    ,LastName = dr["LastName"].ToString()
+                    ,Email = dr["Email"].ToString()
+                    });
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            if(mentorTables.Count > 0)
+            {
+                mentorTables.Clear();
+            }
+
+            try
+            {
+
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email] From Mentors";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    mentorTables.Add(new MentorTable() { FirstName = dr["FirstName"].ToString()
+                    ,LastName = dr["LastName"].ToString()
+                    ,Email = dr["Email"].ToString()
+                    });
+                   
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
         }
 
 
@@ -134,6 +203,8 @@ namespace FYMKWebApplication5.Controllers
         
             return View();
         }
+
+
         public ActionResult adminmentee()
         {
             return View();

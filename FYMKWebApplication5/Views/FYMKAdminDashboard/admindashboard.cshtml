@@ -5,7 +5,13 @@
     Layout = "~/Views/_LayoutPage1.cshtml";
 
     List<FYMKWebApplication5.Models.MentorCount> mntcnt = (List < FYMKWebApplication5.Models.MentorCount >)Session["Mentorcount"];
+
     List<FYMKWebApplication5.Models.MenteeCount> mncnt = (List<FYMKWebApplication5.Models.MenteeCount>)Session["Menteecount"];
+
+    List<FYMKWebApplication5.Models.MenteeTable> mnt = (List<FYMKWebApplication5.Models.MenteeTable>)Session["MenteeTable"];
+
+    List<FYMKWebApplication5.Models.MentorTable> ment = (List<FYMKWebApplication5.Models.MentorTable>)Session["MentorTable"];
+
 
     string[] TableHeaders = new string[] { "First Name"
                             ,"Last Name"
@@ -18,14 +24,14 @@
         <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-              
+
 
                 <img src="~/images/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    
+
                     <a class="nav-link active text-white" aria-current="page" href="@Url.Action("admindashboard","FYMKAdminDashboard")">
                         Admin Dashboard
 
@@ -101,19 +107,6 @@
 
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            @*<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group me-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                    </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
-                </div>
-            </div>*@
 
 
 
@@ -148,25 +141,25 @@
                             </h1>
                         </div>
                     </div>
-                  
+
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card card-1">
                                 <h3>Mentor Count</h3>
                                 <h4>
-                                   @{ 
-                                       
-                                           foreach (var Data in mntcnt)
-                                           {
-                                               @Data.Id;
+                                    @{
 
-                                           }
+                                        foreach (var Data in mntcnt)
+                                        {
+                                            @Data.Id;
 
-                                       }
+                                        }
+
+                                    }
 
 
 
-                                   
+
 
 
                                 </h4>
@@ -198,7 +191,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <!--section to display chart-->
                 <div class="container d-flex">
@@ -215,11 +208,11 @@
                     <script>
                         $(document).ready(function () {
                             $(".chartjs").each(function () {
-                                              ctx = $("canvas", this).get(0).getContext("2d");
-                                              config = JSON.parse(this.dataset.chart);
-                                              chartjs = new Chart(ctx, config);
-                                          });
-                                      });
+                                ctx = $("canvas", this).get(0).getContext("2d");
+                                config = JSON.parse(this.dataset.chart);
+                                chartjs = new Chart(ctx, config);
+                            });
+                        });
                     </script>
                 </div>
                 <!--section to display mentor and mentee table-->
@@ -228,90 +221,86 @@
                         <div class="col-md">
                             <table class="table">
                                 <thead class="table-dark">
-                                    @*<tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>*@
-                                </thead>
-                                <tbody>
-                                    @{ 
-                                        foreach(var head in TableHeaders)
+                                    @{
+                                        foreach (var head in TableHeaders)
                                         {
-                                            <th>
-                                                @head
-                                            </th>
+                                        <th>@head</th>
 
-                                        }
                                     }
-                                        <!--<tr>
-                                            <th scope="row">-->@*@i.ToString()*@<!--</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>mdo</td>
-                                        </tr>-->
-                                    
-                                    @*<tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>twitter</td>
-        </tr>*@
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-md">
-                            <table class="table">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @for (int i = 0; i < 9; i++)
-                                    {
-                                        <tr>
-                                            <th scope="row">@i.ToString()</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>mdo</td>
-                                        </tr>
                                     }
-                                        @*<tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>twitter</td>
-            </tr>*@
+                                    </thead>
+
+                                    <tbody>
+                                        @{
+
+                                                foreach (var Data in mnt)
+                                                {
+                                                    <tr>
+                                                        <td>@Data.FirstName;</td>
+                                                        <td>@Data.LastName;</td>
+                                                        <td>@Data.Email;</td>
+
+                                                    </tr>
+                                                }
+
+                                            }
+
+
                                     </tbody>
-                            </table>
+                                </table>
+
+
+
+                            </div>
+                            <div class="col-md">
+                                <table class="table">
+                                    <thead class="table-dark">
+                                        <tr>
+
+                                            <th scope="col">FirstName</th>
+                                            <th scope="col">LastName</th>
+                                            <th scope="col">Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+
+                                                foreach (var Data in ment)
+                                                {
+                                                    <tr>
+                                                        <td>@Data.FirstName;</td>
+                                                        <td>@Data.LastName;</td>
+                                                        <td>@Data.Email;</td>
+
+                                                    </tr>
+                                                }
+
+                                            }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
+
                     </div>
-                </div>
-    </div>
-    </main>
 
 
 
-    <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
-    </main>
+                </main>
 
+        </div>
+
+
+
+        <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+        </main>
+    
 </div>
+    
 </div>
+
 
 <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
