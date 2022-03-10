@@ -20,6 +20,9 @@ namespace FYMKWebApplication5.Controllers
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
         SqlConnection con = new SqlConnection();
+        List<AdminMenteeReview> adminMenteeReviews = new List<AdminMenteeReview>();
+        List<AdminMentorReview> adminMentorReviews = new List<AdminMentorReview>();
+        List<AdminMatch> adminMatches = new List<AdminMatch>();
         List<MentorTable> mentorTables = new List<MentorTable>();
         List<MenteeTable> menteeTables = new List<MenteeTable>();
 
@@ -200,8 +203,35 @@ namespace FYMKWebApplication5.Controllers
 
         public ActionResult adminmatch()
         {
-        
-            return View();
+            GetData();
+            Session["AdminMatch"] = adminMatches;
+            return View(adminMatches);
+        }
+
+        private void GetData()
+        {
+
+            if(adminMatches.Count > 0)
+            {
+                adminMatches.Clear();
+            }
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select FirstName From Mentors where Id = 2";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    adminMatches.Add(new AdminMatch() {FirstName = dr["FirstName"].ToString() });
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
@@ -211,17 +241,101 @@ namespace FYMKWebApplication5.Controllers
         }
         public ActionResult adminmenteereview()
         {
-            return View();
+            RequestData();
+            Session["AdminMenteeReview"] = adminMenteeReviews;
+            return View(adminMenteeReviews);
         }
+
+        private void RequestData()
+        {
+
+            if (adminMenteeReviews.Count > 0)
+            {
+                adminMenteeReviews.Clear();
+            }
+
+            try
+            {
+
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Countries] From Mentees";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    adminMenteeReviews.Add(new AdminMenteeReview()
+                    {
+                        FirstName = dr["FirstName"].ToString()
+                    ,
+                        LastName = dr["LastName"].ToString()
+                    ,
+                        Email = dr["Email"].ToString()
+                    ,
+                        Countries = dr["Countries"].ToString()
+                    });
+
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
         public ActionResult adminmentor()
         {
             return View();
         }
         public ActionResult adminmentorreview()
         {
-            return View();
+            PullData();
+            Session["AdminMentorReview"] = adminMentorReviews;
+            return View(adminMentorReviews);
         }
+         private void PullData()
+        {
 
+
+
+            if (adminMentorReviews.Count > 0)
+            {
+                adminMentorReviews.Clear();
+            }
+
+            try
+            {
+
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Country] From Mentors";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    adminMentorReviews.Add(new AdminMentorReview()
+                    {
+                        FirstName = dr["FirstName"].ToString()
+                    ,
+                        LastName = dr["LastName"].ToString()
+                    ,
+                        Email = dr["Email"].ToString()
+                    ,   Country = dr["Country"].ToString()
+                    });
+
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         public ActionResult adminprofile()
         {
             return View();
@@ -243,6 +357,10 @@ namespace FYMKWebApplication5.Controllers
             return View();
         }
         public ActionResult sidebar()
+        {
+            return View();
+        }
+        public ActionResult Successful_Created()
         {
             return View();
         }

@@ -4,7 +4,7 @@
     ViewBag.Title = "admindashboard";
     Layout = "~/Views/_LayoutPage1.cshtml";
 
-    List<FYMKWebApplication5.Models.MentorCount> mntcnt = (List < FYMKWebApplication5.Models.MentorCount >)Session["Mentorcount"];
+    List<FYMKWebApplication5.Models.MentorCount> mntcnt = (List<FYMKWebApplication5.Models.MentorCount>)Session["Mentorcount"];
 
     List<FYMKWebApplication5.Models.MenteeCount> mncnt = (List<FYMKWebApplication5.Models.MenteeCount>)Session["Menteecount"];
 
@@ -12,12 +12,14 @@
 
     List<FYMKWebApplication5.Models.MentorTable> ment = (List<FYMKWebApplication5.Models.MentorTable>)Session["MentorTable"];
 
+   
+
 
     string[] TableHeaders = new string[] { "First Name"
                             ,"Last Name"
                             ,"Email"
                             };
-    }
+}
 
 <div class="container-fluid">
     <div class="row">
@@ -131,7 +133,7 @@
 
 
 
-            <main class="d-flex flex-column col col-md-9 ms-sm-auto col-lg-11 px-md-4 overflow-auto vh-100">
+            <main class="d-flex flex-column col col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto">
                 <!--Card to display mentor and mentor number and ratio of match-->
                 <div class="container d-flex flex-column" style="margin-top:50px;">
                     <div class="row">
@@ -219,6 +221,7 @@
                 <div class="container d-flex flex-column">
                     <div class="row">
                         <div class="col-md">
+                            <h2>Mentee List</h2>
                             <table class="table">
                                 <thead class="table-dark">
                                     @{
@@ -226,24 +229,24 @@
                                         {
                                         <th>@head</th>
 
+                                        }
                                     }
-                                    }
-                                    </thead>
+                                </thead>
 
                                     <tbody>
                                         @{
 
-                                                foreach (var Data in mnt)
-                                                {
-                                                    <tr>
-                                                        <td>@Data.FirstName;</td>
-                                                        <td>@Data.LastName;</td>
-                                                        <td>@Data.Email;</td>
-
-                                                    </tr>
-                                                }
-
+                                            foreach (var Data in mnt)
+                                            {
+                                                <tr>
+                                                    <td>@Data.FirstName</td>
+                                                    <td>@Data.LastName</td>
+                                                    <td>@Data.Email</td>
+                                                    
+                                                </tr>
                                             }
+
+                                        }
 
 
                                     </tbody>
@@ -252,30 +255,34 @@
 
 
                             </div>
+
                             <div class="col-md">
+                                <h2>Mentor List</h2>
                                 <table class="table">
                                     <thead class="table-dark">
                                         <tr>
 
-                                            <th scope="col">FirstName</th>
-                                            <th scope="col">LastName</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
                                             <th scope="col">Email</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @{
 
-                                                foreach (var Data in ment)
-                                                {
-                                                    <tr>
-                                                        <td>@Data.FirstName;</td>
-                                                        <td>@Data.LastName;</td>
-                                                        <td>@Data.Email;</td>
+                                            foreach (var Data in ment)
+                                            {
+                                                <tr>
+                                                    <td>@Data.FirstName</td>
+                                                    <td>@Data.LastName</td>
+                                                    <td>@Data.Email</td>
 
-                                                    </tr>
-                                                }
 
+
+                                                </tr>
                                             }
+
+                                        }
 
 
                                     </tbody>
@@ -285,29 +292,25 @@
                         </div>
 
                     </div>
-
-
-
-                </main>
-
+                
+            </main>
         </div>
+    </div>
+
+  
 
 
 
-        <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
-        </main>
+    <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
     
-</div>
-    
-</div>
 
 
-<script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
-<script src="dashboard.js"></script>
-<script src="sidebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
+    <script src="sidebars.js"></script>
 
 
 

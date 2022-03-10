@@ -28,6 +28,7 @@ namespace FYMKWebApplication4.Models
         public int Telephone { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Compare("Email", ErrorMessage = "Pleasea confirm your Email.")]
         [Display(Name = "Confirm Email")]
         [DataType(DataType.EmailAddress)]
         public string Confirm { get; set; }
@@ -37,7 +38,9 @@ namespace FYMKWebApplication4.Models
         [DataType(DataType.Date)]
         public DateTime MyProperty { get; set; }
         [Required(ErrorMessage = "Choose your gender")]
-        public bool Gender { get; set; }
+       
+        public bool Male { get; set; }
+        public bool Female { get; set; }
         [Display(Name = "What is your Ethic group?")]
         public string EthicGroup { get; set; }
         [Display(Name = "Do you have preference on gender of Mentor?")]
@@ -74,6 +77,7 @@ namespace FYMKWebApplication4.Models
         public string Citt { get; set; }
         [Display(Name = "state / province / region")]
         public string Province { get; set; }
+        [DataType(DataType.PostalCode)]
         [Display(Name = "Postal Code")]
         public int PostalCod { get; set; }
         [Required]
@@ -211,6 +215,7 @@ namespace FYMKWebApplication4.Models
         public string Sity { get; set; }
         [Display(Name = "State / Province / Region")]
         public string Region { get; set; }
+        [DataType(DataType.PostalCode)]
         [Display(Name = "PostalCode")]
         public int Postal { get; set; }
         [Required]

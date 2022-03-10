@@ -26,6 +26,7 @@ namespace FYMKWebApplication4.Models
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Compare("Email", ErrorMessage = "Pleasea confirm your Email.")]
         [Display(Name = "Confirm Email")]
         public string ConrirmEmail { get; set; }
         [Required(ErrorMessage = "Choose date of birth")]

@@ -215,8 +215,15 @@
     <Compile Include="Migrations\202203020813554_Dashboard.Designer.cs">
       <DependentUpon>202203020813554_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203091921033_Update.cs" />
+    <Compile Include="Migrations\202203091921033_Update.Designer.cs">
+      <DependentUpon>202203091921033_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminDashboard.cs" />
+    <Compile Include="Models\AdminMatch.cs" />
+    <Compile Include="Models\AdminMenteeReview.cs" />
+    <Compile Include="Models\AdminMentorReview.cs" />
     <Compile Include="Models\Mentee.cs" />
     <Compile Include="Models\MenteeCount.cs" />
     <Compile Include="Models\MenteeTable.cs" />
@@ -262,12 +269,6 @@
     <Content Include="css\custom.css" />
     <Content Include="css\dashboard.css" />
     <Content Include="css\dashboard.rtl.css" />
-    <Content Include="css\MentorCalender.css" />
-    <Content Include="css\MentorCalender.js" />
-    <Content Include="css\Mentorchat.css" />
-    <Content Include="css\Mentorchat.js" />
-    <Content Include="css\MentorHelpCentre.css" />
-    <Content Include="css\MentorHelpCentre.js" />
     <Content Include="css\LandingPage.js" />
     <Content Include="css\sidebars.css" />
     <Content Include="css\LandingPage.css" />
@@ -463,6 +464,7 @@
     <Content Include="Views\FYMKMentorDashboard\Setting.cshtml" />
     <Content Include="Views\FYMKMentorDashboard\HelpCentre.cshtml" />
     <Content Include="Views\LandingPage\LandingPage.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\Successful_Created.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -502,6 +504,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203020813554_Dashboard.resx">
       <DependentUpon>202203020813554_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203091921033_Update.resx">
+      <DependentUpon>202203091921033_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

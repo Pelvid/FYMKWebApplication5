@@ -1,5 +1,9 @@
 ﻿
 @{
+
+    List<FYMKWebApplication5.Models.AdminMatch> Admt = (List<FYMKWebApplication5.Models.AdminMatch>)Session["AdminMatch"];
+
+
     ViewBag.Title = "adminmatch";
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
@@ -115,7 +119,13 @@
                         <img src="" alt="">
                     </div>
                     <div class="col col-md-6 ">
-                        <h3>Mentor name</h3>
+                        <h3>
+                            @{ foreach (var Data in Admt)
+                                            {
+                                @Data.FirstName;
+
+                            } }
+                                            </h3>
                         <p>Mentor bio</p>
                     </div>
                     <div class="col col-md-3 ">
