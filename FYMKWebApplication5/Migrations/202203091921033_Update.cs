@@ -11,13 +11,13 @@ namespace FYMKWebApplication5.Migrations
             AddColumn("dbo.Mentees", "Female", c => c.Boolean(nullable: false));
             DropColumn("dbo.Mentees", "Gender");
         }
-        
-        //public override void Down()
-        //{
-        //    AddColumn("dbo.Mentees", "Gender", c => c.Boolean(nullable: false));
-        //    DropColumn("dbo.Mentees", "Female");
-        //    DropColumn("dbo.Mentees", "Male");
-        //}
+
+        public override void Down()
+        {
+            AddColumn("dbo.Mentees", "Gender", c => c.Boolean(nullable: false));
+            DropColumn("dbo.Mentees", "Female");
+            DropColumn("dbo.Mentees", "Male");
+        }
 
     }
 }

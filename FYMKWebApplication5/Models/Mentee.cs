@@ -9,7 +9,7 @@ using System.Web;
 namespace FYMKWebApplication4.Models
 {
     //MentorCount mentorCount = new MentorCount();
-    
+
     public class Mentee
     {
         public int Id { get; set; }
@@ -38,7 +38,7 @@ namespace FYMKWebApplication4.Models
         [DataType(DataType.Date)]
         public DateTime MyProperty { get; set; }
         [Required(ErrorMessage = "Choose your gender")]
-       
+
         public bool Male { get; set; }
         public bool Female { get; set; }
         [Display(Name = "What is your Ethic group?")]
