@@ -27,8 +27,7 @@
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-
-                <img src="~/images/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;"/>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -108,25 +107,7 @@
         </div>
 
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        @*<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">*@
 
 
 
@@ -196,26 +177,31 @@
 
                 </div>
                 <!--section to display chart-->
-                <div class="container d-flex">
-                    <div class="container">
-                        <div data-component-chartjs="" class="chartjs" data-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Red&quot;,&quot;Blue&quot;,&quot;Yellow&quot;,&quot;Green&quot;,&quot;Purple&quot;,&quot;Orange&quot;],&quot;datasets&quot;:[{&quot;data&quot;:[12,19,3,5,2,3],&quot;fill&quot;:false,&quot;borderColor&quot;:&quot;rgba(255, 99, 132, 0.2)&quot;},{&quot;fill&quot;:false,&quot;data&quot;:[3,15,7,4,19,12],&quot;borderColor&quot;:&quot;rgba(54, 162, 235, 0.2)&quot;}]}}"
-                             style="min-height:240px;min-width:240px;width:100%;height:100%;position:relative">
-                            <canvas width="882" height="441" style="display: block; height: 353px; width: 706px;" class="chartjs-render-monitor"></canvas>
+                <div class="container">
+                    <div class="row center-block" style="margin:50px 10px;">
+
+                        <div class="col-md-6">
+                            <div class="card card-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row marketing">
+                        <div class="col-md-6">
+                            <div class="card card-2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
                         </div>
+
+
+
                     </div>
-                    <!-- /container -->
-                    <script id="chartjs-script" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
-                    <script>
-                        $(document).ready(function () {
-                            $(".chartjs").each(function () {
-                                ctx = $("canvas", this).get(0).getContext("2d");
-                                config = JSON.parse(this.dataset.chart);
-                                chartjs = new Chart(ctx, config);
-                            });
-                        });
-                    </script>
                 </div>
                 <!--section to display mentor and mentee table-->
                 <div class="container d-flex flex-column">
@@ -294,6 +280,7 @@
                     </div>
                 
             </main>
+            @*</main>*@
         </div>
     </div>
 
