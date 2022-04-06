@@ -2,6 +2,7 @@
 @{
 
     List<FYMKWebApplication5.Models.AdminMatch> Admt = (List<FYMKWebApplication5.Models.AdminMatch>)Session["AdminMatch"];
+    List<FYMKWebApplication5.Models.AdminMenteeMatching> adminMentees = (List<FYMKWebApplication5.Models.AdminMenteeMatching>)Session["AdminMenteeMatching"];
 
 
     ViewBag.Title = "adminmatch";
@@ -9,12 +10,13 @@
 }
 
 <div class="container-fluid">
+   
     <div class="row">
         <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" /> 
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -94,7 +96,7 @@
 
         <main class="d-flex flex-column col col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto">
 
-            <!--<canvas class="my-4 w-100 " id="myChart " width="900 " height="380 "></canvas>-->
+           
 
 
 
@@ -103,16 +105,6 @@
 
 
 
-
-            <div class="container d-flex flex-column " style="margin-top:50px; ">
-                <div class="row ">
-                    <div class="col ">
-                        <h1 style="margin-bottom: 2rem; ">
-                            Dashboard
-                        </h1>
-                    </div>
-                </div>
-            </div>
             <div class="container d-flex flex-column " style="margin-top:50px; ">
                 <div class="row border-0 shadow mb-3 position-relative col-sm-4 col-md-6 col-lg-10" style="height:150px;">
                     <div class="col col-md-3 ">
@@ -121,12 +113,14 @@
                     <div class="col col-md-6 ">
                         <h3>
                             @{ foreach (var Data in Admt)
-                                            {
-                                @Data.FirstName;
+                                {
+                                    @Data.FirstName;
 
-                            } }
-                                            </h3>
+                                } }
+
+                        </h3>
                         <p>Mentor bio</p>
+
                     </div>
                     <div class="col col-md-3 ">
                         <button class="btn btn-primary position-absolute top-50 end-0 translate-middle-y me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
@@ -136,13 +130,75 @@
                                 <h5 id="offcanvasRightLabel">Match Mentees</h5>
                                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
+
                             <div class="offcanvas-body">
-                                ...
+                                <table class="table">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Match Status</th>
+                                            <th scope="col">Submit</th>
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            foreach (var Data in adminMentees)
+                                            {
+                                                //string MatchID = "Match"
+                                                <tr>
+                                                    <td>@Data.FirstName</td>
+                                                    <td>
+                                                       
+                                                        <div>
+                                                                <input type="checkbox" name="matching" id="Match">Matched<br>
+
+                                                            <button onclick="check()">"Matched"</button>
+                                                            <button onclick="uncheck()">"Un-Matched"</button>
+                                                      
+
+                                                            <script>
+                                                                function check() {
+                                                                    document.getElementById("Match").checked = true;
+                                                                }
+                                                                function uncheck() {
+                                                                    document.getElementById("Match").checked = false;
+                                                                }
+                                                                
+                                                            </script>
+                                                        </div>
+
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" onClick="Submit()">Submit</button>
+                                                        <script>
+                                                            function Submit() {
+                                                                var checkbox = document.getElementById("Match");
+                                                                localStorage.setItem("Match", checkbox.checked);
+                                                            }
+                                                            //for loading.
+                                                            var checked = JSON.parse(localStorage.getItem("Match"));
+                                                            document.getElementById("Match").checked = checked;
+                                                        </script>
+                                                    </td>
+
+                                                   
+                                                </tr>
+
+                                            }
+                                        }
+                                    </tbody>
+                                    
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
 
 
 
@@ -169,6 +225,10 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
 <script src="dashboard.js"></script>
 <script src="sidebars.js"></script>
+<script src="~/Matching JS/Matching.js"></script>
+
+
+
 
 
 

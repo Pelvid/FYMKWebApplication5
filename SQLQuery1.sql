@@ -1,1 +1,1 @@
-﻿select * From Mentees
+﻿select FirstName from Mentees

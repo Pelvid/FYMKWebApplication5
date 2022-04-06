@@ -223,6 +223,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminDashboard.cs" />
     <Compile Include="Models\AdminMatch.cs" />
+    <Compile Include="Models\AdminMenteeMatching.cs" />
     <Compile Include="Models\AdminMenteeReview.cs" />
     <Compile Include="Models\AdminMentorReview.cs" />
     <Compile Include="Models\Mentee.cs" />
@@ -245,7 +246,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="cssLogin\bootstrap.min.css" />
     <Content Include="cssLogin\main.css" />
+    <Content Include="cssLogin\signin.css" />
     <Content Include="cssLogin\util.css" />
     <Content Include="cssss\font-awesome.css" />
     <Content Include="cssss\style.css" />
@@ -366,11 +369,14 @@
     <Content Include="img\theme\visa.png" />
     <Content Include="img\theme\vue.jpg" />
     <Content Include="img\vr-bg.jpg" />
+    <Content Include="jsLogin\bootstrap.bundle.min.js" />
     <Content Include="jsLogin\main.js" />
     <Content Include="jssss\jquery-2.1.4.min.js" />
     <Content Include="jssss\particles.min.js" />
     <Content Include="js\dashboard.js" />
     <Content Include="js\sidebars.js" />
+    <Content Include="Matching JS\Matching.css" />
+    <Content Include="Matching JS\Matching.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

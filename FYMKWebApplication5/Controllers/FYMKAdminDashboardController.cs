@@ -28,6 +28,7 @@ namespace FYMKWebApplication5.Controllers
 
         List<MenteeCount> menteeCounts = new List<MenteeCount>();
         List<MentorCount> mentorCounts = new List<MentorCount>();
+        List<AdminMenteeMatching> adminMenteeMatchings = new List<AdminMenteeMatching>();
         //private readonly ILogger<FYMKAdminDashboardController> _logger;
 
 
@@ -205,6 +206,7 @@ namespace FYMKWebApplication5.Controllers
         {
             GetData();
             Session["AdminMatch"] = adminMatches;
+            Session["AdminMenteeMatching"] = adminMenteeMatchings;
             return View(adminMatches);
         }
 
@@ -226,6 +228,30 @@ namespace FYMKWebApplication5.Controllers
                     adminMatches.Add(new AdminMatch() {FirstName = dr["FirstName"].ToString() });
                 }
                 con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            if (adminMenteeMatchings.Count > 0)
+            {
+                adminMenteeMatchings.Clear();
+            }
+
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select FirstName from Mentees";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    adminMenteeMatchings.Add(new AdminMenteeMatching() { FirstName = dr["FirstName"].ToString() });
+                }
+                con.Close();
+
             }
             catch (Exception)
             {

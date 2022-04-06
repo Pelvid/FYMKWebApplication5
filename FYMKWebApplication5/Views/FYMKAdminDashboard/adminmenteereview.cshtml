@@ -13,7 +13,7 @@
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150" style="margin-top: 2rem;" />
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -122,7 +122,9 @@
                             <th scope="col">Email</th>
                             <th scope="col">Country</th>
                             <th scope="col">Settings</th>
+                            <th scope="col">Review</th>
                             <th scope="col">Status</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -136,11 +138,96 @@
                                     <td>@Data.Email</td>
                                     <td>@Data.Countries</td>
                                     <td>
-                                        <a href="@Url.Action("Details","Mentors1")">Settings </a>
+                                        <!-- Button trigger modal -->
+
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" id="mybtn">
+                                            Review
+                                        </button>
+
+
+
+
+                                        @*Modal*@
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Verification Process</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                            <input type="checkbox" class="one" id="accept"  onclick="checkMe()" />   Mentor Training<br />
+                                                            <input type="checkbox" class="one" id="accept" onclick="checkMe()" />   Mentor Safeguarding training<br />
+                                                            <input type="checkbox" class="one" id="accept" onclick="checkMe()" />   Mentor DBS Check
+
+
+                                                        <script>
+                                                            function checkMe() {
+
+
+                                                                if (document.getElementById("accept").checked) {
+                                                                    document.getElementById("mybtn").
+                                                                        innerText = "Verify";
+                                                                    document.getElementById("mybt").
+                                                                        innerText = "Verified";
+                                                                    }
+                                                            
+                                                                else {
+                                                                    document.getElementById("mybtn").
+                                                                        innerText = "Review";
+                                                                    document.getElementById("mybt").
+                                                                        innerText = "Pending";
+                                                                }
+
+
+                                                            }
+
+                                                            function save() {
+                                                                var checkbox = document.getElementById("accept");
+                                                                localStorage.setItem("accept", checkbox.checked);
+                                                            }
+
+                                                            //for loading
+                                                            var checked = JSON.parse(localStorage.getItem("accept"));
+                                                            document.getElementById("accept").checked = checked;
+
+
+                                                        </script>
+
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick="save()">Verify</button>
+                                                        
+                                                        @*<script>
+                                                            function save() {
+                                                                var checkbox = document.getElementById("accept");
+                                                                localStorage.setItem("accept", checkbox.checked);
+                                                            }
+
+                                                            //for loading
+                                                            var checked = JSON.parse(localStorage.getItem("accept"));
+                                                            document.getElementById("accept").checked = checked;
+                                                        </script>*@
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
                                     </td>
                                     <td>
+
+                                    </td>
+                                    <td>
+                                        
+                                        <button type="button" class="btn btn-primary" @*data-bs-toggle="modal" data-bs-target="#exampleModal"*@ id="mybt">
+                                           Pending..
+                                        </button>
+                                     
                                     </td>
 
 
