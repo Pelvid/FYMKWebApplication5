@@ -7,13 +7,13 @@ namespace FYMKWebApplication5.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Update : IMigrationMetadata
+    public sealed partial class Verify : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Update));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Verify));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203091921033_Update"; }
+            get { return "202204092127483_Verify"; }
         }
         
         string IMigrationMetadata.Source

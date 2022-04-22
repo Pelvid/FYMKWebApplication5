@@ -39,8 +39,7 @@ namespace FYMKWebApplication4.Models
         public DateTime MyProperty { get; set; }
         [Required(ErrorMessage = "Choose your gender")]
 
-        public bool Male { get; set; }
-        public bool Female { get; set; }
+        public string Gender { get; set; }
         [Display(Name = "What is your Ethic group?")]
         public string EthicGroup { get; set; }
         [Display(Name = "Do you have preference on gender of Mentor?")]

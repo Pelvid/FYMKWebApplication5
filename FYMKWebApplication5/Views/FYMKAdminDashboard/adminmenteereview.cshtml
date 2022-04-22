@@ -93,18 +93,18 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             @*<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group me-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                    <h1 class="h2">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <span data-feather="calendar"></span>
+                            This week
+                        </button>
                     </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
-                </div>
-            </div>*@
+                </div>*@
 
             <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
 
@@ -128,26 +128,23 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @{
 
                             foreach (var Data in AdminMentee)
                             {
+
                                 <tr>
                                     <td>@Data.FirstName</td>
                                     <td>@Data.LastName</td>
                                     <td>@Data.Email</td>
                                     <td>@Data.Countries</td>
+
                                     <td>
                                         <!-- Button trigger modal -->
 
                                         <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" id="mybtn">
-                                            Review
                                         </button>
-
-
-
-
-                                        @*Modal*@
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -155,42 +152,53 @@
                                                         <h5 class="modal-title" id="exampleModalLabel">Verification Process</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
+
                                                     <div class="modal-body">
-                                                            <input type="checkbox" class="one" id="accept"  onclick="checkMe()" />   Mentor Training<br />
-                                                            <input type="checkbox" class="one" id="accept" onclick="checkMe()" />   Mentor Safeguarding training<br />
-                                                            <input type="checkbox" class="one" id="accept" onclick="checkMe()" />   Mentor DBS Check
+
+                                                        <input type="checkbox" name="" id="accept" onclick="checkMe()" />   Mentor Training<br />
+                                                        <input type="checkbox" id="one" onclick="checkMe()" />   Mentor Safeguarding training<br />
+                                                        <input type="checkbox" id="two" onclick="checkMe()" />   Mentor DBS Check
 
 
                                                         <script>
-                                                            function checkMe() {
+
+                                                                function checkMe() {
 
 
-                                                                if (document.getElementById("accept").checked) {
-                                                                    document.getElementById("mybtn").
-                                                                        innerText = "Verify";
-                                                                    document.getElementById("mybt").
-                                                                        innerText = "Verified";
+                                                                    if ((document.getElementById("accept").checked) && (document.getElementById("one").checked) && (document.getElementById("two").checked)) {
+                                                                        document.getElementById("mybtn").
+                                                                            innerText = "Verify";
+                                                                        document.getElementById("mybt").
+                                                                            innerText = "Verified";
+
                                                                     }
-                                                            
-                                                                else {
-                                                                    document.getElementById("mybtn").
-                                                                        innerText = "Review";
-                                                                    document.getElementById("mybt").
-                                                                        innerText = "Pending";
+
+                                                                    else {
+                                                                        document.getElementById("mybtn").
+                                                                            innerText = "Review";
+                                                                        document.getElementById("mybt").
+                                                                            innerText = "Pending";
+                                                                    }
+
+
                                                                 }
 
+                                                                //function save() {
+                                                                //    var checkbox = document.getElementById("accept");
+                                                                //    localStorage.setItem("accept", checkbox.checked);
+                                                                //    var checkbox = document.getElementById("one");
+                                                                //    localStorage.setItem("one", checkbox.checked);
+                                                                //    var checkbox = document.getElementById("two");
+                                                                //    localStorage.setItem("two", checkbox.checked);
+                                                                //}
 
-                                                            }
-
-                                                            function save() {
-                                                                var checkbox = document.getElementById("accept");
-                                                                localStorage.setItem("accept", checkbox.checked);
-                                                            }
-
-                                                            //for loading
-                                                            var checked = JSON.parse(localStorage.getItem("accept"));
-                                                            document.getElementById("accept").checked = checked;
-
+                                                                ////for loading
+                                                                //var checked = JSON.parse(localStorage.getItem("accept"));
+                                                                //document.getElementById("accept").checked = checked;
+                                                                //var checked = JSON.parse(localStorage.getItem("one"));
+                                                                //document.getElementById("one").checked = checked;
+                                                                //var checked = JSON.parse(localStorage.getItem("two"));
+                                                                //document.getElementById("two").checked = checked;
 
                                                         </script>
 
@@ -199,17 +207,8 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick="save()">Verify</button>
-                                                        
-                                                        @*<script>
-                                                            function save() {
-                                                                var checkbox = document.getElementById("accept");
-                                                                localStorage.setItem("accept", checkbox.checked);
-                                                            }
 
-                                                            //for loading
-                                                            var checked = JSON.parse(localStorage.getItem("accept"));
-                                                            document.getElementById("accept").checked = checked;
-                                                        </script>*@
+
 
 
                                                     </div>
@@ -217,43 +216,32 @@
                                             </div>
                                         </div>
 
-
+                                    </td>
+                                    <td>
                                     </td>
                                     <td>
 
-                                    </td>
-                                    <td>
-                                        
                                         <button type="button" class="btn btn-primary" @*data-bs-toggle="modal" data-bs-target="#exampleModal"*@ id="mybt">
-                                           Pending..
+                                            Pending..
                                         </button>
-                                     
+
                                     </td>
 
 
 
                                 </tr>
                             }
-
                         }
 
 
                     </tbody>
+
+
+                    @*Modal*@
+
+
                 </table>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
         </main>
 
     </div>

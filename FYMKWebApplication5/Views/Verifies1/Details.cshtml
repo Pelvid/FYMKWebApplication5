@@ -1,0 +1,43 @@
+﻿@model FYMKWebApplication5.Models.Verify
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Verify</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Csharp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Csharp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Python)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Python)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSS)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

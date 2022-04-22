@@ -197,6 +197,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminDashboardsController.cs" />
     <Compile Include="Controllers\FYMKAdminDashboardController.cs" />
+    <Compile Include="Controllers\FYMKMenteeController.cs" />
     <Compile Include="Controllers\FYMKMentorDashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
@@ -204,21 +205,24 @@
     <Compile Include="Controllers\MenteesController.cs" />
     <Compile Include="Controllers\Mentors1Controller.cs" />
     <Compile Include="Controllers\MentorsController.cs" />
+    <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\Verifies1Controller.cs" />
+    <Compile Include="Controllers\VerifiesController.cs" />
     <Compile Include="Data\FYMKWebApplication5Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202202152205033_Fymk.cs" />
-    <Compile Include="Migrations\202202152205033_Fymk.Designer.cs">
-      <DependentUpon>202202152205033_Fymk.cs</DependentUpon>
+    <Compile Include="Migrations\202204091952164_Profile.cs" />
+    <Compile Include="Migrations\202204091952164_Profile.Designer.cs">
+      <DependentUpon>202204091952164_Profile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203020813554_Dashboard.cs" />
-    <Compile Include="Migrations\202203020813554_Dashboard.Designer.cs">
-      <DependentUpon>202203020813554_Dashboard.cs</DependentUpon>
+    <Compile Include="Migrations\202204092127483_Verify.cs" />
+    <Compile Include="Migrations\202204092127483_Verify.Designer.cs">
+      <DependentUpon>202204092127483_Verify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203091921033_Update.cs" />
-    <Compile Include="Migrations\202203091921033_Update.Designer.cs">
-      <DependentUpon>202203091921033_Update.cs</DependentUpon>
+    <Compile Include="Migrations\202204122129135_ProfileSettings.cs" />
+    <Compile Include="Migrations\202204122129135_ProfileSettings.Designer.cs">
+      <DependentUpon>202204122129135_ProfileSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminDashboard.cs" />
@@ -226,12 +230,17 @@
     <Compile Include="Models\AdminMenteeMatching.cs" />
     <Compile Include="Models\AdminMenteeReview.cs" />
     <Compile Include="Models\AdminMentorReview.cs" />
+    <Compile Include="Models\MatchingCheckbox.cs" />
     <Compile Include="Models\Mentee.cs" />
     <Compile Include="Models\MenteeCount.cs" />
     <Compile Include="Models\MenteeTable.cs" />
     <Compile Include="Models\Mentor.cs" />
+    <Compile Include="Models\MentorBioId.cs" />
     <Compile Include="Models\MentorCount.cs" />
     <Compile Include="Models\MentorTable.cs" />
+    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\ProfileSettings.cs" />
+    <Compile Include="Models\Verify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -278,6 +287,8 @@
     <Content Include="css\dashboard.css" />
     <Content Include="css\dashboard.rtl.css" />
     <Content Include="css\LandingPage.js" />
+    <Content Include="css\profile.css" />
+    <Content Include="css\settings.css" />
     <Content Include="css\sidebars.css" />
     <Content Include="css\LandingPage.css" />
     <Content Include="favicon.ico" />
@@ -377,6 +388,28 @@
     <Content Include="js\sidebars.js" />
     <Content Include="Matching JS\Matching.css" />
     <Content Include="Matching JS\Matching.js" />
+    <Content Include="MenteeCSS\bootstrap-grid.css" />
+    <Content Include="MenteeCSS\bootstrap-grid.min.css" />
+    <Content Include="MenteeCSS\bootstrap-grid.rtl.css" />
+    <Content Include="MenteeCSS\bootstrap-grid.rtl.min.css" />
+    <Content Include="MenteeCSS\bootstrap-reboot.css" />
+    <Content Include="MenteeCSS\bootstrap-reboot.min.css" />
+    <Content Include="MenteeCSS\bootstrap-reboot.rtl.css" />
+    <Content Include="MenteeCSS\bootstrap-reboot.rtl.min.css" />
+    <Content Include="MenteeCSS\bootstrap-utilities.css" />
+    <Content Include="MenteeCSS\bootstrap-utilities.min.css" />
+    <Content Include="MenteeCSS\bootstrap-utilities.rtl.css" />
+    <Content Include="MenteeCSS\bootstrap-utilities.rtl.min.css" />
+    <Content Include="MenteeCSS\bootstrap.css" />
+    <Content Include="MenteeCSS\bootstrap.min.css" />
+    <Content Include="MenteeCSS\bootstrap.rtl.css" />
+    <Content Include="MenteeCSS\bootstrap.rtl.min.css" />
+    <Content Include="MenteeJS\bootstrap.bundle.js" />
+    <Content Include="MenteeJS\bootstrap.bundle.min.js" />
+    <Content Include="MenteeJS\bootstrap.esm.js" />
+    <Content Include="MenteeJS\bootstrap.esm.min.js" />
+    <Content Include="MenteeJS\bootstrap.js" />
+    <Content Include="MenteeJS\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -481,6 +514,28 @@
     <Content Include="fontsLogin\poppins\Poppins-SemiBoldItalic.ttf" />
     <Content Include="fontsLogin\poppins\Poppins-Thin.ttf" />
     <Content Include="fontsLogin\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="MenteeCSS\bootstrap-grid.css.map" />
+    <Content Include="MenteeCSS\bootstrap-grid.min.css.map" />
+    <Content Include="MenteeCSS\bootstrap-grid.rtl.css.map" />
+    <Content Include="MenteeCSS\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="MenteeCSS\bootstrap-reboot.css.map" />
+    <Content Include="MenteeCSS\bootstrap-reboot.min.css.map" />
+    <Content Include="MenteeCSS\bootstrap-reboot.rtl.css.map" />
+    <Content Include="MenteeCSS\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="MenteeCSS\bootstrap-utilities.css.map" />
+    <Content Include="MenteeCSS\bootstrap-utilities.min.css.map" />
+    <Content Include="MenteeCSS\bootstrap-utilities.rtl.css.map" />
+    <Content Include="MenteeCSS\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="MenteeCSS\bootstrap.css.map" />
+    <Content Include="MenteeCSS\bootstrap.min.css.map" />
+    <Content Include="MenteeCSS\bootstrap.rtl.css.map" />
+    <Content Include="MenteeCSS\bootstrap.rtl.min.css.map" />
+    <Content Include="MenteeJS\bootstrap.bundle.js.map" />
+    <Content Include="MenteeJS\bootstrap.bundle.min.js.map" />
+    <Content Include="MenteeJS\bootstrap.esm.js.map" />
+    <Content Include="MenteeJS\bootstrap.esm.min.js.map" />
+    <Content Include="MenteeJS\bootstrap.js.map" />
+    <Content Include="MenteeJS\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -591,9 +646,32 @@
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Views\Profiles1\Create.cshtml" />
+    <Content Include="Views\Profiles1\Delete.cshtml" />
+    <Content Include="Views\Profiles1\Details.cshtml" />
+    <Content Include="Views\Profiles1\Edit.cshtml" />
+    <Content Include="Views\Profiles1\Index.cshtml" />
+    <Content Include="Views\Verifies1\Create.cshtml" />
+    <Content Include="Views\Verifies1\Delete.cshtml" />
+    <Content Include="Views\Verifies1\Details.cshtml" />
+    <Content Include="Views\Verifies1\Edit.cshtml" />
+    <Content Include="Views\Verifies1\Index.cshtml" />
+    <Content Include="Views\FYMKMentee\Dashoard.cshtml" />
+    <Content Include="Views\FYMKMentee\Program.cshtml" />
+    <Content Include="Views\FYMKMentee\Chat.cshtml" />
+    <Content Include="Views\FYMKMentee\MenteeCalender.cshtml" />
+    <Content Include="Views\FYMKMentee\MenteeAlert.cshtml" />
+    <Content Include="Views\FYMKMentee\HelpCentre.cshtml" />
+    <Content Include="Views\FYMKMentee\MenteeProfile.cshtml" />
+    <Content Include="Views\FYMKMentee\Settings.cshtml" />
+    <Content Include="Views\FYMKMentee\Mentor.cshtml" />
+    <Content Include="Views\FYMKMentee\MenteeReg.cshtml" />
+    <Content Include="Views\Home\FYMKMentee.cshtml" />
+    <Content Include="Views\Home\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Verifies\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -625,14 +703,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202202152205033_Fymk.resx">
-      <DependentUpon>202202152205033_Fymk.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204091952164_Profile.resx">
+      <DependentUpon>202204091952164_Profile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203020813554_Dashboard.resx">
-      <DependentUpon>202203020813554_Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204092127483_Verify.resx">
+      <DependentUpon>202204092127483_Verify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203091921033_Update.resx">
-      <DependentUpon>202203091921033_Update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204122129135_ProfileSettings.resx">
+      <DependentUpon>202204122129135_ProfileSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

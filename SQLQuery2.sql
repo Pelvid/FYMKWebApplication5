@@ -1,1 +1,2 @@
-﻿drop table [C:\USERS\DEII\SOURCE\REPOS\LOGIN\LOGIN\APP_DATA\DATABASE1.MDF]
+﻿select Top (1000) [FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees
+

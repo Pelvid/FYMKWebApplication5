@@ -1,7 +1,23 @@
 ﻿
 @{
-    ViewBag.Title = "FYMKAdminDashboard";
+    ViewBag.Title = "admindashboard";
     Layout = "~/Views/Mentor_LayoutPage2.cshtml";
+
+    List<FYMKWebApplication5.Models.MentorCount> mntcnt = (List<FYMKWebApplication5.Models.MentorCount>)Session["Mentorcount"];
+
+    List<FYMKWebApplication5.Models.MenteeCount> mncnt = (List<FYMKWebApplication5.Models.MenteeCount>)Session["Menteecount"];
+
+    List<FYMKWebApplication5.Models.MenteeTable> mnt = (List<FYMKWebApplication5.Models.MenteeTable>)Session["MenteeTable"];
+
+    List<FYMKWebApplication5.Models.MentorTable> ment = (List<FYMKWebApplication5.Models.MentorTable>)Session["MentorTable"];
+
+
+
+
+    string[] TableHeaders = new string[] { "First Name"
+                            ,"Last Name"
+                            ,"Email"
+                            };
 }
 
 <div class="container-fluid">
@@ -10,13 +26,15 @@
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-                <img src="~/images/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="@Url.Action("admindashboard","FYMKAdminDashboard")">
+
+                    <a class="nav-link active text-white" aria-current="page" href="@Url.Action("admindashboard","FYMKAdminDashboard")">
                         Admin Dashboard
+
                     </a>
                 </li>
                 <li>
@@ -45,7 +63,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link active text-white" aria-current="page" href="@Url.Action("adminmentee","FYMKAdminDashboard")">
+                    <a class="nav-link text-white" href="@Url.Action("adminmentee","FYMKAdminDashboard")">
                         AdminMentee
                     </a>
                 </li>
@@ -76,9 +94,9 @@
                     <strong>mdo</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="admin alert.html">Notifications</a></li>
-                    <li><a class="dropdown-item" href="admin setting.html">Settings</a></li>
-                    <li><a class="dropdown-item" href="admin profile.html">Profile</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Index","FYMKMentorDashboard")">Notifications</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Create","ProfileSettings")">Settings</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Details","ProfileSettings")">Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -88,44 +106,182 @@
         </div>
 
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group me-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+        @*<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">*@
+
+
+
+
+
+
+        <main class="d-flex flex-column col col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto">
+            <!--Card to display mentor and mentor number and ratio of match-->
+            <div class="container d-flex flex-column" style="margin-top:50px;">
+                <div class="row">
+                    <div class="col">
+                        <h1 style="margin-bottom: 2rem;">
+                            Dashboard
+                        </h1>
                     </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-1">
+                            <h3>Mentor Count</h3>
+                            <h4>
+                                @{
+
+                                    foreach (var Data in mntcnt)
+                                    {
+                                        @Data.Id;
+
+                                    }
+
+                                }
+
+
+
+
+
+
+                            </h4>
+                            <p>Total number of verified Mentors</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-2">
+                            <h3>Mentee Count</h3>
+                            <h4>
+                                @{
+
+                                    foreach (var Data in mncnt)
+                                    {
+                                        @Data.Id;
+
+                                    }
+
+                                }
+                            </h4>
+                            <p>Total number of verified Mentees</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-3">
+                            <h3>Match Ratio</h3>
+                            <h4>3 </h4>
+                            <p>Ratio of mentees to mentors</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--section to display chart-->
+            <div class="container">
+                <div class="row center-block" style="margin:50px 10px;">
+
+                    <div class="col-md-6">
+                        <div class="card card-1">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
+            <!--section to display mentor and mentee table-->
+            <div class="container d-flex flex-column">
+                <div class="row">
+                    <div class="col-md">
+                        <h2>Mentee List</h2>
+                        <table class="table">
+                            <thead class="table-dark">
+                                @{
+                                    foreach (var head in TableHeaders)
+                                    {
+                                    <th>@head</th>
 
-            <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+                                }
+                                }
+                                </thead>
+
+                                <tbody>
+                                    @{
+
+                                        foreach (var Data in mnt)
+                                        {
+                                            <tr>
+                                                <td>@Data.FirstName</td>
+                                                <td>@Data.LastName</td>
+                                                <td>@Data.Email</td>
+
+                                            </tr>
+                                        }
+
+                                    }
+
+
+                                </tbody>
+                            </table>
 
 
 
+                        </div>
+
+                        <div class="col-md">
+                            <h2>Mentor List</h2>
+                            <table class="table">
+                                <thead class="table-dark">
+                                    <tr>
+
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+
+                                        foreach (var Data in ment)
+                                        {
+                                            <tr>
+                                                <td>@Data.FirstName</td>
+                                                <td>@Data.LastName</td>
+                                                <td>@Data.Email</td>
 
 
 
+                                            </tr>
+                                        }
+
+                                    }
 
 
+                                </tbody>
+                            </table>
+                        </div>
 
+                    </div>
 
+                </div>
 
-
-
-
-
-
-
-
-        </main>
-
+            </main>
+            @*</main>*@
+        </div>
     </div>
-</div>
 
 <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 

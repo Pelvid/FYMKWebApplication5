@@ -25,6 +25,8 @@ namespace FYMKWebApplication5.Controllers
         List<AdminMatch> adminMatches = new List<AdminMatch>();
         List<MentorTable> mentorTables = new List<MentorTable>();
         List<MenteeTable> menteeTables = new List<MenteeTable>();
+        List<MentorBioId> mentorBioIds = new List<MentorBioId>();
+        List<MatchingCheckbox> matchingCheckboxes = new List<MatchingCheckbox>();
 
         List<MenteeCount> menteeCounts = new List<MenteeCount>();
         List<MentorCount> mentorCounts = new List<MentorCount>();
@@ -207,6 +209,7 @@ namespace FYMKWebApplication5.Controllers
             GetData();
             Session["AdminMatch"] = adminMatches;
             Session["AdminMenteeMatching"] = adminMenteeMatchings;
+            Session["MatchingCheckbox"] = matchingCheckboxes;
             return View(adminMatches);
         }
 
@@ -221,11 +224,31 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select FirstName From Mentors where Id = 2";
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Country],[Education],[Enterpreneurship],[Employement],[Developing_Resilence],[Volunteering] From Mentors";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    adminMatches.Add(new AdminMatch() {FirstName = dr["FirstName"].ToString() });
+                    adminMatches.Add(new AdminMatch() 
+                    {
+                        FirstName = dr["FirstName"].ToString()
+
+                    ,   LastName = dr["LastName"].ToString()
+
+                    ,   Email = dr["Email"].ToString()
+                    ,
+                        Country = dr["Country"].ToString()
+                    ,
+                        Education = dr["Education"].ToString()
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Employement = dr["Employement"].ToString()
+                    ,
+                        Developing_Resilence = dr["Developing_Resilence"].ToString()
+                    ,
+                        Volunteering = dr["Volunteering"].ToString()
+
+                    });
                 }
                 con.Close();
             }
@@ -244,11 +267,40 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select FirstName from Mentees";
+                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    adminMenteeMatchings.Add(new AdminMenteeMatching() { FirstName = dr["FirstName"].ToString() });
+                    adminMenteeMatchings.Add(new AdminMenteeMatching() 
+                    {
+                        Id = dr["Id"].ToString()
+                    ,
+                        FirstName = dr["FirstName"].ToString()
+
+                    ,   Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Employment = dr["Employment"].ToString()
+                    ,
+                        University = dr["University"].ToString()
+                    ,
+                        Building = dr["Building"].ToString()
+                    ,
+                        Developing = dr["Developing"].ToString()
+                    ,
+                        Resilence = dr["Resilence"].ToString()
+                    ,
+                        Volunteering = dr["Volunteering"].ToString()
+                    ,
+                        College = dr["College"].ToString()
+                    ,
+                        Career = dr["Career"].ToString()
+                    ,
+                        CareerOptions = dr["CareerOptions"].ToString()
+                    ,
+                        CV = dr["CV"].ToString()
+
+
+                    });
                 }
                 con.Close();
 
@@ -258,8 +310,40 @@ namespace FYMKWebApplication5.Controllers
 
                 throw;
             }
+
+
+
+            if (matchingCheckboxes.Count > 0)
+            {
+                matchingCheckboxes.Clear();
+            }
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select CheckBox, Id from CheckB";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    matchingCheckboxes.Add(new MatchingCheckbox()
+                    {
+                        Checkbox = dr["Checkbox"].ToString(),
+                        Id = dr["Id"].ToString()
+
+
+                    });
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
+      
 
         public ActionResult adminmentee()
         {
@@ -337,7 +421,7 @@ namespace FYMKWebApplication5.Controllers
 
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Country] From Mentors";
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Country],[Education],[Enterpreneurship],[Employement],[Developing_Resilence],[Volunteering] From Mentors";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -348,7 +432,18 @@ namespace FYMKWebApplication5.Controllers
                         LastName = dr["LastName"].ToString()
                     ,
                         Email = dr["Email"].ToString()
+
                     ,   Country = dr["Country"].ToString()
+                    ,
+                        Education = dr["Education"].ToString()
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Employement = dr["Employement"].ToString()
+                    ,
+                        Developing_Resilence = dr["Developing_Resilence"].ToString()
+                    ,
+                        Volunteering = dr["Volunteering"].ToString()
                     });
 
                 }
@@ -390,6 +485,8 @@ namespace FYMKWebApplication5.Controllers
         {
             return View();
         }
+
+       
     }
 
     public interface ILogger<T>

@@ -7,13 +7,13 @@ namespace FYMKWebApplication5.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Fymk : IMigrationMetadata
+    public sealed partial class ProfileSettings : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Fymk));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ProfileSettings));
         
         string IMigrationMetadata.Id
         {
-            get { return "202202152205033_Fymk"; }
+            get { return "202204122129135_ProfileSettings"; }
         }
         
         string IMigrationMetadata.Source

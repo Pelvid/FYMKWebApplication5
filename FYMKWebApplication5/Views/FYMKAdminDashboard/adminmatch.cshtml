@@ -4,19 +4,21 @@
     List<FYMKWebApplication5.Models.AdminMatch> Admt = (List<FYMKWebApplication5.Models.AdminMatch>)Session["AdminMatch"];
     List<FYMKWebApplication5.Models.AdminMenteeMatching> adminMentees = (List<FYMKWebApplication5.Models.AdminMenteeMatching>)Session["AdminMenteeMatching"];
 
+    List<FYMKWebApplication5.Models.MatchingCheckbox> Check = (List<FYMKWebApplication5.Models.MatchingCheckbox>)Session["MatchingCheckbox"];
+
 
     ViewBag.Title = "adminmatch";
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
 
 <div class="container-fluid">
-   
+
     <div class="row">
         <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" /> 
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -82,9 +84,9 @@
                     <strong>mdo</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="admin alert.html">Notifications</a></li>
-                    <li><a class="dropdown-item" href="admin setting.html">Settings</a></li>
-                    <li><a class="dropdown-item" href="admin profile.html">Profile</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Index","FYMKMentorDashboard")">Notifications</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Create","ProfileSettings")">Settings</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Details","ProfileSettings")">Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -96,7 +98,6 @@
 
         <main class="d-flex flex-column col col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto">
 
-           
 
 
 
@@ -105,97 +106,180 @@
 
 
 
-            <div class="container d-flex flex-column " style="margin-top:50px; ">
-                <div class="row border-0 shadow mb-3 position-relative col-sm-4 col-md-6 col-lg-10" style="height:150px;">
-                    <div class="col col-md-3 ">
-                        <img src="" alt="">
-                    </div>
-                    <div class="col col-md-6 ">
-                        <h3>
-                            @{ foreach (var Data in Admt)
-                                {
-                                    @Data.FirstName;
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Education</th>
+                        <th scope="col">Enterpreneurship</th>
+                        <th scope="col">Employement</th>
+                        <th scope="col">Developing_Resilence</th>
+                        <th scope="col">Volunteering</th>
+                        <th scope="col">Mentor Bio</th>
+                        <th scope="col">Matching Process</th>
+                    </tr>
 
-                                } }
+                </thead>
+                <tbody>
 
-                        </h3>
-                        <p>Mentor bio</p>
+                    @{
 
-                    </div>
-                    <div class="col col-md-3 ">
-                        <button class="btn btn-primary position-absolute top-50 end-0 translate-middle-y me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+                        foreach (var Data in Admt)
+                        {
+                            <tr>
+                                <td>@Data.FirstName</td>
+                                <td>@Data.LastName</td>
+                                <td>@Data.Email</td>
+                                <td>@Data.Country</td>
+                                <td>@Data.Education</td>
+                                <td>@Data.Enterpreneurship</td>
+                                <td>@Data.Employement</td>
+                                <td>@Data.Developing_Resilence</td>
+                                <td>@Data.Volunteering</td>
+                                <td>
+                                </td>
 
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                            <div class="offcanvas-header">
-                                <h5 id="offcanvasRightLabel">Match Mentees</h5>
-                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                            </div>
 
-                            <div class="offcanvas-body">
-                                <table class="table">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Match Status</th>
-                                            <th scope="col">Submit</th>
+                                <td>
+                                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" id="mybtn">
+                                    </button>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Matching Process</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table class="table">
+                                                        <thead class="table-dark">
+                                                            <tr>
+                                                                <th scope="col">FirstName</th>
+                                                                <th scope="col">Enterpreneurship</th>
+                                                                <th scope="col">Employment</th>
+                                                                <th scope="col">University</th>
+                                                                <th scope="col">Building</th>
+                                                                <th scope="col">Developing</th>
+                                                                <th scope="col">Resilence</th>
+                                                                <th scope="col">Volunteering</th>
+                                                                <th scope="col">College</th>
+                                                                <th scope="col">Career</th>
+                                                                <th scope="col">CareerOptions</th>
+                                                                <th scope="col">CV</th>
+                                                                <th scope="col">Id</th>
+                                                                <th scope="col">Match Status</th>
+                                                                <th scope="col">Submit</th>
 
-                                        </tr>
+                                                            </tr>
 
-                                    </thead>
-                                    <tbody>
-                                        @{
-                                            foreach (var Data in adminMentees)
-                                            {
-                                                //string MatchID = "Match"
-                                                <tr>
-                                                    <td>@Data.FirstName</td>
-                                                    <td>
-                                                       
-                                                        <div>
-                                                                <input type="checkbox" name="matching" id="Match">Matched<br>
+                                                        </thead>
 
-                                                            <button onclick="check()">"Matched"</button>
-                                                            <button onclick="uncheck()">"Un-Matched"</button>
+                                                        <tbody class="table-dark">
+                                                            @{
+
+                                                                foreach (var Dat in adminMentees)
+                                                                {
+
+
+                                                                    //string MatchID = "Match"
+                                                                    <tr>
+                                                                        <td>@Dat.FirstName</td>
+                                                                        <td>@Dat.Enterpreneurship</td>
+                                                                        <td>@Dat.Employment</td>
+                                                                        <td>@Dat.University</td>
+                                                                        <td>@Dat.Building</td>
+                                                                        <td>@Dat.Developing</td>
+                                                                        <td>@Dat.Resilence</td>
+                                                                        <td>@Dat.Volunteering</td>
+                                                                        <td>@Dat.College</td>
+                                                                        <td>@Dat.Career</td>
+                                                                        <td>@Dat.CareerOptions</td>
+                                                                        <td>@Dat.CV</td>
+                                                                        <td>@Dat.Id</td>
+
+                                                                        <td>
+
+                                                                            <div>
+
+                                                                                <input type="checkbox" name="matching" id="@Dat.Id">Matched<br>
+
+
+                                                                                <button onclick="check('@Dat.Id')">"Matched"</button>
+                                                                                <button onclick="uncheck('@Dat.Id')">"Un-Matched"</button>
+
+                                                                            </div>
+                                                                            @*@foreach (var Datt in Check)
+                                                                             {  
+                                                                               <div>
+
+                                                                                     <input type="checkbox" name="matching" id="@Datt.Id">Matched<br>
+
+
+                                                                                    <button onclick="check('@Datt.Id')">"Matched"</button>
+                                                                                    <button onclick="uncheck('@Datt.Id')">"Un-Matched"</button>
+
+                                                                                </div> 
+                                                                        
+                                                                             }*@
+
+                                                                        </td>
+
+                                                                        
+
+                                                                    </tr>
+
+                                                                   
+
+                                                                }
+
+
+
+                                                            }
+                                                        </tbody>
+
                                                       
 
-                                                            <script>
-                                                                function check() {
-                                                                    document.getElementById("Match").checked = true;
-                                                                }
-                                                                function uncheck() {
-                                                                    document.getElementById("Match").checked = false;
-                                                                }
-                                                                
-                                                            </script>
-                                                        </div>
+                                                    </table>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary" onclick="Save()">Save changes</button>
+                                                    <script>
+                                                        function Save(TheID) {
+                                                            var checkbox = document.getElementById(TheID);
+                                                            localStorage.setItem(TheID, checkbox.checked);
+                                                        }
+                                                        //for loading.
+                                                        var checked = JSON.parse(localStorage.getItem(TheID));
+                                                        document.getElementById(TheID).checked = checked;
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" onClick="Submit()">Submit</button>
-                                                        <script>
-                                                            function Submit() {
-                                                                var checkbox = document.getElementById("Match");
-                                                                localStorage.setItem("Match", checkbox.checked);
-                                                            }
-                                                            //for loading.
-                                                            var checked = JSON.parse(localStorage.getItem("Match"));
-                                                            document.getElementById("Match").checked = checked;
-                                                        </script>
-                                                    </td>
 
-                                                   
-                                                </tr>
 
-                                            }
-                                        }
-                                    </tbody>
-                                    
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+                                </td>
+
+
+
+                            </tr>
+
+                        }
+                    }
+
+
+
+
+                </tbody>
+
+
+            </table>
 
 
 
@@ -218,7 +302,25 @@
 
     </div>
 </div>
+<script>
+                                                                                                function check(TheID) {
+                                                                                                    document.getElementById(TheID).checked = true;
+                                                                                                }
 
+                                                                                                function uncheck(TheID) {
+                                                                                                    document.getElementById(TheID).checked = false;
+                                                                                                }
+
+                                                                                            //     function Save(TheID) {
+                                                                                            //         var checkbox = document.getElementById(TheID);
+                                                                                            //         localStorage.setItem(TheID, checkbox.checked);
+                                                                                            //}
+                                                                                            ////for loading.
+                                                                                            //var checked = JSON.parse(localStorage.getItem(TheID));
+                                                                                            //document.getElementById(TheID).checked = checked;
+   /* <a id="link1" data-myuniqueid="TheID"> Link1 </a>*/
+
+</script>
 <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>

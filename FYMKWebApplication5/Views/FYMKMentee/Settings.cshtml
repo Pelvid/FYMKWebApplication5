@@ -1,0 +1,282 @@
+﻿
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Mentor_LayoutPage2.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
+        <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a class="nav-link  text-white" href="@Url.Action("Dashoard","FYMKMentee")">
+                        DashBoard
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link  text-white" href="@Url.Action("Mentor","FYMKMentee")">
+                        Mentor
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link  text-white" href="@Url.Action("Program","FYMKMentee")">
+                        Programs
+                    </a>
+                </li>
+
+
+                <li>
+                    <a class="nav-link  text-white" href="@Url.Action("chat","FYMKMentee")">
+                        Chat
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link  text-white" href="@Url.Action("MenteeCalender","FYMKMentee")">
+                        calendar
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link  text-white" href="@Url.Action("HelpCentre","FYMKMentee")">
+                        Help Center
+                    </a>
+                </li>
+
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>mdo</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Index","FYMKMentorDashboard")">Notifications</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Settings","FYMKMentee")">Settings</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("MenteeProfile","FYMKMentee")">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+            </div>
+
+            <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+
+
+
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Page title -->
+                        <div class="my-5">
+                            <h3>My Profile</h3>
+                            <hr>
+                        </div>
+                        <!-- Form START -->
+                        <form class="file-upload">
+                            <div class="row mb-5 gx-5">
+                                <!-- Contact detail -->
+                                <div class="col-xxl-8 mb-5 mb-xxl-0">
+                                    <div class="bg-secondary-soft px-4 py-5 rounded">
+                                        <div class="row g-3">
+                                            <h4 class="mb-4 mt-0">Contact detail</h4>
+                                            <!-- First Name -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">First Name *</label>
+                                                <input type="text" class="form-control" placeholder="First name" aria-label="First name" value="" required>
+                                            </div>
+                                            <!-- Last name -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Last Name *</label>
+                                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" value="" required>
+                                            </div>
+                                            <!-- Phone number -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Phone number *</label>
+                                                <input type="text" class="form-control" placeholder="(000) 000 000" aria-label="Phone number" value="">
+                                            </div>
+                                            <!-- Mobile number -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Mobile number *</label>
+                                                <input type="text" class="form-control" placeholder="+00 0000 0000 000" aria-label="Phone number" value="">
+                                            </div>
+                                            <!-- Email -->
+                                            <div class="col-md-6">
+                                                <label for="inputEmail4" class="form-label">Email *</label>
+                                                <input type="email" class="form-control" id="inputEmail4" placeholder="username@example.com" value="" required>
+                                            </div>
+                                            <!-- Country -->
+                                            <div class="col-md-6">
+                                                <label for="inputCountry" class="form-label">Country *</label>
+                                                <input type="country" class="form-control" id="inputCountry" placeholder="Country" value="" required>
+                                            </div>
+                                            <!-- Language -->
+                                            <div class="col-md-6">
+                                                <label for="inputLang" class="form-label">Language *</label>
+                                                <input type="text" class="form-control" id="inputLang" placeholder="Language" value="" required>
+                                            </div>
+                                            <!-- Programme -->
+                                            <h6>Select your programme duration</h6>
+                                            <div class="col-md-12">
+                                                <label for="programme1" class="form-label">8 weeks</label>
+                                                <input type="radio" class="form-check-input" id="programme1" name="programme" value="8 weeks" required>
+                                                <label for="programme2" class="form-label">    24 week</label>
+                                                <input type="radio" class="form-check-input" id="programme2" name="programme" value="24 weeks" required>
+                                            </div>
+
+                                            <!-- Bio -->
+                                            <div class="col-md-12">
+                                                <label for="inputBio" class="form-label">Bio *</label>
+                                                <input type="textarea" class="form-control" id="inputBio" placeholder="Tell us about you" value="" required>
+                                            </div>
+                                            <!-- interests -->
+                                            <div class="col-md-12">
+                                                <label for="inputInterest" class="form-label">Interest *</label>
+                                                <input type="textarea" class="form-control" id="inputInterest" placeholder="use comma (,) and space example: swimming, running, reading" value="" required>
+                                            </div>
+
+
+                                        </div>
+                                        <!-- Row END -->
+                                    </div>
+                                </div>
+                                <!-- Upload profile -->
+                                <div class="col-xxl-4">
+                                    <div class="bg-secondary-soft px-4 py-5 rounded">
+                                        <div class="row g-3">
+                                            <h4 class="mb-4 mt-0">Upload your profile photo</h4>
+                                            <div class="text-center">
+                                                <!-- Image upload -->
+                                                <div class="square position-relative display-2 mb-3">
+                                                    <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                                </div>
+                                                <!-- Button -->
+                                                <input type="file" id="customFile" name="file" hidden="">
+                                                <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
+                                                <button type="button" class="btn btn-danger-soft">Remove</button>
+                                                <!-- Content -->
+                                                <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Row END -->
+                            <!-- Social media detail -->
+                            <div class="row mb-5 gx-5">
+                                <div class="col-xxl-6 mb-5 mb-xxl-0">
+                                    <div class="bg-secondary-soft px-4 py-5 rounded">
+                                        <div class="row g-3">
+                                            <h4 class="mb-4 mt-0">Social media detail</h4>
+                                            <!-- Facebook -->
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i class="fab fa-fw fa-facebook me-2 text-facebook"></i>Facebook </label>
+                                                <input type="text" class="form-control" placeholder="username" aria-label="Facebook" value="">
+                                            </div>
+                                            <!-- Twitter -->
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i class="fab fa-fw fa-twitter text-twitter me-2"></i>Twitter </label>
+                                                <input type="text" class="form-control" placeholder="" aria-label="Twitter" value="">
+                                            </div>
+                                            <!-- Linkedin -->
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i class="fab fa-fw fa-linkedin-in text-linkedin me-2"></i>Linkedin </label>
+                                                <input type="text" class="form-control" placeholder="" aria-label="Linkedin" value="">
+                                            </div>
+                                            <!-- Instragram -->
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i class="fab fa-fw fa-instagram text-instagram me-2"></i>Instagram </label>
+                                                <input type="text" class="form-control" placeholder="" aria-label="Instragram" value="">
+                                            </div>
+
+                                            <!-- Pinterest -->
+                                            <div class="col-md-6">
+                                                <label class="form-label"><i class="fab fa-fw fa-pinterest text-pinterest"></i>Pinterest </label>
+                                                <input type="text" class="form-control" placeholder="" aria-label="Pinterest" value="">
+                                            </div>
+                                        </div>
+                                        <!-- Row END -->
+                                    </div>
+                                </div>
+
+                                <!-- change password -->
+                                <div class="col-xxl-6">
+                                    <div class="bg-secondary-soft px-4 py-5 rounded">
+                                        <div class="row g-3">
+                                            <h4 class="my-4">Change Password</h4>
+                                            <!-- Old password -->
+                                            <div class="col-md-6">
+                                                <label for="exampleInputPassword1" class="form-label">Old password *</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                            </div>
+                                            <!-- New password -->
+                                            <div class="col-md-6">
+                                                <label for="exampleInputPassword2" class="form-label">New password *</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword2">
+                                            </div>
+                                            <!-- Confirm password -->
+                                            <div class="col-md-12">
+                                                <label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Row END -->
+                            <!-- button -->
+                            <div class="gap-3 d-md-flex justify-content-md-end text-center">
+
+                                <button type="submit" class="btn btn-danger btn-lg">Delete profile</button>
+                                <button type="submit" class="btn btn-success btn-lg">Update profile</button>
+                            </div>
+                        </form>
+                        <!-- Form END -->
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+    <footer id="footer" role="contentinfo">
+        <div class="footer-container">
+            <hr>
+            <p class="p-2" style="text-align:right;"> ©2022 Fresh Youth MK. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="./bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
+    <script src="sidebars.js"></script>
+
+</div>
+</div>
+

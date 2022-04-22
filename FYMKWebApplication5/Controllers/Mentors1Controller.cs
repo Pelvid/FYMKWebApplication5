@@ -29,7 +29,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mentor mentor = await db.Mentors.FindAsync(id);
+            Mentor mentor = await db.Mentors.FindAsync(id );
             if (mentor == null)
             {
                 return HttpNotFound();

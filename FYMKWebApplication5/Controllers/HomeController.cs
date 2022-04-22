@@ -26,6 +26,7 @@ namespace Login.Controllers
             return RedirectToAction("Login");
         }
 
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -37,16 +38,18 @@ namespace Login.Controllers
             var obj = db.Mentees.Where(x => x.Email.Equals(mentee.Email) && x.LastName.Equals(mentee.LastName)).FirstOrDefault();
             if (obj != null)
             {
-                return RedirectToAction("FYMKMentorDashboard");
+                //Session["MenteeID"] = obj.Id;
+                return RedirectToAction("FYMKMentee");
             }
             else if (mentee.Email == "admin@gmail.com" && mentee.LastName == "admin")
             {
                 return RedirectToAction("FYMKAdminDashboard");
             }
+
             return View();
         }
 
-        public ActionResult FYMKMentorDashboard()
+        public ActionResult FYMKMentee()
         {
             return View();
         }
@@ -55,6 +58,49 @@ namespace Login.Controllers
         {
             return View();
         }
+
+         [HttpPost]
+        public ActionResult Front(Mentor mentor)
+        {
+            db.Mentors.Add(mentor);
+            db.SaveChanges();
+            return RedirectToAction("SignIn");
+        }
+
+        [HttpGet]
+        public ActionResult SignIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SignIn(Mentor mentor)
+        {
+            var obj = db.Mentors.Where(x => x.Email.Equals(mentor.Email) && x.LastName.Equals(mentor.LastName)).FirstOrDefault();
+            if (obj != null)
+            {
+                return RedirectToAction("FYMKMentorDashboard");
+            }
+            else if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin")
+            {
+                return RedirectToAction("FYMKAdminDashboards");
+            }
+
+            return View();
+        }
+
+        public ActionResult FYMKMentorDashboard()
+        {
+            return View();
+        }
+
+        public ActionResult FYMKAdminDashboards()
+        {
+            return View();
+        }
+
+
+
     }
 
 }
