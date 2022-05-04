@@ -225,11 +225,16 @@
       <DependentUpon>202204122129135_ProfileSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdminCareerMatching.cs" />
+    <Compile Include="Models\AdminCVMatching.cs" />
     <Compile Include="Models\AdminDashboard.cs" />
     <Compile Include="Models\AdminMatch.cs" />
     <Compile Include="Models\AdminMenteeMatching.cs" />
     <Compile Include="Models\AdminMenteeReview.cs" />
     <Compile Include="Models\AdminMentorReview.cs" />
+    <Compile Include="Models\CareerMatching.cs" />
+    <Compile Include="Models\CVMatching.cs" />
+    <Compile Include="Models\MenteeCV.cs" />
     <Compile Include="Models\MatchingCheckbox.cs" />
     <Compile Include="Models\Mentee.cs" />
     <Compile Include="Models\MenteeCount.cs" />

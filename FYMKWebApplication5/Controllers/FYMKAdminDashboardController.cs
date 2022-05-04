@@ -26,11 +26,19 @@ namespace FYMKWebApplication5.Controllers
         List<MentorTable> mentorTables = new List<MentorTable>();
         List<MenteeTable> menteeTables = new List<MenteeTable>();
         List<MentorBioId> mentorBioIds = new List<MentorBioId>();
+        List<MenteeCV> menteeCVs = new List<MenteeCV>();
         List<MatchingCheckbox> matchingCheckboxes = new List<MatchingCheckbox>();
 
         List<MenteeCount> menteeCounts = new List<MenteeCount>();
         List<MentorCount> mentorCounts = new List<MentorCount>();
         List<AdminMenteeMatching> adminMenteeMatchings = new List<AdminMenteeMatching>();
+        List<CVMatching> cVMatchings = new List<CVMatching>();
+        List<AdminCVMatching> adminCVMatchings = new List<AdminCVMatching>();
+        List<AdminCareerMatching> adminCareerMatchings = new List<AdminCareerMatching>();
+        List<CareerMatching> careerMatchings = new List<CareerMatching>();
+
+
+
         //private readonly ILogger<FYMKAdminDashboardController> _logger;
 
 
@@ -209,7 +217,13 @@ namespace FYMKWebApplication5.Controllers
             GetData();
             Session["AdminMatch"] = adminMatches;
             Session["AdminMenteeMatching"] = adminMenteeMatchings;
+            Session["CVMatching"] = cVMatchings;
             Session["MatchingCheckbox"] = matchingCheckboxes;
+            Session["MenteeCV"] = menteeCVs;
+            Session["AdminCVMatching"] = adminCVMatchings;
+            Session["AdminCareerMatching"] = adminCareerMatchings;
+            Session["CareerMatching"] = careerMatchings;
+
             return View(adminMatches);
         }
 
@@ -224,7 +238,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Country],[Education],[Enterpreneurship],[Employement],[Developing_Resilence],[Volunteering] From Mentors";
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Country],[Education],[Enterpreneurship],[Employement],[Developing_Resilence],[Volunteering] From Mentors where Mentors.Employement = 1";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -258,6 +272,95 @@ namespace FYMKWebApplication5.Controllers
                 throw;
             }
 
+
+            if (adminCVMatchings.Count > 0)
+            {
+                adminCVMatchings.Clear();
+            }
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Country],[Education],[Enterpreneurship],[Employement],[Developing_Resilence],[Volunteering] From Mentors where Mentors.Enterpreneurship = 1";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    adminCVMatchings.Add(new AdminCVMatching()
+                    {
+                        FirstName = dr["FirstName"].ToString()
+
+                    ,
+                        LastName = dr["LastName"].ToString()
+
+                    ,
+                        Email = dr["Email"].ToString()
+                    ,
+                        Country = dr["Country"].ToString()
+                    ,
+                        Education = dr["Education"].ToString()
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Employement = dr["Employement"].ToString()
+                    ,
+                        Developing_Resilence = dr["Developing_Resilence"].ToString()
+                    ,
+                        Volunteering = dr["Volunteering"].ToString()
+
+                    });
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            if (adminCareerMatchings.Count > 0)
+            {
+                adminCareerMatchings.Clear();
+            }
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Country],[Education],[Enterpreneurship],[Employement],[Developing_Resilence],[Volunteering] From Mentors where Mentors.Volunteering= 1";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    adminCareerMatchings.Add(new AdminCareerMatching()
+                    {
+                        FirstName = dr["FirstName"].ToString()
+
+                    ,
+                        LastName = dr["LastName"].ToString()
+
+                    ,
+                        Email = dr["Email"].ToString()
+                    ,
+                        Country = dr["Country"].ToString()
+                    ,
+                        Education = dr["Education"].ToString()
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Employement = dr["Employement"].ToString()
+                    ,
+                        Developing_Resilence = dr["Developing_Resilence"].ToString()
+                    ,
+                        Volunteering = dr["Volunteering"].ToString()
+
+                    });
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
             if (adminMenteeMatchings.Count > 0)
             {
                 adminMenteeMatchings.Clear();
@@ -267,7 +370,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees";
+                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees  where Mentees.Employment = 1";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -313,6 +416,115 @@ namespace FYMKWebApplication5.Controllers
 
 
 
+            if (cVMatchings.Count > 0)
+            {
+                cVMatchings.Clear();
+            }
+
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees  where Career = 1";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    cVMatchings.Add(new CVMatching()
+                    {
+                        Id = dr["Id"].ToString()
+                    ,
+                        FirstName = dr["FirstName"].ToString()
+
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Employment = dr["Employment"].ToString()
+                    ,
+                        University = dr["University"].ToString()
+                    ,
+                        Building = dr["Building"].ToString()
+                    ,
+                        Developing = dr["Developing"].ToString()
+                    ,
+                        Resilence = dr["Resilence"].ToString()
+                    ,
+                        Volunteering = dr["Volunteering"].ToString()
+                    ,
+                        College = dr["College"].ToString()
+                    ,
+                        Career = dr["Career"].ToString()
+                    ,
+                        CareerOptions = dr["CareerOptions"].ToString()
+                    ,
+                        CV = dr["CV"].ToString()
+
+
+                    });
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            if (careerMatchings.Count > 0)
+            {
+                careerMatchings.Clear();
+            }
+
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees  where Mentees.CV = 1";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    careerMatchings.Add(new CareerMatching()
+                    {
+                        Id = dr["Id"].ToString()
+                    ,
+                        FirstName = dr["FirstName"].ToString()
+
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Employment = dr["Employment"].ToString()
+                    ,
+                        University = dr["University"].ToString()
+                    ,
+                        Building = dr["Building"].ToString()
+                    ,
+                        Developing = dr["Developing"].ToString()
+                    ,
+                        Resilence = dr["Resilence"].ToString()
+                    ,
+                        Volunteering = dr["Volunteering"].ToString()
+                    ,
+                        College = dr["College"].ToString()
+                    ,
+                        Career = dr["Career"].ToString()
+                    ,
+                        CareerOptions = dr["CareerOptions"].ToString()
+                    ,
+                        CV = dr["CV"].ToString()
+
+
+                    });
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
             if (matchingCheckboxes.Count > 0)
             {
                 matchingCheckboxes.Clear();
@@ -329,6 +541,34 @@ namespace FYMKWebApplication5.Controllers
                     {
                         Checkbox = dr["Checkbox"].ToString(),
                         Id = dr["Id"].ToString()
+
+
+                    });
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            if (menteeCVs.Count > 0)
+            {
+                menteeCVs.Clear();
+            }
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees where Mentees.CV = 1";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    menteeCVs.Add(new MenteeCV()
+                    {
+                       
 
 
                     });
