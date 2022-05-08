@@ -215,12 +215,17 @@
                                                                         <td>
 
                                                                             <div>
+                                                                                <input type="checkbox" id="@Dat.Id">
 
-                                                                                <input type="checkbox" name="matching" id="@Dat.Id" value="@Dat.Id">Matched<br>
+                                                                                <button onclick="disable('@Dat.Id')">Disable checkbox</button>
+                                                                                <button onclick="undisable('@Dat.Id')">Undisable checkbox</button>
 
 
-                                                                                <button onclick="check('@Dat.Id')">"Matched"</button>
-                                                                                <button onclick="uncheck('@Dat.Id')">"Un-Matched"</button>
+                                                                                <!--<input type="checkbox" name="matching" id="@Dat.Id">
+                                                                                <button onclick="disable('@Dat.Id')">Disable checkbox</button>
+                                                                                <button onclick="undisable('@Dat.Id')">Undisable checkbox</button>-->
+                                                                                @*<button onclick="check('@Dat.Id')">"Matched"</button>
+                                                                                    <button onclick="uncheck('@Dat.Id')">"Un-Matched"</button>*@
 
 
                                                                             </div>
@@ -251,19 +256,19 @@
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                     <button type="button" class="btn btn-primary" onclick="Save()">Save changes</button>
                                                     @*<input  type="checkbox" id="checkbox"/>
-                                                <script>
-                                                    window.addEventListener('load', function () {
-                                                        document.querySelector("#checkbox").addEventListener('change', function (el) {
-                                                            console.log(el.target.checked);
-                                                            localStorage.setItem('input_checked', el.target.checked);
-                                                        });
+                                                        <script>
+                                                            window.addEventListener('load', function () {
+                                                                document.querySelector("#checkbox").addEventListener('change', function (el) {
+                                                                    console.log(el.target.checked);
+                                                                    localStorage.setItem('input_checked', el.target.checked);
+                                                                });
 
-                                                        if (localStorage.getItem('input_checked') !== null) {
-                                                            document.querySelector('#checkbox').checked = localStorage.getItem('input_checked') === 'true';
-                                                        }
-                                                    });
+                                                                if (localStorage.getItem('input_checked') !== null) {
+                                                                    document.querySelector('#checkbox').checked = localStorage.getItem('input_checked') === 'true';
+                                                                }
+                                                            });
 
-                                                </script>*@
+                                                        </script>*@
                                                 </div>
                                             </div>
                                         </div>
@@ -428,19 +433,19 @@
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                     <button type="button" class="btn btn-primary" onclick="Save()">Save changes</button>
                                                     @*<input  type="checkbox" id="checkbox"/>
-                                                <script>
-                                                    window.addEventListener('load', function () {
-                                                        document.querySelector("#checkbox").addEventListener('change', function (el) {
-                                                            console.log(el.target.checked);
-                                                            localStorage.setItem('input_checked', el.target.checked);
-                                                        });
+                                                        <script>
+                                                            window.addEventListener('load', function () {
+                                                                document.querySelector("#checkbox").addEventListener('change', function (el) {
+                                                                    console.log(el.target.checked);
+                                                                    localStorage.setItem('input_checked', el.target.checked);
+                                                                });
 
-                                                        if (localStorage.getItem('input_checked') !== null) {
-                                                            document.querySelector('#checkbox').checked = localStorage.getItem('input_checked') === 'true';
-                                                        }
-                                                    });
+                                                                if (localStorage.getItem('input_checked') !== null) {
+                                                                    document.querySelector('#checkbox').checked = localStorage.getItem('input_checked') === 'true';
+                                                                }
+                                                            });
 
-                                                </script>*@
+                                                        </script>*@
                                                 </div>
                                             </div>
                                         </div>
@@ -605,19 +610,19 @@
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                     <button type="button" class="btn btn-primary" onclick="Save()">Save changes</button>
                                                     @*<input  type="checkbox" id="checkbox"/>
-                                                <script>
-                                                    window.addEventListener('load', function () {
-                                                        document.querySelector("#checkbox").addEventListener('change', function (el) {
-                                                            console.log(el.target.checked);
-                                                            localStorage.setItem('input_checked', el.target.checked);
-                                                        });
+                                                        <script>
+                                                            window.addEventListener('load', function () {
+                                                                document.querySelector("#checkbox").addEventListener('change', function (el) {
+                                                                    console.log(el.target.checked);
+                                                                    localStorage.setItem('input_checked', el.target.checked);
+                                                                });
 
-                                                        if (localStorage.getItem('input_checked') !== null) {
-                                                            document.querySelector('#checkbox').checked = localStorage.getItem('input_checked') === 'true';
-                                                        }
-                                                    });
+                                                                if (localStorage.getItem('input_checked') !== null) {
+                                                                    document.querySelector('#checkbox').checked = localStorage.getItem('input_checked') === 'true';
+                                                                }
+                                                            });
 
-                                                </script>*@
+                                                        </script>*@
                                                 </div>
                                             </div>
                                         </div>
@@ -663,27 +668,36 @@
     </div>
 </div>
 <script>
-  
-   
-    function check(TheID) {
-        document.getElementById(TheID).checked = true;
-
+    function disable(TheId) {
+        document.getElementById(TheId).disabled = true;
     }
 
-    function uncheck(TheID) {
-        document.getElementById(TheID).checked = false;
+    function undisable(TheId) {
+        document.getElementById(TheId).disabled = false;
     }
-
-    function Save(TheID) {
-        var checkbox = document.getElementById(TheID);
-        localStorage.setItem(TheID, checkbox.checked);
-    }
-    //for loading.
-    var checked = JSON.parse(localStorage.getItem(TheID));
-    document.getElementById(TheID).checked = checked;
-   /* <a id="link1" data-myuniqueid="TheID"> Link1 </a>*/
 
 </script>
+@*<script>
+
+        //function check(TheID) {
+        //    document.getElementById(TheID).checked = true
+
+        //}
+
+        //function uncheck(TheID) {
+        //    document.getElementById(TheID).disable = true;
+        //}
+
+        //function Save(TheID) {
+        //    var checkbox = document.getElementById(TheID);
+        //    localStorage.setItem(TheID, checkbox.checked);
+        //}
+        ////for loading.
+        //var checked = JSON.parse(localStorage.getItem(TheID));
+        //document.getElementById(TheID).checked = checked;
+       ///* <a id="link1" data-myuniqueid="TheID"> Link1 </a>*/
+
+    </script>*@
 <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
