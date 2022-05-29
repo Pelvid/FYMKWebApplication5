@@ -130,13 +130,13 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Count (Id) as IdCount From Mentors";
+                com.CommandText = "select Count (MentorId) as IdCount From Mentors";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
                     mentorCounts.Add(new MentorCount()
                     {
-                        Id = dr["IdCount"].ToString()
+                        MentorId = dr["IdCount"].ToString()
                     });
                 }
                 con.Close();
@@ -238,7 +238,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Country],[Education],[Enterpreneurship],[Employement],[Developing_Resilence],[Volunteering] From Mentors where Mentors.Employement = 1";
+                com.CommandText = "Select Mentors.FirstName, Mentors.LastName, Mentors.Email, Mentors.Country, Case when Mentors.[Education] = 1 then 'Yes' Else 'No' End AS Education, Case when Mentors.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentors.Employement = 1 then 'Yes' Else 'No' End AS Employement, Case when Mentors.Developing_Resilence = 1 then 'Yes' Else 'No' End AS Developing_Resilence, Case when Mentors.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering From Mentors";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -479,7 +479,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees  where Mentees.CV = 1";
+                com.CommandText = "Select Mentees.Id, Mentees.FirstName,Case when Mentees.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentees.Employment = 1 then 'Yes' Else 'No' End AS Employment, Case when Mentees.University = 1 then 'Yes' Else 'No' End AS University, Case when Mentees.Building = 1 then 'Yes' Else 'No' End AS Building, Case when Mentees.Developing = 1 then 'Yes' Else 'No' End AS Developing, Case when Mentees.Resilence = 1 then 'Yes' Else 'No' End AS Resilence, Case when Mentees.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering, Case when Mentees.College = 1 then 'Yes' Else 'No' End AS College, Case when Mentees.Career = 1 then 'Yes' Else 'No' End AS Career, Case when Mentees.CareerOptions = 1 then 'Yes' Else 'No' End AS CareerOptions, Case when Mentees.CV = 1 then 'Yes' Else 'No' End AS CV, Case when Mentees.Education = 1 then 'Yes' Else 'No' End AS Education From Mentees";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -511,7 +511,8 @@ namespace FYMKWebApplication5.Controllers
                         CareerOptions = dr["CareerOptions"].ToString()
                     ,
                         CV = dr["CV"].ToString()
-
+                    ,
+                        Education = dr["Education"].ToString()
 
                     });
                 }

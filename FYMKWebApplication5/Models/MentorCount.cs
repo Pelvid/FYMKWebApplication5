@@ -7,6 +7,6 @@ namespace FYMKWebApplication5.Models
 {
     public class MentorCount
     {
-        public string Id { get; set; }
+        public string MentorId { get; set; }
     }
 }

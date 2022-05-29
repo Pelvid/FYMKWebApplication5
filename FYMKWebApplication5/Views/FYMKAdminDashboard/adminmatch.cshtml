@@ -112,553 +112,266 @@
 
 
 
-            <div>
-                <h2>Employement Matching</h2>
-            </div>
 
 
+            <h3>Mentor Filtering</h3>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <div class="panel panel-primary filterable">
+                <table class="table">
+                    <thead>
+                        <tr class="filters">
+                            <th><input type="text" placeholder="FirstName"></th>
+                            <th><input type="text" placeholder="LastName"></th>
+                            <th><input type="text" placeholder="Email"></th>
+                            <th><input type="text" placeholder="Enterpreneurship"></th>
+                            <th><input type="text" placeholder="Education"></th>
+                            <th><input type="text" placeholder="Match"></th>
 
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">First Name</th>
-                        <th scope="col">LastName</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">Education</th>
-                        <th scope="col">Enterpreneurship</th>
-                        <th scope="col">Employement</th>
-                        <th scope="col">Developing_Resilence</th>
-                        <th scope="col">Volunteering</th>
-                        <th scope="col">Mentor Bio</th>
-                        <th scope="col">Matching Process</th>
-                    </tr>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                </thead>
-                <tbody>
+                        @{
+                            foreach (var Mentor in Admt)
+                            {
+                                <tr>
+                                    <td>@Mentor.FirstName</td>
+                                    <td>@Mentor.LastName</td>
+                                    <td>@Mentor.Email</td>
+                                    <td>@Mentor.Enterpreneurship</td>
+                                    <td>@Mentor.Education</td>
+                                    <td>
 
-                    @{
+                                        <div class="container mt-3">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                                Match
+                                            </button>
+                                        </div>
 
-                        foreach (var Data in Admt)
-                        {
-                            <tr>
-                                <td>@Data.FirstName</td>
-                                <td>@Data.LastName</td>
-                                <td>@Data.Email</td>
-                                <td>@Data.Country</td>
-                                <td>@Data.Education</td>
-                                <td>@Data.Enterpreneurship</td>
-                                <td>@Data.Employement</td>
-                                <td>@Data.Developing_Resilence</td>
-                                <td>@Data.Volunteering</td>
-                                <td>
-                                </td>
+                                        <!-- The Modal -->
+                                        <div class="modal" id="myModal">
+                                            <div class="modal-dialog modal-fullscreen">
+                                                <div class="modal-content">
 
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Mentee Filtering</h4>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                    </div>
 
-                                <td>
-                                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" id="mybtn">
-                                    </button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Matching Process</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <table class="table">
-                                                        <thead class="table-dark">
-                                                            <tr>
-                                                                <th scope="col">FirstName</th>
-                                                                <th scope="col">Enterpreneurship</th>
-                                                                <th scope="col">Employment</th>
-                                                                <th scope="col">University</th>
-                                                                <th scope="col">Building</th>
-                                                                <th scope="col">Developing</th>
-                                                                <th scope="col">Resilence</th>
-                                                                <th scope="col">Volunteering</th>
-                                                                <th scope="col">College</th>
-                                                                <th scope="col">Career</th>
-                                                                <th scope="col">CareerOptions</th>
-                                                                <th scope="col">CV</th>
-                                                                <th scope="col">Id</th>
-                                                                <th scope="col">Match Status</th>
-                                                                <th scope="col">Submit</th>
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
 
-                                                            </tr>
-
-                                                        </thead>
-
-                                                        <tbody class="table-dark">
-                                                            @{
-
-                                                                foreach (var Dat in adminMentees)
-                                                                {
-
-
-                                                                    //string MatchID = "Match"
-                                                                    <tr>
-                                                                        <td>@Dat.FirstName</td>
-                                                                        <td>@Dat.Enterpreneurship</td>
-                                                                        <td>@Dat.Employment</td>
-                                                                        <td>@Dat.University</td>
-                                                                        <td>@Dat.Building</td>
-                                                                        <td>@Dat.Developing</td>
-                                                                        <td>@Dat.Resilence</td>
-                                                                        <td>@Dat.Volunteering</td>
-                                                                        <td>@Dat.College</td>
-                                                                        <td>@Dat.Career</td>
-                                                                        <td>@Dat.CareerOptions</td>
-                                                                        <td>@Dat.CV</td>
-                                                                        <td>@Dat.Id</td>
-
-                                                                        <td>
-
-                                                                            <div>
-                                                                                <input type="checkbox" id="@Dat.Id">
-
-                                                                                <button onclick="disable('@Dat.Id')">Disable checkbox</button>
-                                                                                <button onclick="undisable('@Dat.Id')">Undisable checkbox</button>
-
-
-                                                                                <!--<input type="checkbox" name="matching" id="@Dat.Id">
-                                                                                <button onclick="disable('@Dat.Id')">Disable checkbox</button>
-                                                                                <button onclick="undisable('@Dat.Id')">Undisable checkbox</button>-->
-                                                                                @*<button onclick="check('@Dat.Id')">"Matched"</button>
-                                                                                    <button onclick="uncheck('@Dat.Id')">"Un-Matched"</button>*@
-
-
-                                                                            </div>
-
-
-                                                                        </td>
-
-
+                                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                                                        <div class="panel panel-primary filterable">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr class="filters">
+                                                                        <th><input type="text" placeholder="First Name"></th>
+                                                                        <th><input type="text" placeholder="Employment"></th>
+                                                                        <th><input type="text" placeholder="Career"></th>
+                                                                        <th><input type="text" placeholder="Enterpreneurship"></th>
+                                                                        <th><input type="text" placeholder="Education"></th>
+                                                                        <th><input type="text" placeholder="Match-Status"></th>
 
                                                                     </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                    @{
+                                                                        foreach (var careerMatchin in careerMatchings)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>@careerMatchin.FirstName</td>
+                                                                                <td>@careerMatchin.Employment</td>
+                                                                                <td>@careerMatchin.Career</td>
+                                                                                <td>@careerMatchin.Enterpreneurship</td>
+                                                                                <td>@careerMatchin.Education</td>
+                                                                                <td>
+
+                                                                                    <div>
+                                                                                        <input type="checkbox" id="@careerMatchin.Id">
+
+                                                                                        <button onclick="disable('@careerMatchin.Id')" type="button" class="btn btn-success">Match</button>
+                                                                                        @*<button onclick="undisable('@careerMatchin.Id')">Undisable checkbox</button>*@
 
 
 
-                                                                }
 
 
-
-                                                            }
-                                                        </tbody>
+                                                                                    </div>
 
 
+                                                                                </td>
+                                                                            </tr>
 
-                                                    </table>
+                                                                        }
 
-                                                </div>
+                                                                    }
 
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary" onclick="Save()">Save changes</button>
-                                                    @*<input  type="checkbox" id="checkbox"/>
-                                                        <script>
-                                                            window.addEventListener('load', function () {
-                                                                document.querySelector("#checkbox").addEventListener('change', function (el) {
-                                                                    console.log(el.target.checked);
-                                                                    localStorage.setItem('input_checked', el.target.checked);
-                                                                });
 
-                                                                if (localStorage.getItem('input_checked') !== null) {
-                                                                    document.querySelector('#checkbox').checked = localStorage.getItem('input_checked') === 'true';
-                                                                }
-                                                            });
+                                                                </tbody>
+                                                            </table>
+                                                            <nav class="paginatortable1">
+                                                                <ul class="pagination">
+                                                                    <li class="page-item"><a class="page-link firstpage" title="First" href="#">┃⏴</a></li>
+                                                                    <li class="page-item"><a class="page-link prevpage" title="Previous" href="#">⏴</a></li>
+                                                                    <li class="page-item active"><a class="page-link gotopage" title="Goto Page" href="javascript:void(0)">1 / 10</a></li>
+                                                                    <li class="page-item"><a class="page-link nextpage" title="Next" href="#">⏵</a></li>
+                                                                    <li class="page-item"><a class="page-link lastpage" title="Last" href="#">⏵┃</a></li>
+                                                                </ul>
+                                                            </nav>
+                                                            <p>No.of Rows : <span id="rowcount"></span></p>
+                                                        </div>
 
-                                                        </script>*@
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
 
+                                    </td>
 
 
-                                </td>
+                                </tr>
 
-
-
-                            </tr>
-
+                            }
 
                         }
-                    }
 
 
-
-
-                </tbody>
-
-
-
-            </table>
-
-            <div>
-                <h2>Career Matching</h2>
+                    </tbody>
+                </table>
+                <nav class="paginatortable1">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link firstpage" title="First" href="#">┃⏴</a></li>
+                        <li class="page-item"><a class="page-link prevpage" title="Previous" href="#">⏴</a></li>
+                        <li class="page-item active"><a class="page-link gotopage" title="Goto Page" href="javascript:void(0)">1 / 10</a></li>
+                        <li class="page-item"><a class="page-link nextpage" title="Next" href="#">⏵</a></li>
+                        <li class="page-item"><a class="page-link lastpage" title="Last" href="#">⏵┃</a></li>
+                    </ul>
+                </nav>
+                <p>No.of Rows : <span id="rowcount"></span></p>
             </div>
+            <script>
+                function checkval() { 1 == $("tbody tr:visible").length && "No result found" == $("tbody tr:visible td").html() ? $("#rowcount").html("0") : $("#rowcount").html($("tr:visible").length - 1) } $(document).ready(function () { $("#rowcount").html($(".filterable tr").length - 1), $(".filterable .btn-filter").click(function () { var t = $(this).parents(".filterable"), e = t.find(".filters input"), l = t.find(".table tbody"); 1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1) }), $(".filterable .filters input").keyup(function (t) { if ("9" != (t.keyCode || t.which)) { var e = $(this), l = e.val().toLowerCase(), n = e.parents(".filterable"), i = n.find(".filters th").index(e.parents("th")), r = n.find(".table"), o = r.find("tbody tr"), d = o.filter(function () { return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l) }); r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">No result found</td></tr>')) } $("#rowcount").html($("tr:visible").length - 1), checkval() }) });
+            </script>
 
-            <table class="table">
-                <thead class="table-dark">
+
+
+
+
+
+
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <table id="myTable" class="table table-striped">
+                <thead>
                     <tr>
-                        <th scope="col">First Name</th>
-                        <th scope="col">LastName</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">Education</th>
-                        <th scope="col">Enterpreneurship</th>
-                        <th scope="col">Employement</th>
-                        <th scope="col">Developing_Resilence</th>
-                        <th scope="col">Volunteering</th>
-                        <th scope="col">Mentor Bio</th>
-                        <th scope="col">Matching Process</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th class="dropdown-header" data-field-name="age">Age</th>
+                        <th>Email</th>
+                        <th class="dropdown-header">Gender</th>
+                        <th class="dropdown-header">Term</th>
+                        <th class="dropdown-header">Enrolled</th>
                     </tr>
-
                 </thead>
                 <tbody>
-
                     @{
-
-                        foreach (var adminCV in adminCVMatchings)
+                        foreach (var Mentor in Admt)
                         {
-                            <tr>
-                                <td>@adminCV.FirstName</td>
-                                <td>@adminCV.LastName</td>
-                                <td>@adminCV.Email</td>
-                                <td>@adminCV.Country</td>
-                                <td>@adminCV.Education</td>
-                                <td>@adminCV.Enterpreneurship</td>
-                                <td>@adminCV.Employement</td>
-                                <td>@adminCV.Developing_Resilence</td>
-                                <td>@adminCV.Volunteering</td>
-                                <td>
-                                </td>
-
-
-                                <td>
-                                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="mybtn2">
-                                    </button>
-                                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel2">Matching Process</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <table class="table">
-                                                        <thead class="table-dark">
-                                                            <tr>
-                                                                <th scope="col">FirstName</th>
-                                                                <th scope="col">Enterpreneurship</th>
-                                                                <th scope="col">Employment</th>
-                                                                <th scope="col">University</th>
-                                                                <th scope="col">Building</th>
-                                                                <th scope="col">Developing</th>
-                                                                <th scope="col">Resilence</th>
-                                                                <th scope="col">Volunteering</th>
-                                                                <th scope="col">College</th>
-                                                                <th scope="col">Career</th>
-                                                                <th scope="col">CareerOptions</th>
-                                                                <th scope="col">CV</th>
-                                                                <th scope="col">Id</th>
-                                                                <th scope="col">Match Status</th>
-                                                                <th scope="col">Submit</th>
-
-                                                            </tr>
-
-                                                        </thead>
-
-                                                        <tbody class="table-dark">
-                                                            @{
-
-                                                                foreach (var Dat in CV)
-                                                                {
-
-
-                                                                    //string MatchID = "Match"
-                                                                    <tr>
-                                                                        <td>@Dat.FirstName</td>
-                                                                        <td>@Dat.Enterpreneurship</td>
-                                                                        <td>@Dat.Employment</td>
-                                                                        <td>@Dat.University</td>
-                                                                        <td>@Dat.Building</td>
-                                                                        <td>@Dat.Developing</td>
-                                                                        <td>@Dat.Resilence</td>
-                                                                        <td>@Dat.Volunteering</td>
-                                                                        <td>@Dat.College</td>
-                                                                        <td>@Dat.Career</td>
-                                                                        <td>@Dat.CareerOptions</td>
-                                                                        <td>@Dat.CV</td>
-                                                                        <td>@Dat.Id</td>
-
-                                                                        <td>
-
-                                                                            <div>
-
-                                                                                <input type="checkbox" name="matching" id="@Dat.Id" value="@Dat.Id">Matched<br>
-
-
-                                                                                <button onclick="check('@Dat.Id')">"Matched"</button>
-                                                                                <button onclick="uncheck('@Dat.Id')">"Un-Matched"</button>
-
-
-                                                                            </div>
-
-
-                                                                        </td>
-
-
-
-                                                                    </tr>
-
-
-
-                                                                }
-
-
-
-                                                            }
-                                                        </tbody>
-
-
-
-                                                    </table>
-
-                                                </div>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary" onclick="Save()">Save changes</button>
-                                                    @*<input  type="checkbox" id="checkbox"/>
-                                                        <script>
-                                                            window.addEventListener('load', function () {
-                                                                document.querySelector("#checkbox").addEventListener('change', function (el) {
-                                                                    console.log(el.target.checked);
-                                                                    localStorage.setItem('input_checked', el.target.checked);
-                                                                });
-
-                                                                if (localStorage.getItem('input_checked') !== null) {
-                                                                    document.querySelector('#checkbox').checked = localStorage.getItem('input_checked') === 'true';
-                                                                }
-                                                            });
-
-                                                        </script>*@
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-                                </td>
-
-
-
+                            <tr class="row">
+                                <td>@Mentor.FirstName</td>
+                                <td>@Mentor.LastName</td>
+                                <td data-field-name="age">15</td>
+                                <td>@Mentor.Email</td>
+                                <td data-field-name="gender">Male</td>
+                                <td data-field-name="term">Summer2017</td>
+                                <td data-field-name="enrolled">Fall2018</td>
                             </tr>
-
-
+                            
                         }
                     }
 
-
-
-
                 </tbody>
-
-
-
             </table>
 
-            <div>
-                <h2>CV Matching</h2>
-            </div>
+            <script>
+                (function ($) {
+                    $.fn.tableFilterHeaders = function (filterFn) {
+                        this.each((index, header) => {
+                            let $header = $(header),
+                                $table = $header.closest('table'),
+                                text = $header.text(),
+                                colIndex = $header.closest('th').index(),
+                                fieldName = $header.attr('data-field-name') || text.toLowerCase(),
+                                $select = $('<select>')
+                                    .data('fieldName', fieldName)
+                                    .append($('<option>').text(text).val('').prop('disabled', true))
+                                    .append($('<option>').text('All').val('all'))
+                                    .append($table.find('tbody tr')
+                                        .toArray()
+                                        .map(tr => {
+                                            return $(tr).find(`td:eq(${colIndex})`).text();
+                                        })
+                                        .filter(text => text.trim().length > 0)
+                                        .sort()
+                                        .filter((v, i, a) => a.indexOf(v) === i)
+                                        .map(text => {
+                                            return $('<option>').text(text).val(text);
+                                        }));
+                            $header.empty().append($select.val('').on('change', filterFn));
+                        });
+                    };
+                    $.fn.initRowClasses = function (oddCls, evenCls) {
+                        this.find('tbody tr').each(function (i) {
+                            $(this).toggleClass(oddCls, i % 2 == 0).toggleClass(evenCls, i % 2 == 1);
+                        });
+                    };
+                    $.fn.updateRowClasses = function (oddCls, evenCls) {
+                        this.find('tbody tr:visible:even').addClass(oddCls).removeClass(evenCls);
+                        this.find('tbody tr:visible:odd').addClass(evenCls).removeClass(oddCls);
+                    };
+                })(jQuery);
 
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">First Name</th>
-                        <th scope="col">LastName</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">Education</th>
-                        <th scope="col">Enterpreneurship</th>
-                        <th scope="col">Employement</th>
-                        <th scope="col">Developing_Resilence</th>
-                        <th scope="col">Volunteering</th>
-                        <th scope="col">Mentor Bio</th>
-                        <th scope="col">Matching Process</th>
-                    </tr>
+                $('#myTable').initRowClasses('odd', 'even');
+                $('.dropdown-header').tableFilterHeaders(filterText);
 
-                </thead>
-                <tbody>
-
-                    @{
-
-                        foreach (var adminCareer in adminCareerMatchings)
-                        {
-                            <tr>
-                                <td>@adminCareer.FirstName</td>
-                                <td>@adminCareer.LastName</td>
-                                <td>@adminCareer.Email</td>
-                                <td>@adminCareer.Country</td>
-                                <td>@adminCareer.Education</td>
-                                <td>@adminCareer.Enterpreneurship</td>
-                                <td>@adminCareer.Employement</td>
-                                <td>@adminCareer.Developing_Resilence</td>
-                                <td>@adminCareer.Volunteering</td>
-                                <td>
-                                </td>
-
-
-                                <td>
-                                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1" id="mybtn1">
-                                    </button>
-                                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel1">Matching Process</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <table class="table">
-                                                        <thead class="table-dark">
-                                                            <tr>
-                                                                <th scope="col">FirstName</th>
-                                                                <th scope="col">Enterpreneurship</th>
-                                                                <th scope="col">Employment</th>
-                                                                <th scope="col">University</th>
-                                                                <th scope="col">Building</th>
-                                                                <th scope="col">Developing</th>
-                                                                <th scope="col">Resilence</th>
-                                                                <th scope="col">Volunteering</th>
-                                                                <th scope="col">College</th>
-                                                                <th scope="col">Career</th>
-                                                                <th scope="col">CareerOptions</th>
-                                                                <th scope="col">CV</th>
-                                                                <th scope="col">Id</th>
-                                                                <th scope="col">Match Status</th>
-                                                                <th scope="col">Submit</th>
-
-                                                            </tr>
-
-                                                        </thead>
-
-                                                        <tbody class="table-dark">
-                                                            @{
-
-                                                                foreach (var careerMatching in careerMatchings)
-                                                                {
-
-
-                                                                    //string MatchID = "Match"
-                                                                    <tr>
-                                                                        <td>@careerMatching.FirstName</td>
-                                                                        <td>@careerMatching.Enterpreneurship</td>
-                                                                        <td>@careerMatching.Employment</td>
-                                                                        <td>@careerMatching.University</td>
-                                                                        <td>@careerMatching.Building</td>
-                                                                        <td>@careerMatching.Developing</td>
-                                                                        <td>@careerMatching.Resilence</td>
-                                                                        <td>@careerMatching.Volunteering</td>
-                                                                        <td>@careerMatching.College</td>
-                                                                        <td>@careerMatching.Career</td>
-                                                                        <td>@careerMatching.CareerOptions</td>
-                                                                        <td>@careerMatching.CV</td>
-                                                                        <td>@careerMatching.Id</td>
-
-                                                                        <td>
-
-                                                                            <div>
-
-                                                                                <input type="checkbox" name="matching" id="@careerMatching.Id" value="@careerMatching.Id">Matched<br>
-
-
-                                                                                <button onclick="check('@careerMatching.Id')">"Matched"</button>
-                                                                                <button onclick="uncheck('@careerMatching.Id')">"Un-Matched"</button>
-
-
-                                                                            </div>
-
-
-                                                                        </td>
-
-
-
-                                                                    </tr>
-
-
-
-                                                                }
-
-
-
-                                                            }
-                                                        </tbody>
-
-
-
-                                                    </table>
-
-                                                </div>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary" onclick="Save()">Save changes</button>
-                                                    @*<input  type="checkbox" id="checkbox"/>
-                                                        <script>
-                                                            window.addEventListener('load', function () {
-                                                                document.querySelector("#checkbox").addEventListener('change', function (el) {
-                                                                    console.log(el.target.checked);
-                                                                    localStorage.setItem('input_checked', el.target.checked);
-                                                                });
-
-                                                                if (localStorage.getItem('input_checked') !== null) {
-                                                                    document.querySelector('#checkbox').checked = localStorage.getItem('input_checked') === 'true';
-                                                                }
-                                                            });
-
-                                                        </script>*@
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-                                </td>
-
-
-
-                            </tr>
-
-
-                        }
+                function filterText(e) {
+                    let $filter = $(e.target),
+                        $table = $filter.closest('table'),
+                        $filters = $table.find('.dropdown-header select'),
+                        filterObj = $filters.toArray().reduce((obj, filter) => {
+                            let $filter = $(filter);
+                            return Object.assign(obj, { [$filter.data('fieldName')]: $filter.val() });
+                        }, {});
+                    if ($filter.val() === 'all') {
+                        $filter.val('')
                     }
+                    $table.find('tbody tr').each(function () {
+                        $(this).toggle($(this).find('td').toArray().every(td => {
+                            let $td = $(td), fieldName = $td.attr('data-field-name');
+                            if (fieldName != null) {
+                                return filterObj[fieldName] === null ||
+                                    filterObj[fieldName] === '' ||
+                                    filterObj[fieldName] === 'all' ||
+                                    filterObj[fieldName] === $td.text();
+                            }
+                            return true;
+                        }));
+                    });
 
-
-
-
-                </tbody>
-
-
-
-            </table>
-
-
-
-
-
-
-
-
-
-
+                    $table.updateRowClasses('odd', 'even');
+                }
+            </script>
 
 
 

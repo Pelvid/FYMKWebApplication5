@@ -1,0 +1,41 @@
+﻿table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: thin solid grey;
+}
+
+th, td {
+    padding: 0.25em;
+}
+
+thead tr {
+    background: #DDD;
+}
+
+tbody tr.even {
+    background: #EEE;
+}
+
+tbody tr.odd {
+    background: #FFF;
+}
+
+th.dropdown-header > select {
+    background: inherit;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    th.dropdown-header > select:focus {
+        outline: none;
+    }
+
+table > thead th,
+table > thead th > select {
+    font-family: Arial;
+    font-size: 1em;
+    vertical-align: middle;
+}

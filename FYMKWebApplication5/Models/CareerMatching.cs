@@ -21,5 +21,6 @@ namespace FYMKWebApplication5.Models
 
         public string CareerOptions { get; set; }
         public string CV { get; set; }
+        public string Education { get; set; }
     }
 }
