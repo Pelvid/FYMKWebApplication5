@@ -59,6 +59,16 @@
                     </a>
                 </li>
                 <li>
+                    <a class="nav-link text-white" href="@Url.Action("adminprogram2","FYMKAdminDashboard")">
+                        Six Month Program
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("MatchRatio","FYMKAdminDashboard")">
+                        Match Ratio
+                    </a>
+                </li>
+                <li>
                     <a class="nav-link text-white" href="@Url.Action("adminmentor","FYMKAdminDashboard")">
                         AdminMentor
                     </a>
@@ -140,12 +150,9 @@
 
                                     }
 
-
-
-
-
-
                                 </h4>
+                                <a href="@Url.Action("adminmentor","FYMKAdminDashboard")" class="btn btn-outline-info">Mentor</a>
+
                                 <p>Total number of verified Mentors</p>
                             </div>
                         </div>
@@ -163,14 +170,28 @@
 
                                     }
                                 </h4>
+                                <a href="@Url.Action("adminmentee","FYMKAdminDashboard")" class="btn btn-outline-info">Mentee</a>
+
                                 <p>Total number of verified Mentees</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card card-3">
+                            <div class="card card-2">
                                 <h3>Match Ratio</h3>
-                                <h4>3 </h4>
-                                <p>Ratio of mentees to mentors</p>
+                                <h4>
+                                    @{
+
+                                        foreach (var Data in mncnt)
+                                        {
+                                            @Data.Id;
+
+                                        }
+
+                                    }
+                                </h4>
+                                <a href="@Url.Action("MatchRatio","FYMKAdminDashboard")" class="btn btn-outline-info">Match Ratio</a>
+
+                                <p>Total number of Matching Category</p>
                             </div>
                         </div>
                     </div>
@@ -183,18 +204,18 @@
                         <div class="col-md-6">
                             <div class="card card-1">
                                 <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">8 Weeks Program</h5>
+                                    <p class="card-text">Comfortable in promoting sel</p>
+                                    <a href="@Url.Action("adminprogram","FYMKAdminDashboard")" class="btn btn-outline-primary">8 Weeks</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="card card-2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
+                                    <h5 class="card-title">6 Months Program</h5>
                                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="@Url.Action("adminprogram2","FYMKAdminDashboard")" class="btn btn-outline-primary">6 Months</a>
                                 </div>
                             </div>
                         </div>
@@ -204,19 +225,19 @@
                     </div>
                 </div>
                 <!--section to display mentor and mentee table-->
-                <div class="container d-flex flex-column">
+                @*<div class="container d-flex flex-column">
                     <div class="row">
                         <div class="col-md">
                             <h2>Mentee List</h2>
                             <table class="table">
                                 <thead class="table-dark">
-                                    @{
-                                        foreach (var head in TableHeaders)
-                                        {
-                                        <th>@head</th>
+                                    <tr>
 
-                                        }
-                                    }
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Email</th>
+                                    </tr>
+
                                 </thead>
 
                                     <tbody>
@@ -236,11 +257,13 @@
 
 
                                     </tbody>
-                                </table>
+                                
+                            </table>
 
 
 
-                            </div>
+                            
+                        </div>
 
                             <div class="col-md">
                                 <h2>Mentor List</h2>
@@ -277,7 +300,8 @@
 
                         </div>
 
-                    </div>
+                    
+                </div>*@
                 
             </main>
             @*</main>*@

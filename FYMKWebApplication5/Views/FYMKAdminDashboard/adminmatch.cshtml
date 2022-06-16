@@ -58,6 +58,16 @@
                     </a>
                 </li>
                 <li>
+                    <a class="nav-link text-white" href="@Url.Action("adminprogram2","FYMKAdminDashboard")">
+                        Six Month Program
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("MatchRatio","FYMKAdminDashboard")">
+                        Match Ratio
+                    </a>
+                </li>
+                <li>
                     <a class="nav-link text-white" href="@Url.Action("adminmentor","FYMKAdminDashboard")">
                         AdminMentor
                     </a>
@@ -115,8 +125,10 @@
 
 
             <h3>Mentor Filtering</h3>
+
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <div class="panel panel-primary filterable">
+            <div class="panel panel-primary filterable ">
+            @*<div class="panel panel-primary filterable">*@
                 <table class="table">
                     <thead>
                         <tr class="filters">
@@ -125,6 +137,7 @@
                             <th><input type="text" placeholder="Email"></th>
                             <th><input type="text" placeholder="Enterpreneurship"></th>
                             <th><input type="text" placeholder="Education"></th>
+                            <th><input type="text" placeholder="Employment"></th>
                             <th><input type="text" placeholder="Match"></th>
 
                         </tr>
@@ -140,6 +153,7 @@
                                     <td>@Mentor.Email</td>
                                     <td>@Mentor.Enterpreneurship</td>
                                     <td>@Mentor.Education</td>
+                                    <td>@Mentor.Employement</td>
                                     <td>
 
                                         <div class="container mt-3">
@@ -192,8 +206,10 @@
                                                                                     <div>
                                                                                         <input type="checkbox" id="@careerMatchin.Id">
 
-                                                                                        <button onclick="disable('@careerMatchin.Id')" type="button" class="btn btn-success">Match</button>
+                                                                                        <button onclick="disable('@careerMatchin.Id')" type="button" id="mybtn" class="btn btn-success">Match</button>
+
                                                                                         @*<button onclick="undisable('@careerMatchin.Id')">Undisable checkbox</button>*@
+
 
 
 
@@ -260,118 +276,138 @@
                 <p>No.of Rows : <span id="rowcount"></span></p>
             </div>
             <script>
-                function checkval() { 1 == $("tbody tr:visible").length && "No result found" == $("tbody tr:visible td").html() ? $("#rowcount").html("0") : $("#rowcount").html($("tr:visible").length - 1) } $(document).ready(function () { $("#rowcount").html($(".filterable tr").length - 1), $(".filterable .btn-filter").click(function () { var t = $(this).parents(".filterable"), e = t.find(".filters input"), l = t.find(".table tbody"); 1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1) }), $(".filterable .filters input").keyup(function (t) { if ("9" != (t.keyCode || t.which)) { var e = $(this), l = e.val().toLowerCase(), n = e.parents(".filterable"), i = n.find(".filters th").index(e.parents("th")), r = n.find(".table"), o = r.find("tbody tr"), d = o.filter(function () { return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l) }); r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">No result found</td></tr>')) } $("#rowcount").html($("tr:visible").length - 1), checkval() }) });
-            </script>
+
+                function checkval() { 1 == $("tbody tr:visible").length && "No result found" == $("tbody tr:visible td").html() ? $("#rowcount").html("0") : $("#rowcount").html($("tr:visible").length - 1) }
+                $(document).ready(function () {
+
+                    $("#rowcount").html($(".filterable tr").length - 1), $(".filterable .btn-filter").click(function () { var t = $(this).parents(".filterable"), e = t.find(".filters input"), l = t.find(".table tbody"); 1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1) }), $(".filterable .filters input").keyup(function (t) { if ("9" != (t.keyCode || t.which)) { var e = $(this), l = e.val().toLowerCase(), n = e.parents(".filterable"), i = n.find(".filters th").index(e.parents("th")), r = n.find(".table"), o = r.find("tbody tr"), d = o.filter(function () { return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l) }); r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">No result found</td></tr>')) } $("#rowcount").html($("tr:visible").length - 1), checkval() })
+                });
 
 
+                function checkval() {
+                    1 == $("tbody tr:visible").length &&
+                        "No result found" == $("tbody tr:visible td").html()
+                        ? $("#rowcount").html("0")
+                        : $("#rowcount").html($("tr:visible").length - 1);
+                }
 
+                $(document).ready(function () {
+                    $("#rowcount").html($(".filterable tr").length - 1),
 
+                        $(".filterable .btn-filter").click(function () {
+                            var t = $(this).parents(".filterable"),
+                                e = t.find(".filters input"),
+                                l = t.find(".table tbody");
 
+                            1 == e.prop("disabled")
+                                ? (e.prop("disabled", !1), e.first().focus())
+                                : (e.val("").prop("disabled", !0),
+                                    l.find(".no-result").remove(),
+                                    l.find("tr").show()),
+                                $("#rowcount").html($(".filterable tr").length - 1);
+                        });
 
+                    var filterTable = (el) => {
+                        console.log(el.target, el);
+                        var e = $(el.target),
+                            l = e.val().toLowerCase(),
+                            n = e.parents(".filterable"),
+                            i = n.find(".filters th").index(e.parents("th")),
+                            r = n.find(".table"),
+                            o = r.find("tbody tr");
+                        if (l) {
+                            let d = o.filter(function () {
+                                return (
+                                    -1 ===
+                                    $(el.target)
+                                        .find("td")
+                                        .eq(i)
+                                        .text()
+                                        .toLowerCase()
+                                        .indexOf(l)
+                                );
+                            });
 
-
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <table id="myTable" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th class="dropdown-header" data-field-name="age">Age</th>
-                        <th>Email</th>
-                        <th class="dropdown-header">Gender</th>
-                        <th class="dropdown-header">Term</th>
-                        <th class="dropdown-header">Enrolled</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{
-                        foreach (var Mentor in Admt)
-                        {
-                            <tr class="row">
-                                <td>@Mentor.FirstName</td>
-                                <td>@Mentor.LastName</td>
-                                <td data-field-name="age">15</td>
-                                <td>@Mentor.Email</td>
-                                <td data-field-name="gender">Male</td>
-                                <td data-field-name="term">Summer2017</td>
-                                <td data-field-name="enrolled">Fall2018</td>
-                            </tr>
-                            
+                            console.log(d);
                         }
                     }
 
-                </tbody>
-            </table>
+                    $(".filterable .filters input").keyup(function (t) {
+                        $(".filterable .filters input").each((i, el) => {
+                            console.log($(el).val().toLowerCase());
+                            var e = $(el),
+                                l = e.val().toLowerCase();
+                            if (l != '') {
+                                var n = e.parents(".filterable"),
+                                    i = n.find(".filters th").index(e.parents("th")),
+                                    r = n.find(".table"),
+                                    o = r.find("tbody tr:visible");
+                                if (o.length === 0) {
+                                    o.show()
+                                }
+                                console.log(l);
 
-            <script>
-                (function ($) {
-                    $.fn.tableFilterHeaders = function (filterFn) {
-                        this.each((index, header) => {
-                            let $header = $(header),
-                                $table = $header.closest('table'),
-                                text = $header.text(),
-                                colIndex = $header.closest('th').index(),
-                                fieldName = $header.attr('data-field-name') || text.toLowerCase(),
-                                $select = $('<select>')
-                                    .data('fieldName', fieldName)
-                                    .append($('<option>').text(text).val('').prop('disabled', true))
-                                    .append($('<option>').text('All').val('all'))
-                                    .append($table.find('tbody tr')
-                                        .toArray()
-                                        .map(tr => {
-                                            return $(tr).find(`td:eq(${colIndex})`).text();
-                                        })
-                                        .filter(text => text.trim().length > 0)
-                                        .sort()
-                                        .filter((v, i, a) => a.indexOf(v) === i)
-                                        .map(text => {
-                                            return $('<option>').text(text).val(text);
-                                        }));
-                            $header.empty().append($select.val('').on('change', filterFn));
-                        });
-                    };
-                    $.fn.initRowClasses = function (oddCls, evenCls) {
-                        this.find('tbody tr').each(function (i) {
-                            $(this).toggleClass(oddCls, i % 2 == 0).toggleClass(evenCls, i % 2 == 1);
-                        });
-                    };
-                    $.fn.updateRowClasses = function (oddCls, evenCls) {
-                        this.find('tbody tr:visible:even').addClass(oddCls).removeClass(evenCls);
-                        this.find('tbody tr:visible:odd').addClass(evenCls).removeClass(oddCls);
-                    };
-                })(jQuery);
+                                let d = o.filter(function () {
+                                    return (
+                                        -1 ===
+                                        $(this)
+                                            .find("td")
+                                            .eq(i)
+                                            .text()
+                                            .toLowerCase()
+                                            .indexOf(l)
 
-                $('#myTable').initRowClasses('odd', 'even');
-                $('.dropdown-header').tableFilterHeaders(filterText);
+                                    );
+                                });
 
-                function filterText(e) {
-                    let $filter = $(e.target),
-                        $table = $filter.closest('table'),
-                        $filters = $table.find('.dropdown-header select'),
-                        filterObj = $filters.toArray().reduce((obj, filter) => {
-                            let $filter = $(filter);
-                            return Object.assign(obj, { [$filter.data('fieldName')]: $filter.val() });
-                        }, {});
-                    if ($filter.val() === 'all') {
-                        $filter.val('')
-                    }
-                    $table.find('tbody tr').each(function () {
-                        $(this).toggle($(this).find('td').toArray().every(td => {
-                            let $td = $(td), fieldName = $td.attr('data-field-name');
-                            if (fieldName != null) {
-                                return filterObj[fieldName] === null ||
-                                    filterObj[fieldName] === '' ||
-                                    filterObj[fieldName] === 'all' ||
-                                    filterObj[fieldName] === $td.text();
+                                r.find("tbody .no-result").remove(),
+                                    o.show(),
+                                    d.hide(),
+
+                                    /* d.length === o.length &&*/
+                                    //r
+                                    //    .find("tbody")
+                                    //    .prepend(
+                                    //        $(
+                                    //            '<tr class="no-result text-center"><td colspan="' +
+                                    //            r.find(".filters th").length +
+                                    //            '">No result found</td></tr>'
+                                    //        )
+                                    //);
+                                    $("#rowcount").html($("tr:visible").length - 1), checkval();
+                                console.log(o.length, d.length);
                             }
-                            return true;
-                        }));
+                        })
                     });
+                });
 
-                    $table.updateRowClasses('odd', 'even');
-                }
+
+
+
+
+
+
+
             </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -383,11 +419,24 @@
 <script>
     function disable(TheId) {
         document.getElementById(TheId).disabled = true;
+        
+        //if ((document.getElementById(TheId).checked)) {
+        //    document.getElementById("mybtn").
+        //        innerText = "Marched";
+        //}
+        //else {
+        //    document.getElementById("mybtn").
+        //        innerText = "Match";
+        //}
     }
 
     function undisable(TheId) {
         document.getElementById(TheId).disabled = false;
     }
+
+
+
+   
 
 </script>
 @*<script>

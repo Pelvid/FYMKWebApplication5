@@ -706,6 +706,17 @@ namespace FYMKWebApplication5.Controllers
         {
             return View();
         }
+
+        public ActionResult adminprogram2()
+        {
+            return View();
+        }
+
+        public ActionResult MatchRatio()
+        {
+            return View();
+        }
+
         public ActionResult adminsettings()
         {
             return View();

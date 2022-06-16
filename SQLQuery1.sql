@@ -1,1 +1,9 @@
-﻿select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees  where Mentees.CV = 1
+﻿Select Mentors.FirstName from Mentors join Mentees ON Mentors.MentorId = Mentees.MentorId where Mentees.Id = 17
+
+Select * from Mentees
+
+Select Mentors.FirstName from Mentors join Mentees ON Mentors.MentorId = Mentees.MentorId where Mentees.Id = 10
+
+Select Mentees.FirstName from Mentors join Mentees ON Mentors.MentorId = Mentees.MentorId where Mentors.MentorId = 16
+
+Select Mentees.FirstName from Mentors join Mentees ON Mentors.MentorId = Mentees.MentorId where Mentors.MentorId = 2
