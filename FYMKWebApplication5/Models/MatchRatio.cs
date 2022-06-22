@@ -8,5 +8,6 @@ namespace FYMKWebApplication5.Models
     public class MatchRatio
     {
         public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

@@ -3,7 +3,7 @@
     ViewBag.Title = "adminmentor";
     Layout = "~/Views/_LayoutPage1.cshtml";
 
-    List<FYMKWebApplication5.Models.MentorTable> ment = (List<FYMKWebApplication5.Models.MentorTable>)Session["MentorTable"];
+    List<FYMKWebApplication5.Models.MentorTable> mentorTables = (List<FYMKWebApplication5.Models.MentorTable>)Session["MentorTable"];
 
 }
 
@@ -123,12 +123,12 @@
                     <tbody>
                         @{
 
-                            foreach (var Data in ment)
+                            foreach (var Dtt in mentorTables)
                             {
                                 <tr>
-                                    <td>@Data.FirstName</td>
-                                    <td>@Data.LastName</td>
-                                    <td>@Data.Email</td>
+                                    <td>@Dtt.FirstName</td>
+                                    <td>@Dtt.LastName</td>
+                                    <td>@Dtt.Email</td>
 
 
 
