@@ -36,6 +36,8 @@ namespace FYMKWebApplication5.Controllers
         List<AdminCVMatching> adminCVMatchings = new List<AdminCVMatching>();
         List<AdminCareerMatching> adminCareerMatchings = new List<AdminCareerMatching>();
         List<CareerMatching> careerMatchings = new List<CareerMatching>();
+        List<MatchRatio> MatchRatios = new List<MatchRatio>();
+
 
 
 
@@ -714,7 +716,46 @@ namespace FYMKWebApplication5.Controllers
 
         public ActionResult MatchRatio()
         {
+            DullData();
+            Session["MatchRatio"] = MatchRatios;
             return View();
+        }
+
+        private void DullData()
+        {
+
+
+
+            if (MatchRatios.Count > 0)
+            {
+                MatchRatios.Clear();
+            }
+
+            try
+            {
+
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "Select Mentees.FirstName from Mentors join Mentees ON Mentors.MentorId = Mentees.MentorId where Mentors.MentorId = 2";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    MatchRatios.Add(new MatchRatio()
+                    {
+                        FirstName = dr["FirstName"].ToString()
+                   
+                    });
+
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public ActionResult adminsettings()
