@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Elasticsearch.Net, Version=7.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
       <HintPath>..\packages\Elasticsearch.Net.7.17.0\lib\net461\Elasticsearch.Net.dll</HintPath>
     </Reference>
@@ -54,9 +57,15 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MailKit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.3.3.0\lib\net47\MailKit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.3.3.0\lib\net47\MimeKit.dll</HintPath>
     </Reference>
     <Reference Include="Nest, Version=7.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
       <HintPath>..\packages\NEST.7.17.0\lib\net461\Nest.dll</HintPath>
@@ -89,6 +98,12 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.1\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -196,6 +211,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminDashboardsController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\FYMKAdminDashboardController.cs" />
     <Compile Include="Controllers\FYMKMenteeController.cs" />
     <Compile Include="Controllers\FYMKMentorDashboardController.cs" />
@@ -205,6 +221,7 @@
     <Compile Include="Controllers\MenteesController.cs" />
     <Compile Include="Controllers\Mentors1Controller.cs" />
     <Compile Include="Controllers\MentorsController.cs" />
+    <Compile Include="Controllers\NewMenteeController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\Verifies1Controller.cs" />
     <Compile Include="Controllers\VerifiesController.cs" />
@@ -314,6 +331,11 @@
     <Content Include="fontsLogin\iconic\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="fontsss\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FYMKmentee-form-main\index.html" />
+    <Content Include="FYMKmentee-form-main\MenteeImages\bkg1.png" />
+    <Content Include="FYMKmentee-form-main\mentee-form.css" />
+    <Content Include="FYMKmentee-form-main\mentee-form.js" />
+    <Content Include="FYMKmentee-form-main\Newmentor-form.js" />
     <Content Include="Global.asax" />
     <Content Include="imagesLogin\avatar-01.jpg" />
     <Content Include="imagesLogin\icons\favicon.ico" />
@@ -441,6 +463,7 @@
     <Content Include="MenteeCSS\bootstrap.min.css" />
     <Content Include="MenteeCSS\bootstrap.rtl.css" />
     <Content Include="MenteeCSS\bootstrap.rtl.min.css" />
+    <Content Include="MenteeImages\bkg1.png" />
     <Content Include="MenteeJS\bootstrap.bundle.js" />
     <Content Include="MenteeJS\bootstrap.bundle.min.js" />
     <Content Include="MenteeJS\bootstrap.esm.js" />
@@ -582,6 +605,10 @@
     <Content Include="Matching\package-lock.json" />
     <Content Include="Matching\package.json" />
     <Content Include="Matching\README.md" />
+    <Content Include="MenteeImages\README.md" />
+    <Content Include="FYMKmentee-form-main\MenteeImages\README.md" />
+    <Content Include="FYMKmentee-form-main\mentee-form.css.map" />
+    <Content Include="FYMKmentee-form-main\Newmentee-form.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -631,6 +658,7 @@
     <Content Include="vendor\select2\select2.js" />
     <Content Include="vendor\select2\select2.min.css" />
     <Content Include="vendor\select2\select2.min.js" />
+    <Content Include="Views\FYMKAdminDashboard\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -716,6 +744,10 @@
     <Content Include="Views\Home\SignIn.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\adminprogram2.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\MatchRatio.cshtml" />
+    <Content Include="Views\NewMentee\Mentee.cshtml" />
+    <Content Include="Views\NewMentee\New.cshtml" />
+    <Content Include="Views\NewMentee\SendEmail.cshtml" />
+    <Content Include="Views\Email\SendEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

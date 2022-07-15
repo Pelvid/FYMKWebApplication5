@@ -1,0 +1,1150 @@
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+height: 10px;
+
+
+}
+//variables
+$base-color :#033347;
+$complimentary-color1 :#21A3BD;
+$complimentary-color2 :#8dcde675;
+//variables
+
+
+/* Track */
+::-webkit-scrollbar-track { 
+   
+   border-bottom-right-radius: 10px;
+   border-top-left-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $base-color; 
+  border-bottom-right-radius: 10px;
+   border-top-left-radius: 10px;
+}
+
+#input_div_style{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; 
+      margin-bottom: 6%;
+      
+      
+      input{
+        border: none;
+        color: $base-color;
+        width: 15vw;
+      outline: none;
+      height: 3vw;  
+      border-radius:0.4vw;
+      font-size: 1.2vw;          
+    }
+}
+#input_div_style2{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  margin-bottom: 6%;
+  
+  
+  input{
+    border: none;
+    color: $base-color;
+    width: 15vw;
+  outline: none; 
+  border-radius:0.4vw;            
+}
+}#long_input_div_style{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; 
+      margin-bottom: 6%;
+      width: 100%;
+      input{
+        border: none;
+        color: $base-color;
+      outline: none;
+      height: 3vw;  
+      border-radius:0.4vw;
+      font-size: 1.2vw;            
+    }
+}
+
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+body{
+margin: 0;
+overflow: hidden;
+user-select: none;
+
+
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    font-family: sans-serif;
+
+    header{
+        width: 50%;
+        height: 100vh;
+        background-image: url(images/bkg1.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+    
+    }
+ .formSection{
+ overflow: scroll;
+    width: 60%;
+    height: 100vh;
+ .mentee_profile_form{ 
+ background-color: white;
+        width: 100%;
+       display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+        align-items: center;
+
+span{font-size: 3vw;color: $base-color;margin-top: 4%;margin-bottom: 4%;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+
+&_personal_details_div{
+    width: 90%;
+    background-color: $complimentary-color2;
+    border-radius:0.4vw;  margin-bottom: 5%;
+    font-size: 1.1vw;
+    
+   
+&_header{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 8%;
+.pdHeader{
+    background-color: $base-color;
+    border-radius:0.4vw;   
+    padding-top: 2%;
+    padding-bottom: 2%;
+   padding-left: 2%;
+   padding-right: 2%;
+     font-size: 2vw;
+     color: #ffffff;
+     display: flex;
+justify-content: center;
+align-items: center;
+}
+}
+
+&_form_div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+
+
+  .form_div_name_section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $base-color;
+    width: 80%;
+    
+  }
+
+.form_div_address_section{
+      display: flex;
+      flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: $base-color;
+    width: 80%;
+ .address_div{width: 100%;}
+ .address_line1_div{width: 100%;}
+ .address_line2_div{width: 100%;}
+ .cityAndState_div{
+display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $base-color;
+    width: 100%;
+ }
+.postalCodeAndCountry_div{
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $base-color;
+    width: 100%;
+}
+
+
+}
+.form_div_telephone_section{
+  color: $base-color;
+  width: 80%;
+ 
+}
+
+.form_div_email_section{
+  color: $base-color;
+  width: 80%;
+}  
+.form_div_dateOfBirth_section{
+  color: $base-color;
+  width: 80%;
+ .dateOfBirth_div{
+  width: 100%;
+    .dateOfBirth{font-size: 1.3vw;}
+  }
+}  
+
+.form_div_gender_section{
+  color: $base-color;
+   width: 80%;
+  .gender_div{
+   
+    .gender{
+       width: 30%;
+      font-size: 1.3vw;
+    outline: none;
+  border: none;
+background-color: white;
+border-radius:0.4vw;color: $base-color;
+
+
+}
+  }
+}  
+.form_div_ethnic-group_section{
+  color: $base-color;
+   width: 80%;
+  .ethnic-group_div{
+   
+    .ethnic-group{
+       width: 70%;
+      font-size: 1.3vw;
+    outline: none;
+  border: none;
+background-color: white;
+border-radius:0.4vw;color: $base-color;
+
+
+}
+  }
+}  
+.form_div_menteeAgeGroup_section{
+  color: $base-color;
+  width: 80%;
+ .menteeAgeGroup_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 16vw;
+    .menteeAgeGroup{width: 100%;}
+  }
+}  
+
+.form_div_menteeGenderPreference_section{
+  margin-top: 20px;
+  color: $base-color;
+  width: 80%;
+  .menteeGenderPreference_div{
+.menteeGenderPreference{width: 100%;
+  width: 30%;
+  font-size: 1.3vw;
+    outline: none;
+  border: none;
+background-color: white;
+border-radius:0.4vw;
+color: $base-color;
+
+}
+  }
+}  
+
+}
+
+}
+
+
+
+&_education_div{
+    width: 90%;
+    background-color: $complimentary-color2;
+    border-radius:0.4vw;  margin-bottom: 5%;
+    font-size: 1.1vw;
+    color: $base-color;
+   
+&_header{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 8%;
+.edHeader{
+    background-color: $base-color;
+    border-radius:0.4vw;  
+    padding-top: 2%;
+    padding-bottom: 2%;
+   padding-left: 2%;
+   padding-right: 2%;
+     font-size: 2vw;
+     color: #ffffff;
+     display: flex;
+justify-content: center;
+align-items: center;
+}
+}
+
+&_form_div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: space-between;
+  align-items: center;
+
+  .exam-preparation_div{
+    width: 80%;
+    
+    .exam-preparation{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6%;
+    }
+  }
+
+  .form_div_address_section{
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: $base-color;
+  width: 80%;
+.address_div{width: 100%;}
+.address_line1_div{width: 100%;}
+.address_line2_div{width: 100%;}
+.cityAndState_div{
+display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $base-color;
+  width: 100%;
+}
+.postalCodeAndCountry_div{
+display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $base-color;
+  width: 100%;
+}
+
+
+}
+
+.form-div_skills-and-hobbies-div{
+  width: 80%;
+  margin-bottom: 6%;
+  .skills-and-hobbies{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.form-div_professional_and_career-interest-div{
+  width: 80%;
+  margin-bottom: 6%;
+  .professional_and_career-interest{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.other-professional-interests_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 1.4vw;
+  }
+}
+
+.form-div_personal-description-div{
+  width: 80%;
+  margin-bottom: 6%;
+  .personal-description{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.other-personal-description_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 1.4vw;
+  }
+}
+
+.current-challenges_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 1.4vw;
+  }
+}
+.expected-gain_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 1.4vw;
+  }
+}
+
+.volunteering_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 1.4vw;
+  }
+}
+
+.mentoring-session-div{
+width: 80%;
+margin-bottom: 6%;
+
+.mentoring-session-frequency{
+  margin-bottom: 6%;
+}
+}
+
+.disability-option_div{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  .disability-option{
+      font-size: 1.3vw;
+  outline: none;
+  border: none;
+  background-color: white;
+  border-radius: 0.4vw;
+  color: #033347;
+  margin-bottom: 6%;
+  }
+}
+
+.special-need-brief_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 100%;
+  .textarea{
+   
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 1.4vw;
+  }
+}
+
+.area-of-mentorship-div{
+width: 80%;
+margin-bottom: 6%;
+
+}
+
+.interested-goals-div{
+  width: 80%;
+  margin-bottom: 6%;
+  .interested-goals{
+
+      display: -ms-grid;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+    
+  }
+}
+
+
+
+
+
+}
+
+}
+
+.mentee_profile_form_submitBTN_div{
+  margin-bottom: 6%;
+  width: 90%;
+border-radius: 0.4vw;
+margin-bottom: 5%;
+font-size: 1.1vw;
+display: flex;
+flex-direction: column;
+align-items: center;
+  .submitBTN{
+cursor: grab;
+background-color: #033347;
+border-radius: 0.4vw;
+padding-top: 2%;
+padding-bottom: 2%;
+padding-left: 2%;
+padding-right: 2%;
+font-size: 2vw;
+color: #ffffff;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 0.6s ease all;
+  }
+}
+
+
+    }
+ }
+}
+
+}}
+
+@media only screen and (max-width: 3050px) and (orientation: portrait) {
+  ::-webkit-scrollbar {
+ display: none;
+  }
+
+  #input_div_style{ 
+    label{width: fit-content;}
+    input{
+      font-size: 3.5vw; 
+      width: 30vw;  
+      height: 6vw;     
+  }
+}
+
+#input_div_style2{
+ 
+  input{
+     width: 20vw;  
+     font-size: 2.4vw;  
+}
+}
+
+#long_input_div_style{
+
+  input{
+   font-size: 3.5vw;
+   height: 6vw;        
+}
+}
+
+  body{
+  
+    overflow: hidden;
+    user-select: none;
+    
+    
+    .main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        font-family: sans-serif;
+    
+        header{
+            width: 0%;
+            visibility: hidden;
+            height: 100vh;
+            background-image: url(images/bkg.jpg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+           
+        }
+     .formSection{
+     overflow: scroll;
+        width: 100%;
+        height: 100vh;
+     .mentee_profile_form{ 
+     background-color: white;
+     margin-top: 10vh;
+            width: 100%;
+           display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+            align-items: center;
+    
+    span{font-size: 5vw;color: $base-color;margin-top: 4%;margin-bottom: 4%;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+    
+    &_personal_details_div{
+        width: 90%;
+        background-color:$complimentary-color2;
+        border-radius:0.4vw;  margin-bottom: 5%;
+        font-size: 3vw;
+        
+       
+    &_header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8%;
+    .pdHeader{
+        background-color: $base-color;
+        border-radius:0.4vw;   
+        padding-top: 2%;
+        padding-bottom: 2%;
+       padding-left: 2%;
+       padding-right: 2%;
+         font-size: 5vw;
+         color: #ffffff;
+         display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    }
+    
+    &_form_div{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    
+    
+    
+      .form_div_name_section{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $base-color;
+        width: 80%;
+        
+      }
+    
+    .form_div_address_section{
+          display: flex;
+          flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        color: $base-color;
+        width: 80%;
+     .address_div{width: 100%;}
+     .address_line1_div{width: 100%;}
+     .address_line2_div{width: 100%;}
+     .cityAndState_div{
+        display: flex;
+       flex-direction: column;
+        color: $base-color;
+        width: 100%;
+        
+     }
+    .postalCodeAndCountry_div{
+      display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $base-color;
+        width: 100%;
+    }
+    
+    
+    }
+    .form_div_telephone_section{
+      color: $base-color;
+      width: 80%;
+    }
+    
+
+    .form_div_email_section{
+      color: $base-color;
+      width: 80%;
+    
+    }  
+    
+    .form_div_dateOfBirth_section{
+      color: $base-color;
+      width: 80%;
+     .dateOfBirth_div{
+      width: 100%;
+        .dateOfBirth{font-size: 1.3vw;}
+      }
+    }  
+    
+    .form_div_gender_section{
+      color: $base-color;
+       width: 80%;
+      .gender_div{
+       
+        .gender{
+           width: 30%;
+          font-size: 2.4vw;
+        outline: none;
+      border: none;
+    background-color: white;
+    border-radius:0.4vw;color: $base-color;
+    
+    
+    }
+      }
+    }  
+
+    .form_div_ethnic-group_section{
+  color: $base-color;
+   width: 80%;
+  .ethnic-group_div{
+   
+    .ethnic-group{
+       width: 70%;
+      font-size: 2.4vw;
+    outline: none;
+  border: none;
+background-color: white;
+border-radius:0.4vw;color: $base-color;
+
+
+}
+  }
+} 
+    
+    .form_div_menteeAgeGroup_section{
+      color: $base-color;
+      width: 80%;
+      margin-bottom: 8%;
+     .menteeAgeGroup_div{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 16vw;
+      margin-bottom: 15%;
+        .menteeAgeGroup{width: 100%;}
+      }
+    }  
+    
+    .form_div_menteeGenderPreference_section{
+      margin-top: 20px;
+      color: $base-color;
+      width: 80%;
+      .menteeGenderPreference_div{
+    .menteeGenderPreference{width: 100%;
+      width: 30%;
+      font-size: 2.4vw;
+        outline: none;
+      border: none;
+    background-color: white;
+    border-radius:0.4vw;
+    color: $base-color;
+    
+    }
+      }
+    }  
+    
+    }
+    
+    }
+    
+    
+    &_education_div{
+      width: 90%;
+      background-color: $complimentary-color2;
+      border-radius:0.4vw;  margin-bottom: 5%;
+      font-size: 3vw;
+      color: $base-color;
+      
+     
+  &_header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8%;
+  .edHeader{
+      background-color: $base-color;
+      border-radius:0.4vw;  
+      padding-top: 2%;
+      padding-bottom: 2%;
+     padding-left: 2%;
+     padding-right: 2%;
+       font-size: 5vw;
+       color: #ffffff;
+       display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  }
+  
+  &_form_div{
+   
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-between;
+    align-items: center;
+    
+      width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: space-between;
+  align-items: center;
+
+  .exam-preparation_div{
+    width: 80%;
+    
+    .exam-preparation{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 6%;
+    }
+  }
+
+  .form_div_address_section{
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: $base-color;
+  width: 80%;
+.address_div{width: 100%;}
+.address_line1_div{width: 100%;}
+.address_line2_div{width: 100%;}
+.cityAndState_div{
+display: flex;
+flex-direction: column;
+ 
+  justify-content: space-between;
+  color: $base-color;
+  width: 100%;
+}
+.postalCodeAndCountry_div{
+display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $base-color;
+  width: 100%;
+}
+
+
+}
+
+.form-div_skills-and-hobbies-div{
+    width: 80%;
+    margin-bottom: 6%;
+    .skills-and-hobbies{
+     
+    }
+  }
+
+
+.form-div_professional_and_career-interest-div{
+  width: 80%;
+  margin-bottom: 6%;
+  .professional_and_career-interest{
+  
+  }
+}
+
+
+.other-professional-interests_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 3.5vw;
+  }
+}
+
+ 
+.form-div_personal-description-div{
+  width: 80%;
+  margin-bottom: 6%;
+  .personal-description{
+
+  }
+}
+.other-personal-description_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 3.5vw;
+  }
+}
+
+.current-challenges_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 3.5vw;
+  }
+}
+
+.expected-gain_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 3.5vw;
+  }
+}
+
+.volunteering_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 80%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 3.5vw;
+  }
+}
+
+.mentoring-session-div{
+width: 80%;
+margin-bottom: 6%;
+
+.mentoring-session-frequency{
+  margin-bottom: 6%;
+}
+}
+
+.disability-option_div{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  .disability-option{
+      font-size: 2.5vw;
+  outline: none;
+  border: none;
+  background-color: white;
+  border-radius: 0.4vw;
+  color: #033347;
+  margin-bottom: 6%;
+  }
+}
+
+.special-need-brief_div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  width: 100%;
+  .textarea{
+outline: none;
+border: none;
+background-color: white;
+border-radius: 0.4vw;
+color: #033347;
+height: 15vw;
+resize: none;
+overflow: auto;
+padding: 1vw 1vw;
+font-size: 3.5vw;
+  }
+}
+
+.area-of-mentorship-div{
+  width: 80%;
+  margin-bottom: 6%;
+  
+  }
+
+  .interested-goals-div{
+    width: 80%;
+    margin-bottom: 6%;
+    .interested-goals{
+
+      
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+  }
+  
+  } 
+
+
+.mentee_profile_form_submitBTN_div{
+  margin-bottom: 6%;
+  width: 90%;
+border-radius: 0.4vw;
+margin-bottom: 5%;
+display: flex;
+flex-direction: column;
+align-items: center;
+  .submitBTN{
+cursor: grab;
+background-color: #033347;
+border-radius: 0.4vw;
+padding-top: 2%;
+padding-bottom: 2%;
+padding-left: 2%;
+padding-right: 2%;
+font-size: 5vw;
+color: #ffffff;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 0.6s ease all;
+  }
+}
+
+
+
+
+  }
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    }
+    }
+    
+    }
+}

@@ -783,7 +783,12 @@ namespace FYMKWebApplication5.Controllers
             return View();
         }
 
-       
+        public ActionResult Email()
+        {
+            return View();
+        }
+
+
     }
 
     public interface ILogger<T>
