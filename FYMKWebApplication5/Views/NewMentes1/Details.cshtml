@@ -1,0 +1,739 @@
+﻿@model FYMKWebApplication5.Models.NewMente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NewMente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address_line1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address_line1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address_line2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address_line2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stateProvinceRegion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stateProvinceRegion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ethnic_group)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ethnic_group)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.menteeGenderPreference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menteeGenderPreference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.menteeGender_Preference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menteeGender_Preference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edHeader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edHeader)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GSCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GSCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.A_levels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.A_levels)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HED_U)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HED_U)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address_lineOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address_lineOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address_lineTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address_lineTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cityy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cityy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stateProvinceRegionn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stateProvinceRegionn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postalCodee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postalCodee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.countryy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.countryy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skills_and_hobbies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skills_and_hobbies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.visual_art)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.visual_art)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.movies_cinema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.movies_cinema)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creating_videos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creating_videos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sports)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sports)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.video_games)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.video_games)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.music)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.music)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.banking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.banking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cooking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cooking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.volunteering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.volunteering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.science_technology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.science_technology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.financial_services)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.financial_services)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Educa_tion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Educa_tion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.business_development)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.business_development)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.informatoin_technology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.informatoin_technology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.law_legal_litigation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.law_legal_litigation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicine_healthcare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicine_healthcare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.engineering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.engineering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publishing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publishing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.non_profit_charity_administration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.non_profit_charity_administration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.politics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.politics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marketing_advertising)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marketing_advertising)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.other_professional_interests_div)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.other_professional_interests_div)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.outgoing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.outgoing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.funny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.funny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lively)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lively)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.business_oriented)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.business_oriented)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.constructive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.constructive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empathetic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empathetic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.intuitive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.intuitive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passionate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passionate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reserved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reserved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reflective)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reflective)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vibrant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vibrant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.other_personal_description_div)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.other_personal_description_div)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.current_challenges_div)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.current_challenges_div)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expected_gain_div)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expected_gain_div)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.volunteering_div)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.volunteering_div)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weekly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weekly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fortnightly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fortnightly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monthly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monthly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.One_hour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.One_hour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OneFive_hour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OneFive_hour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Two_hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Two_hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.disability_option)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.disability_option)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.special_need_brief)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.special_need_brief)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Educationn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Educationn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entrepreneurship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entrepreneurship)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.developing_resilience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.developing_resilience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.college_options)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.college_options)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.career_without_niversity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.career_without_niversity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.building_confidence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.building_confidence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.volunteering_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.volunteering_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.interview_skills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.interview_skills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.getting_involved_in_community_work)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.getting_involved_in_community_work)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.career_options)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.career_options)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.changing_career)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.changing_career)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.finding_Jobs_locally)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.finding_Jobs_locally)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV_writing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV_writing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.university_applications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.university_applications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.developing_a_professional_network)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.developing_a_professional_network)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

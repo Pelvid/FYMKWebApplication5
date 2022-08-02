@@ -22,9 +22,8 @@ namespace FYMKWebApplication5.Controllers
         [HttpPost]
         public ActionResult SendEmail(string useremail)
         {
-            string subject = "Welcome to FreshYouthMK Mentorship Program";
-            string body = "Your Email is your UserName... And your LastName is the Password https://localhost:44386/Home/Login";
-
+            string subject = "Welcome to FreshYouthMK Mentorship Program ";
+            string body = "Your Email is your UserName... And your LastName is the Password https://instagram.com/ishepelvid?r=nametag";
             WebMail.Send(useremail, subject, body, null, null, null, true, null, null, null, null, null,null);
             //WebMail.Send(useremail, subject, body, null, null, null, true, null, null, null, null, null, null);
             ViewBag.msg = "email sent succesfully....";

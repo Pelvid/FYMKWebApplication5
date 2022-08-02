@@ -8,7 +8,7 @@ namespace FYMKWebApplication4.Models
 {
     public class Mentor
     {
-        public int Id { get; set; }
+        public int MentorId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         [Display(Name = "Address Line 1")]

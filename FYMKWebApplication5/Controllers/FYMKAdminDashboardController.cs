@@ -739,7 +739,7 @@ namespace FYMKWebApplication5.Controllers
 
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "Select Mentees.FirstName, Mentors.LastName from Mentors join Mentees ON Mentors.MentorId = Mentees.MentorId where (Mentors.MentorId = 2 OR Mentors.MentorId = 3OR Mentors.MentorId = 5OR Mentors.MentorId = 16)";
+                com.CommandText = "Select Mentees.FirstName, Mentors.LastName from Mentors join Mentees ON Mentors.MentorId = Mentees.MentorId where (Mentors.MentorId = 2 OR Mentors.MentorId = 3 OR Mentors.MentorId = 5OR Mentors.MentorId = 16)";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {

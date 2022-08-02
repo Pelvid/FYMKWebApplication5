@@ -23,6 +23,8 @@ namespace FYMKWebApplication5.Controllers
             return View(await mentees.ToListAsync());
         }
 
+
+
         // GET: Mentees1/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -57,6 +59,7 @@ namespace FYMKWebApplication5.Controllers
                 db.Mentees.Add(mentee);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
+
             }
 
             ViewBag.MentorId = new SelectList(db.Mentors, "Id", "FirstName", mentee.MentorId);

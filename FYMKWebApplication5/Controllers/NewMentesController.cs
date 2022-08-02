@@ -9,49 +9,49 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using FYMKWebApplication4.Models;
 using FYMKWebApplication5.Data;
+using FYMKWebApplication5.Models;
 
 namespace FYMKWebApplication5.Controllers
 {
-    public class MentorsController : ApiController
+    public class NewMentesController : ApiController
     {
         private FYMKWebApplication5Context db = new FYMKWebApplication5Context();
 
-        // GET: api/Mentors
-        public IQueryable<Mentor> GetMentors()
+        // GET: api/NewMentes
+        public IQueryable<NewMente> GetNewMentes()
         {
-            return db.Mentors;
+            return db.NewMentes;
         }
 
-        // GET: api/Mentors/5
-        [ResponseType(typeof(Mentor))]
-        public async Task<IHttpActionResult> GetMentor(int id)
+        // GET: api/NewMentes/5
+        [ResponseType(typeof(NewMente))]
+        public async Task<IHttpActionResult> GetNewMente(int id)
         {
-            Mentor mentor = await db.Mentors.FindAsync(id);
-            if (mentor == null)
+            NewMente newMente = await db.NewMentes.FindAsync(id);
+            if (newMente == null)
             {
                 return NotFound();
             }
 
-            return Ok(mentor);
+            return Ok(newMente);
         }
 
-        // PUT: api/Mentors/5
+        // PUT: api/NewMentes/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutMentor(int id, Mentor mentor)
+        public async Task<IHttpActionResult> PutNewMente(int id, NewMente newMente)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != mentor.MentorId)
+            if (id != newMente.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(mentor).State = EntityState.Modified;
+            db.Entry(newMente).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace FYMKWebApplication5.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MentorExists(id))
+                if (!NewMenteExists(id))
                 {
                     return NotFound();
                 }
@@ -72,35 +72,35 @@ namespace FYMKWebApplication5.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Mentors
-        [ResponseType(typeof(Mentor))]
-        public async Task<IHttpActionResult> PostMentor(Mentor mentor)
+        // POST: api/NewMentes
+        [ResponseType(typeof(NewMente))]
+        public async Task<IHttpActionResult> PostNewMente(NewMente newMente)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Mentors.Add(mentor);
+            db.NewMentes.Add(newMente);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = mentor.MentorId }, mentor);
+            return CreatedAtRoute("DefaultApi", new { id = newMente.Id }, newMente);
         }
 
-        // DELETE: api/Mentors/5
-        [ResponseType(typeof(Mentor))]
-        public async Task<IHttpActionResult> DeleteMentor(int id)
+        // DELETE: api/NewMentes/5
+        [ResponseType(typeof(NewMente))]
+        public async Task<IHttpActionResult> DeleteNewMente(int id)
         {
-            Mentor mentor = await db.Mentors.FindAsync(id);
-            if (mentor == null)
+            NewMente newMente = await db.NewMentes.FindAsync(id);
+            if (newMente == null)
             {
                 return NotFound();
             }
 
-            db.Mentors.Remove(mentor);
+            db.NewMentes.Remove(newMente);
             await db.SaveChangesAsync();
 
-            return Ok(mentor);
+            return Ok(newMente);
         }
 
         protected override void Dispose(bool disposing)
@@ -112,9 +112,12 @@ namespace FYMKWebApplication5.Controllers
             base.Dispose(disposing);
         }
 
-        private bool MentorExists(int id)
+        private bool NewMenteExists(int id)
         {
-            return db.Mentors.Count(e => e.MentorId == id) > 0;
+            return db.NewMentes.Count(e => e.Id == id) > 0;
         }
+
+
+
     }
 }

@@ -30,5 +30,7 @@ namespace FYMKWebApplication5.Data
         public System.Data.Entity.DbSet<FYMKWebApplication5.Models.Verify> Verifies { get; set; }
 
         public System.Data.Entity.DbSet<FYMKWebApplication5.Models.ProfileSettings> ProfileSettings { get; set; }
+        public System.Data.Entity.DbSet<FYMKWebApplication5.Models.NewMente> NewMentes { get; set; }
+
     }
 }
