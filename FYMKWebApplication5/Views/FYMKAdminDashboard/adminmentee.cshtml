@@ -7,144 +7,157 @@
 
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
-        <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+<!DOCTYPE html>
 
-                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
-            </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="@Url.Action("admindashboard","FYMKAdminDashboard")">
-                        Admin Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("adminmentorreview","FYMKAdminDashboard")">
-                        Mentor Review
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("adminmenteereview","FYMKAdminDashboard")">
-                        Mentee Review
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("adminmatch","FYMKAdminDashboard")">
-                        AdminMatch
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("adminprogram","FYMKAdminDashboard")">
-                        Program
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("adminprogram2","FYMKAdminDashboard")">
-                        Six Month Program
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("MatchRatio","FYMKAdminDashboard")">
-                        Match Ratio
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("adminmentor","FYMKAdminDashboard")">
-                        AdminMentor
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link active text-white" aria-current="page" href="@Url.Action("adminmentee","FYMKAdminDashboard")">
-                        AdminMentee
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("chat","FYMKAdminDashboard")">
-                        Chat
-                    </a>
-                </li>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0">
+    <title>Mentee Profile Form-Fresh Youth MK</title>
+    <link rel="stylesheet" href="mentee-form.css">
+    <link href="Newmentee-form.css" rel="stylesheet" />
+</head>
 
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("admincalender","FYMKAdminDashboard")">
-                        Calender
-                    </a>
-                </li>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
+            <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-
-                <li>
-                    <a class="nav-link text-white" href="@Url.Action("helpcentre","FYMKAdminDashboard")">
-                        Help Centre
-                    </a>
-                </li>
-
-            </ul>
-            <hr>
-            <div class="dropdown">
-                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>mdo</strong>
+                    <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="admin alert.html">Notifications</a></li>
-                    <li><a class="dropdown-item" href="admin setting.html">Settings</a></li>
-                    <li><a class="dropdown-item" href="admin profile.html">Profile</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("admindashboard","FYMKAdminDashboard")">
+                            Admin Dashboard
+                        </a>
                     </li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("adminmentorreview","FYMKAdminDashboard")">
+                            Mentor Review
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("adminmenteereview","FYMKAdminDashboard")">
+                            Mentee Review
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("adminmatch","FYMKAdminDashboard")">
+                            AdminMatch
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("adminprogram","FYMKAdminDashboard")">
+                            Program
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("adminprogram2","FYMKAdminDashboard")">
+                            Six Month Program
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("MatchRatio","FYMKAdminDashboard")">
+                            Match Ratio
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("adminmentor","FYMKAdminDashboard")">
+                            AdminMentor
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active text-white" aria-current="page" href="@Url.Action("adminmentee","FYMKAdminDashboard")">
+                            AdminMentee
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("chat","FYMKAdminDashboard")">
+                            Chat
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("admincalender","FYMKAdminDashboard")">
+                            Calender
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("helpcentre","FYMKAdminDashboard")">
+                            Help Centre
+                        </a>
+                    </li>
+
                 </ul>
+                <hr>
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>mdo</strong>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="admin alert.html">Notifications</a></li>
+                        <li><a class="dropdown-item" href="admin setting.html">Settings</a></li>
+                        <li><a class="dropdown-item" href="admin profile.html">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            
-
-            <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
 
+                <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
 
-            <div class="col-md">
-                <h2>Mentee List</h2>
-                <table class="table">
-                    <thead class="table-dark">
-                        <tr>
 
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                        </tr>
 
-                    </thead>
+                <div class="col-md">
+                    <h2>Mentee List</h2>
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
 
-                    <tbody>
-                        @{
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                            </tr>
 
-                            foreach (var Data in mnt)
-                            {
-                                <tr>
-                                    <td>@Data.FirstName</td>
-                                    <td>@Data.LastName</td>
-                                    <td>@Data.Email</td>
+                        </thead>
 
-                                </tr>
+                        <tbody>
+                            @{
+
+                                foreach (var Data in mnt)
+                                {
+                                    <tr>
+                                        <td>@Data.FirstName</td>
+                                        <td>@Data.LastName</td>
+                                        <td>@Data.Email</td>
+
+                                    </tr>
+                                }
+
                             }
 
-                        }
 
+                        </tbody>
 
-                    </tbody>
-
-                </table>
+                    </table>
 
 
 
 
-            </div>
+                </div>
 
 
 
@@ -159,10 +172,13 @@
 
 
 
-        </main>
+            </main>
 
+        </div>
     </div>
-</div>
+</body>
+</html>
+
 
 <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
