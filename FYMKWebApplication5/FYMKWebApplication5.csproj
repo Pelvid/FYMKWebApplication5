@@ -249,7 +249,7 @@
     <Compile Include="Controllers\NewMentes1Controller.cs" />
     <Compile Include="Controllers\NewMentesController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
-    <Compile Include="Controllers\Responses1Controller.cs" />
+    <Compile Include="Controllers\Responses2Controller.cs" />
     <Compile Include="Controllers\ResponsesController.cs" />
     <Compile Include="Controllers\Verifies1Controller.cs" />
     <Compile Include="Controllers\VerifiesController.cs" />
@@ -324,6 +324,10 @@
     <Compile Include="Migrations\202208032115176_Response.cs" />
     <Compile Include="Migrations\202208032115176_Response.Designer.cs">
       <DependentUpon>202208032115176_Response.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208042315164_ResponseUpdate.cs" />
+    <Compile Include="Migrations\202208042315164_ResponseUpdate.Designer.cs">
+      <DependentUpon>202208042315164_ResponseUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminCareerMatching.cs" />
@@ -843,12 +847,12 @@
     <Content Include="Views\NewMentes1\Edit.cshtml" />
     <Content Include="Views\NewMentes1\Index.cshtml" />
     <Content Include="Views\NewMentes1\SendEmail.cshtml" />
-    <Content Include="Views\Responses1\Create.cshtml" />
-    <Content Include="Views\Responses1\Delete.cshtml" />
-    <Content Include="Views\Responses1\Details.cshtml" />
-    <Content Include="Views\Responses1\Edit.cshtml" />
-    <Content Include="Views\Responses1\Index.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\MenteeFeedBack.cshtml" />
+    <Content Include="Views\Responses2\Create.cshtml" />
+    <Content Include="Views\Responses2\Delete.cshtml" />
+    <Content Include="Views\Responses2\Details.cshtml" />
+    <Content Include="Views\Responses2\Edit.cshtml" />
+    <Content Include="Views\Responses2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -934,6 +938,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208032115176_Response.resx">
       <DependentUpon>202208032115176_Response.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208042315164_ResponseUpdate.resx">
+      <DependentUpon>202208042315164_ResponseUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

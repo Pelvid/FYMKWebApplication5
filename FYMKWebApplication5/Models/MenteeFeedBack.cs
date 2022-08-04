@@ -9,5 +9,8 @@ namespace FYMKWebApplication5.Models
     {
         public string Id { get; set; }
         public string Comment { get; set; }
+        public string Mentee_FirstName { get; set; }
+        public string Mentee_LastName { get; set; }
+        public string MentorName { get; set; }
     }
 }

@@ -132,13 +132,19 @@
 
 
             <div class="col-md">
-                <h2>Mentor List</h2>
+                <h2>Mentee FeedBack</h2>
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
 
                             <th scope="col">Id</th>
                             <th scope="col">Comment</th>
+                            <th scope="col">Mentee FirstName</th>
+                            <th scope="col">Mentee LastName</th>
+                            <th scope="col">Mentor Name</th>
+
+
+
                         </tr>
                     </thead>
                     <tbody>
@@ -146,13 +152,16 @@
 
                             foreach (var Dataa in Feed)
                             {
-                                <tr>
-                                    <td>@Dataa.Id</td>
-                                    <td>@Dataa.Comment</td>
+                                                <tr>
+                                                    <td>@Dataa.Id</td>
+                                                    <td>@Dataa.Comment</td>
+                                                    <td>@Dataa.Mentee_FirstName</td>
+                                                    <td>@Dataa.Mentee_LastName</td>
+                                                    <td>@Dataa.MentorName</td>
 
 
 
-                                </tr>
+                                                </tr>
                             }
 
                         }

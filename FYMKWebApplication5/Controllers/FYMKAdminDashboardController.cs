@@ -788,7 +788,7 @@ namespace FYMKWebApplication5.Controllers
 
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [Id],[Comment] From Responses";
+                com.CommandText = "select Top (1000) [Id],[Comment],[Mentee_FirstName],[Mentee_LastName],[MentorName] From Responses";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -797,6 +797,14 @@ namespace FYMKWebApplication5.Controllers
                         Id = dr["Id"].ToString()
                     ,
                         Comment = dr["Comment"].ToString()
+                    ,
+                        Mentee_FirstName = dr["Mentee_FirstName"].ToString()
+                    ,
+                        Mentee_LastName = dr["Mentee_LastName"].ToString()
+                    ,
+                        MentorName = dr["MentorName"].ToString()
+
+
                     });
 
                 }

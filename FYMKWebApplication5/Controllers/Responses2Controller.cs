@@ -12,17 +12,17 @@ using FYMKWebApplication5.Models;
 
 namespace FYMKWebApplication5.Controllers
 {
-    public class Responses1Controller : Controller
+    public class Responses2Controller : Controller
     {
         private FYMKWebApplication5Context db = new FYMKWebApplication5Context();
 
-        // GET: Responses1
+        // GET: Responses2
         public async Task<ActionResult> Index()
         {
             return View(await db.Responses.ToListAsync());
         }
 
-        // GET: Responses1/Details/5
+        // GET: Responses2/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -37,18 +37,18 @@ namespace FYMKWebApplication5.Controllers
             return View(response);
         }
 
-        // GET: Responses1/Create
+        // GET: Responses2/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Responses1/Create
+        // POST: Responses2/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Comment")] Response response)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Mentee_FirstName,Mentee_LastName,MentorName,Comment")] Response response)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace FYMKWebApplication5.Controllers
             return View(response);
         }
 
-        // GET: Responses1/Edit/5
+        // GET: Responses2/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,12 +75,12 @@ namespace FYMKWebApplication5.Controllers
             return View(response);
         }
 
-        // POST: Responses1/Edit/5
+        // POST: Responses2/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Comment")] Response response)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Mentee_FirstName,Mentee_LastName,MentorName,Comment")] Response response)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace FYMKWebApplication5.Controllers
             return View(response);
         }
 
-        // GET: Responses1/Delete/5
+        // GET: Responses2/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -106,7 +106,7 @@ namespace FYMKWebApplication5.Controllers
             return View(response);
         }
 
-        // POST: Responses1/Delete/5
+        // POST: Responses2/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
