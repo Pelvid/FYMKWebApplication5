@@ -5,8 +5,9 @@ using System.Web;
 
 namespace FYMKWebApplication5.Models
 {
-    public class FeedBack
+    public class MenteeFeedBack
     {
-        public string Feedback { get; set; }
+        public string Id { get; set; }
+        public string Comment { get; set; }
     }
 }

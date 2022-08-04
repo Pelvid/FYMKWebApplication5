@@ -1,0 +1,91 @@
+﻿
+
+table {
+    border-collapse: collapse;
+    border:none;
+    width:100%;
+}
+
+table, th, td {
+  
+}
+
+th, td {
+    padding: 0.25em;
+    width:200px;
+
+}
+tb, .user-details{
+   
+  
+}
+tb,#display-photo{
+    width:40px;
+    height:40px;
+    background-color:black;
+    border-radius:100%;
+}
+tb, .user-details,#name{
+    display:flex;
+    flex-direction:column;
+}
+.name-line{
+   
+    display:flex;
+    justify-content:flex-start;
+   font-weight:450;
+   font-family:poppins;
+   font-size:1.2rem;
+}
+.name-line > #first-name{
+   
+    margin-right:10px;
+}
+#email{
+font-weight:bold;
+color:#989898;
+font-family:poppins;
+}
+#status-bar-div{
+   display:flex;
+   justify-content:center;
+}
+#status-head{
+   display:flex;
+   justify-content:center;
+}
+#status-bar {
+    width: 150px;
+    height: 40px;
+    background-color: #54b73f;
+    border-radius: 35px;
+}
+thead tr {
+    color: #010D12;
+}
+
+tbody tr.even {
+
+}
+
+tbody tr.odd {
+
+}
+
+th.dropdown-header > select {
+    background: inherit;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    th.dropdown-header > select:focus {
+        outline: none;
+    }
+
+table > thead th,
+table > thead th > select {
+    font-family: Arial;
+    font-size: 1em;
+    vertical-align: middle;
+}

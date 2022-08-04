@@ -37,6 +37,8 @@ namespace FYMKWebApplication5.Controllers
         List<AdminCareerMatching> adminCareerMatchings = new List<AdminCareerMatching>();
         List<CareerMatching> careerMatchings = new List<CareerMatching>();
         List<MatchRatio> MatchRatios = new List<MatchRatio>();
+        List<MenteeFeedBack> MenteeFeedBacks = new List<MenteeFeedBack>();
+
 
 
 
@@ -161,11 +163,15 @@ namespace FYMKWebApplication5.Controllers
 
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email] From Mentees";
+                com.CommandText = "select Top (1000) [Id],[FirstName],[LastName],[Email],[Countries] From Mentees";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    menteeTables.Add(new MenteeTable() { FirstName = dr["FirstName"].ToString() 
+                    menteeTables.Add(new MenteeTable() 
+                    {
+                        Id = dr["Id"].ToString()
+                    ,
+                        FirstName = dr["FirstName"].ToString() 
                     ,LastName = dr["LastName"].ToString()
                     ,Email = dr["Email"].ToString()
                     });
@@ -762,6 +768,48 @@ namespace FYMKWebApplication5.Controllers
 
         }
 
+
+        public ActionResult MenteeFeedBack()
+        {
+            MenteeeData();
+            Session["MenteeFeedBack"] = MenteeFeedBacks;
+            return View(MenteeFeedBacks);
+        }
+
+        private void MenteeeData()
+        {
+            if (MenteeFeedBacks.Count > 0)
+            {
+                MenteeFeedBacks.Clear();
+            }
+
+            try
+            {
+
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Top (1000) [Id],[Comment] From Responses";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    MenteeFeedBacks.Add(new MenteeFeedBack()
+                    {
+                        Id = dr["Id"].ToString()
+                    ,
+                        Comment = dr["Comment"].ToString()
+                    });
+
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public ActionResult adminsettings()
         {
             return View();
@@ -787,6 +835,7 @@ namespace FYMKWebApplication5.Controllers
         {
             return View();
         }
+
 
 
     }

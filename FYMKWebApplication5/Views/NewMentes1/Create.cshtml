@@ -716,7 +716,7 @@
                                 <div class="other-personal-description_div">
                                     @Html.LabelFor(model => model.other_personal_description_div, htmlAttributes: new { @class = "control-label col-md-5" })
                                     <div class="col-md">
-                                        @Html.EditorFor(model => model.other_personal_description_div, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.TextAreaFor(model => model.other_personal_description_div, new { htmlAttributes = new { @class = "form-control" } })
                                         @Html.ValidationMessageFor(model => model.other_personal_description_div, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -727,7 +727,7 @@
 
                                     @Html.LabelFor(model => model.current_challenges_div, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md">
-                                        @Html.EditorFor(model => model.current_challenges_div, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.TextAreaFor(model => model.current_challenges_div, new { htmlAttributes = new { @class = "form-control" } })
                                         @Html.ValidationMessageFor(model => model.current_challenges_div, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -741,7 +741,7 @@
                                     </label>
                                     @Html.LabelFor(model => model.expected_gain_div, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md">
-                                        @Html.EditorFor(model => model.expected_gain_div, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.TextAreaFor(model => model.expected_gain_div, new { htmlAttributes = new { @class = "form-control" } })
                                         @Html.ValidationMessageFor(model => model.expected_gain_div, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -755,7 +755,7 @@
                                     </label>
                                     @Html.LabelFor(model => model.volunteering_div, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md">
-                                        @Html.EditorFor(model => model.volunteering_div, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.TextAreaFor(model => model.volunteering_div, new { htmlAttributes = new { @class = "form-control" } })
                                         @Html.ValidationMessageFor(model => model.volunteering_div, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -849,7 +849,7 @@
 
                                         @Html.LabelFor(model => model.special_need_brief, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md">
-                                            @Html.EditorFor(model => model.special_need_brief, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.TextAreaFor(model => model.special_need_brief, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.special_need_brief, "", new { @class = "text-danger" })
                                         </div>
                                         <label for="">

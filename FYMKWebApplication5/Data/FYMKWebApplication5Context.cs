@@ -14,10 +14,6 @@ namespace FYMKWebApplication5.Data
         // automatically whenever you change your model schema, please use data migrations.
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-    
-        public FYMKWebApplication5Context() : base("name=FYMKWebApplication5Context")
-        {
-        }
 
         public System.Data.Entity.DbSet<FYMKWebApplication4.Models.Mentee> Mentees { get; set; }
 
@@ -31,6 +27,13 @@ namespace FYMKWebApplication5.Data
 
         public System.Data.Entity.DbSet<FYMKWebApplication5.Models.ProfileSettings> ProfileSettings { get; set; }
         public System.Data.Entity.DbSet<FYMKWebApplication5.Models.NewMente> NewMentes { get; set; }
+
+        public System.Data.Entity.DbSet<FYMKWebApplication5.Models.Response> Responses { get; set; }
+
+
+
+
+
 
     }
 }

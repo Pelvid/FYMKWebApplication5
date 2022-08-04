@@ -249,6 +249,8 @@
     <Compile Include="Controllers\NewMentes1Controller.cs" />
     <Compile Include="Controllers\NewMentesController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\Responses1Controller.cs" />
+    <Compile Include="Controllers\ResponsesController.cs" />
     <Compile Include="Controllers\Verifies1Controller.cs" />
     <Compile Include="Controllers\VerifiesController.cs" />
     <Compile Include="Data\FYMKWebApplication5Context.cs" />
@@ -311,6 +313,18 @@
     <Compile Include="Migrations\202208012021554_NewNewNewUp.Designer.cs">
       <DependentUpon>202208012021554_NewNewNewUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208032105493_Stupid.cs" />
+    <Compile Include="Migrations\202208032105493_Stupid.Designer.cs">
+      <DependentUpon>202208032105493_Stupid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208032109392_StupidTwp.cs" />
+    <Compile Include="Migrations\202208032109392_StupidTwp.Designer.cs">
+      <DependentUpon>202208032109392_StupidTwp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208032115176_Response.cs" />
+    <Compile Include="Migrations\202208032115176_Response.Designer.cs">
+      <DependentUpon>202208032115176_Response.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminCareerMatching.cs" />
     <Compile Include="Models\AdminCVMatching.cs" />
@@ -320,13 +334,13 @@
     <Compile Include="Models\AdminMenteeReview.cs" />
     <Compile Include="Models\AdminMentorReview.cs" />
     <Compile Include="Models\CareerMatching.cs" />
-    <Compile Include="Models\FeedBack.cs" />
     <Compile Include="Models\MatchRatio.cs" />
     <Compile Include="Models\CVMatching.cs" />
     <Compile Include="Models\MenteeCV.cs" />
     <Compile Include="Models\MatchingCheckbox.cs" />
     <Compile Include="Models\Mentee.cs" />
     <Compile Include="Models\MenteeCount.cs" />
+    <Compile Include="Models\MenteeFeedBack.cs" />
     <Compile Include="Models\MenteeTable.cs" />
     <Compile Include="Models\Mentor.cs" />
     <Compile Include="Models\MentorBioId.cs" />
@@ -335,6 +349,7 @@
     <Compile Include="Models\NewMente.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\ProfileSettings.cs" />
+    <Compile Include="Models\Response.cs" />
     <Compile Include="Models\Verify.cs" />
     <Compile Include="POST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -358,6 +373,7 @@
     <Content Include="cssss\Email.html" />
     <Content Include="cssss\font-awesome.css" />
     <Content Include="cssss\style.css" />
+    <Content Include="css\AdminMenteeCSS.css" />
     <Content Include="css\bootstrap-5.1.3-dist\css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-5.1.3-dist\css\bootstrap-grid.min.css" />
     <Content Include="css\bootstrap-5.1.3-dist\css\bootstrap-grid.rtl.css" />
@@ -432,6 +448,7 @@
     <Content Include="img\home-decor-1.jpg" />
     <Content Include="img\home-decor-2.jpg" />
     <Content Include="img\home-decor-3.jpg" />
+    <Content Include="img\icons8-checkmark.gif" />
     <Content Include="img\icons\flags\AU.png" />
     <Content Include="img\icons\flags\BR.png" />
     <Content Include="img\icons\flags\DE.png" />
@@ -493,6 +510,7 @@
     <Content Include="jsLogin\main.js" />
     <Content Include="jssss\jquery-2.1.4.min.js" />
     <Content Include="jssss\particles.min.js" />
+    <Content Include="js\AdminMenteeJS.js" />
     <Content Include="js\dashboard.js" />
     <Content Include="js\sidebars.js" />
     <Content Include="Matching JS\Matching.css" />
@@ -825,6 +843,12 @@
     <Content Include="Views\NewMentes1\Edit.cshtml" />
     <Content Include="Views\NewMentes1\Index.cshtml" />
     <Content Include="Views\NewMentes1\SendEmail.cshtml" />
+    <Content Include="Views\Responses1\Create.cshtml" />
+    <Content Include="Views\Responses1\Delete.cshtml" />
+    <Content Include="Views\Responses1\Details.cshtml" />
+    <Content Include="Views\Responses1\Edit.cshtml" />
+    <Content Include="Views\Responses1\Index.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\MenteeFeedBack.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -901,6 +925,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208012021554_NewNewNewUp.resx">
       <DependentUpon>202208012021554_NewNewNewUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208032105493_Stupid.resx">
+      <DependentUpon>202208032105493_Stupid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208032109392_StupidTwp.resx">
+      <DependentUpon>202208032109392_StupidTwp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208032115176_Response.resx">
+      <DependentUpon>202208032115176_Response.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
