@@ -38,6 +38,8 @@ namespace FYMKWebApplication5.Controllers
         List<CareerMatching> careerMatchings = new List<CareerMatching>();
         List<MatchRatio> MatchRatios = new List<MatchRatio>();
         List<MenteeFeedBack> MenteeFeedBacks = new List<MenteeFeedBack>();
+        List<MatchingRatio> matchingRatios = new List<MatchingRatio>();
+
 
 
 
@@ -86,6 +88,7 @@ namespace FYMKWebApplication5.Controllers
             Session["Mentorcount"] = mentorCounts;
             Session["MenteeTable"] = menteeTables;
             Session["MentorTable"] = mentorTables;
+            Session["MatchingRatio"] = matchingRatios;
             return View(mentorCounts);
             
         }
@@ -153,7 +156,41 @@ namespace FYMKWebApplication5.Controllers
             }
 
 
-            if(menteeTables.Count > 0)
+            if (matchingRatios.Count > 0)
+
+            {
+                matchingRatios.Clear();
+
+            }
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "SELECT (select count(Id)  from Mentees) / (select count(MentorId) from Mentors) as Total_Matched";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    matchingRatios.Add(new MatchingRatio()
+                    {
+                        Id = dr["Total_Matched"].ToString()
+                    ,
+                        MentorId = dr["Total_Matched"].ToString()
+                    ,
+                        Total_Matched = dr["Total_Matched"].ToString()
+
+                    });
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            if (menteeTables.Count > 0)
             {
                 menteeTables.Clear();
             }
@@ -163,7 +200,7 @@ namespace FYMKWebApplication5.Controllers
 
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [Id],[FirstName],[LastName],[Email],[Countries] From Mentees";
+                com.CommandText = "select Top (1000) [Id],[FirstName],[LastName],[Email],[MyProper] From Mentees";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -174,6 +211,8 @@ namespace FYMKWebApplication5.Controllers
                         FirstName = dr["FirstName"].ToString() 
                     ,LastName = dr["LastName"].ToString()
                     ,Email = dr["Email"].ToString()
+                    ,
+                        MyProper = dr["MyProper"].ToString()
                     });
                 }
                 con.Close();
@@ -196,7 +235,7 @@ namespace FYMKWebApplication5.Controllers
 
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email] From Mentors";
+                com.CommandText = "select Top (1000) [FirstName],[LastName],[Email],[Date] From Mentors";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -206,6 +245,8 @@ namespace FYMKWebApplication5.Controllers
                         LastName = dr["LastName"].ToString()
                     ,
                         Email = dr["Email"].ToString()
+                    ,
+                        Date = dr["Date"].ToString()
                     });
                    
                 }
@@ -745,7 +786,7 @@ namespace FYMKWebApplication5.Controllers
 
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "Select Mentees.FirstName, Mentors.LastName from Mentors join Mentees ON Mentors.MentorId = Mentees.MentorId where (Mentors.MentorId = 2 OR Mentors.MentorId = 3 OR Mentors.MentorId = 5OR Mentors.MentorId = 16)";
+                com.CommandText = "Select Mentees.FirstName, Mentors.LastName from Mentors join Mentees ON Mentors.MentorId = Mentees.MentorId where (Mentors.MentorId = 1 OR Mentors.MentorId = 2 OR Mentors.MentorId = 3 OR Mentors.MentorId = 4 OR Mentors.MentorId = 5 OR Mentors.MentorId = 6 OR Mentors.MentorId = 7 OR Mentors.MentorId = 8 OR Mentors.MentorId = 9)";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -788,7 +829,7 @@ namespace FYMKWebApplication5.Controllers
 
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [Id],[Comment],[Mentee_FirstName],[Mentee_LastName],[MentorName] From Responses";
+                com.CommandText = "select Top (1000) [Id],[Mentee_FirstName],[Mentee_LastName],[MentorName],[Comment]From Responses";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -796,13 +837,13 @@ namespace FYMKWebApplication5.Controllers
                     {
                         Id = dr["Id"].ToString()
                     ,
-                        Comment = dr["Comment"].ToString()
-                    ,
                         Mentee_FirstName = dr["Mentee_FirstName"].ToString()
                     ,
                         Mentee_LastName = dr["Mentee_LastName"].ToString()
                     ,
-                        MentorName = dr["MentorName"].ToString()
+                        MentorName = dr["MentorName"].ToString()  
+                    ,   
+                        Comment = dr["Comment"].ToString()
 
 
                     });

@@ -338,6 +338,7 @@
     <Compile Include="Models\AdminMenteeReview.cs" />
     <Compile Include="Models\AdminMentorReview.cs" />
     <Compile Include="Models\CareerMatching.cs" />
+    <Compile Include="Models\MatchingRatio.cs" />
     <Compile Include="Models\MatchRatio.cs" />
     <Compile Include="Models\CVMatching.cs" />
     <Compile Include="Models\MenteeCV.cs" />

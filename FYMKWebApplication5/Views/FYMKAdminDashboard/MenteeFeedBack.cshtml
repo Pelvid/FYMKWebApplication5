@@ -137,11 +137,11 @@
                     <thead class="table-dark">
                         <tr>
 
-                            <th scope="col">Id</th>
-                            <th scope="col">Comment</th>
-                            <th scope="col">Mentee FirstName</th>
-                            <th scope="col">Mentee LastName</th>
+                            @*<th scope="col">Id</th>*@
+                            <th scope="col">Mentee First Name</th>
+                            <th scope="col">Mentee Last Name</th>
                             <th scope="col">Mentor Name</th>
+                            <th scope="col">Comment</th>
 
 
 
@@ -153,11 +153,11 @@
                             foreach (var Dataa in Feed)
                             {
                                                 <tr>
-                                                    <td>@Dataa.Id</td>
-                                                    <td>@Dataa.Comment</td>
+                                                    @*<td>@Dataa.Id</td>*@
                                                     <td>@Dataa.Mentee_FirstName</td>
                                                     <td>@Dataa.Mentee_LastName</td>
                                                     <td>@Dataa.MentorName</td>
+                                                    <td>@Dataa.Comment</td>
 
 
 
