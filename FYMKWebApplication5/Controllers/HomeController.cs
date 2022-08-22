@@ -14,12 +14,14 @@ namespace Login.Controllers
     {
 
 
-        FYMKWebApplication5Context db = new FYMKWebApplication5Context();         
+        FYMKWebApplication5Context db = new FYMKWebApplication5Context();
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
         SqlConnection con = new SqlConnection();
 
         List<GetMentorName> getMentorNames = new List<GetMentorName>();
+        List<GetMenteeName> getmenteename = new List<GetMenteeName>();
+
         public HomeController()
         {
             //ILogger<FYMKAdminDashboardController> logger
@@ -52,13 +54,19 @@ namespace Login.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(Mentee mentee)
+        public ActionResult Loginclick(Mentee mentee)
         {
-            var obj = db.Mentees.Where(x => x.Email.Equals(mentee.Email) && x.LastName.Equals(mentee.LastName)).FirstOrDefault();
-            if (obj != null)
+
+            var Mobj = db.Mentees.Where(x => x.Email.Equals(mentee.Email) && x.LastName.Equals(mentee.LastName)).FirstOrDefault();
+            if (Mobj != null)
             {
-                //Session["MenteeID"] = obj.Id;
+                Session["MenteeName"] = Mobj.FirstName;
+                Session["Mentee"] = Mobj.MenteeId;
                 return RedirectToAction("FYMKMentee");
+            }
+            else if (Mobj == null)
+            {
+                return RedirectToAction("FYMKAdminDashboard");
             }
             else if (mentee.Email == "admin@gmail.com" && mentee.LastName == "admin")
             {
@@ -66,11 +74,32 @@ namespace Login.Controllers
             }
 
             return View();
+
+
+
+            //var obj = db.Mentees.Where(x => x.Email.Equals(mentee.Email) && x.LastName.Equals(mentee.LastName)).FirstOrDefault();
+            //if (obj != null)
+            //{
+            //    Session["Name"] = obj.FirstName;
+            //    Session["UserId"] = obj.Id; 
+            //    return RedirectToAction("FYMKMentee");
+            //}
+            //else if (mentee.Email == "admin@gmail.com" && mentee.LastName == "admin")
+            //{
+            //    return RedirectToAction("FYMKAdminDashboard");
+            //}
+
+            //return View();
         }
 
         public ActionResult FYMKMentee()
         {
-            return View();
+            FetchData();
+            string menteeName = Session["MenteeName"].ToString();
+            Session["getmenteename"] = getmenteename;
+            ViewBag.MenteeUsername = menteeName;
+            return View(getmenteename);
+            //return View();
         }
 
         public ActionResult FYMKAdminDashboard()
@@ -78,7 +107,7 @@ namespace Login.Controllers
             return View();
         }
 
-         [HttpPost]
+        [HttpPost]
         public ActionResult Front(Mentor mentor)
         {
             db.Mentors.Add(mentor);
@@ -153,7 +182,7 @@ namespace Login.Controllers
             }
 
             return View();
-         //   return View("vvv");
+            //   return View("vvv");
         }
 
 

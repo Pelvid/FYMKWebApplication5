@@ -12,7 +12,8 @@ namespace FYMKWebApplication4.Models
 
     public class Mentee
     {
-        public int Id { get; set; }
+        public int MenteeId { get; set; }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         [Display(Name = "Address Line 1")]

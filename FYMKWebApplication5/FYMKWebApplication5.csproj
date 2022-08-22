@@ -329,6 +329,14 @@
     <Compile Include="Migrations\202208042315164_ResponseUpdate.Designer.cs">
       <DependentUpon>202208042315164_ResponseUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208220336450_data.cs" />
+    <Compile Include="Migrations\202208220336450_data.Designer.cs">
+      <DependentUpon>202208220336450_data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208220354023_mentordatt.cs" />
+    <Compile Include="Migrations\202208220354023_mentordatt.Designer.cs">
+      <DependentUpon>202208220354023_mentordatt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminCareerMatching.cs" />
     <Compile Include="Models\AdminCVMatching.cs" />
@@ -338,6 +346,7 @@
     <Compile Include="Models\AdminMenteeReview.cs" />
     <Compile Include="Models\AdminMentorReview.cs" />
     <Compile Include="Models\CareerMatching.cs" />
+    <Compile Include="Models\GetMenteeName.cs" />
     <Compile Include="Models\GetMentorName.cs" />
     <Compile Include="Models\MatchingRatio.cs" />
     <Compile Include="Models\MatchRatio.cs" />
@@ -809,7 +818,6 @@
     <Content Include="Views\LandingPage\LandingPage.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\Successful_Created.cshtml" />
     <Content Include="Views\Login_LayoutPage2.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\FYMKAdminDashboard.cshtml" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
@@ -857,6 +865,7 @@
     <Content Include="Views\Home\MentorSignIn.cshtml" />
     <Content Include="Views\Home\Getin.cshtml" />
     <Content Include="Views\Home\FYMKMentorDashboard.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -945,6 +954,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208042315164_ResponseUpdate.resx">
       <DependentUpon>202208042315164_ResponseUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208220336450_data.resx">
+      <DependentUpon>202208220336450_data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208220354023_mentordatt.resx">
+      <DependentUpon>202208220354023_mentordatt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

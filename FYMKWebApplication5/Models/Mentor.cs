@@ -194,6 +194,7 @@ namespace FYMKWebApplication4.Models
         public bool GDPR { get; set; }
 
         //Foreign Key
+        public int MenteeId { get; set; }
         //public int MenteeId { get; set; }
         //public int MentorStringId { get; set; }
         //Navigation Property

@@ -1,10 +1,31 @@
-﻿
+﻿@model List<FYMKWebApplication4.Models.Mentor>
+
 
 @{
     ViewBag.Title = "Program";
     Layout = "~/Views/Mentor_LayoutPage2.cshtml";
 }
 
+
+
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        color: #555;
+        background: #ececec;
+        margin-top: 20px;
+    }
+
+    .project-list > tbody > tr > td {
+        padding: 12px 8px;
+    }
+
+        .project-list > tbody > tr > td .avatar {
+            width: 22px;
+            border: 1px solid #CCC;
+        }
+</style>
 <div class="container-fluid">
     <div class="row">
         <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
@@ -20,10 +41,10 @@
                     </a>
                 </li>
                 @*<li>
-                    <a class="nav-link  text-white" href="@Url.Action("Mentor","FYMKMentee")">
-                        Mentor
-                    </a>
-                </li>*@
+                        <a class="nav-link  text-white" href="@Url.Action("Mentor","FYMKMentee")">
+                            Mentor
+                        </a>
+                    </li>*@
                 <li>
                     <a class="nav-link active text-white" aria-current="page" href="@Url.Action("Program","FYMKMentee")">
                         Programs
@@ -76,12 +97,44 @@
             <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
 
 
-            
 
-            
-
-
-
+            <div class="container bootstrap snippets bootdey">
+                <div class="table-responsive">
+                    PROJECT TABLE
+                    <table class="table colored-header datatable project-list">
+                        <thead>
+                            <tr>
+                                <th>Mentor FirstName</th>
+                                <th>Mentor LastName</th>
+                                <th>Date Start</th>
+                                <th>Progress</th>
+                                <th>Priority</th>
+                                <th>Leader</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.FirstName</td>
+                                    <td>@item.LastName</td>
+                                    <td>@item.MyProperty</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar" data-transitiongoal="95" aria-valuenow="95" style="width: 95%;">95%</div>
+                                        </div>
+                                    </td>
+                                    <td><span class="label label-warning">MEDIUM</span></td>
+                                    <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Avatar" class="avatar img-circle"> <a href="#">Michael</a></td>
+                                    <td><span class="label label-success">ACTIVE</span></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    END PROJECT TABLE
+                </div>
+            </div>
 
 
 

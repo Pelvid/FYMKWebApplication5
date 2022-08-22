@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FYMKWebApplication5.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace FYMKWebApplication5.Controllers
 {
     public class FYMKMenteeController : Controller
     {
+        FYMKWebApplication5Context db = new FYMKWebApplication5Context();
+
         // GET: FYMKMentee
         public ActionResult Index()
         {
@@ -19,7 +22,14 @@ namespace FYMKWebApplication5.Controllers
         }
         public ActionResult Program()
         {
-            return View();
+            string Mentee = Session["Mentee"].ToString();
+            if (Mentee == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            int id = Convert.ToInt32(Mentee);
+            var Mobj = db.Mentors.Where(x => x.MenteeId == id).ToList();
+            return View(Mobj);
         }
         public ActionResult Chat()
         {

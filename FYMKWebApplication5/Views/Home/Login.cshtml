@@ -1,16 +1,15 @@
 ﻿@model FYMKWebApplication4.Models.Mentee
+
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Login_LayoutPage2.cshtml";
 }
 
-
-
-
 <body class="text-center">
 
     <main class="form-signin">
-        <form action="@Url.Action("Login", "Home")" method="post">
+        <form action="@Url.Action("LoginClick", "Home")" method="post">
+
             <img src="~/img/FYMK-Square-512.png" alt="" width="150" style="margin-top: 2rem;" />
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 

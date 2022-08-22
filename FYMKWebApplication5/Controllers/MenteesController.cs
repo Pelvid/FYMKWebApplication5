@@ -46,7 +46,7 @@ namespace FYMKWebApplication5.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != mentee.Id)
+            if (id != mentee.MenteeId)
             {
                 return BadRequest();
             }
@@ -84,7 +84,7 @@ namespace FYMKWebApplication5.Controllers
             db.Mentees.Add(mentee);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = mentee.Id }, mentee);
+            return CreatedAtRoute("DefaultApi", new { id = mentee.MenteeId }, mentee);
         }
 
         // DELETE: api/Mentees/5
@@ -114,7 +114,7 @@ namespace FYMKWebApplication5.Controllers
 
         private bool MenteeExists(int id)
         {
-            return db.Mentees.Count(e => e.Id == id) > 0;
+            return db.Mentees.Count(e => e.MenteeId == id) > 0;
         }
     }
 }
