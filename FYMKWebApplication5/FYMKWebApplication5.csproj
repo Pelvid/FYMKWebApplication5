@@ -338,6 +338,7 @@
     <Compile Include="Models\AdminMenteeReview.cs" />
     <Compile Include="Models\AdminMentorReview.cs" />
     <Compile Include="Models\CareerMatching.cs" />
+    <Compile Include="Models\GetMentorName.cs" />
     <Compile Include="Models\MatchingRatio.cs" />
     <Compile Include="Models\MatchRatio.cs" />
     <Compile Include="Models\CVMatching.cs" />
@@ -809,7 +810,6 @@
     <Content Include="Views\FYMKAdminDashboard\Successful_Created.cshtml" />
     <Content Include="Views\Login_LayoutPage2.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\FYMKMentorDashboard.cshtml" />
     <Content Include="Views\Home\FYMKAdminDashboard.cshtml" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
@@ -854,6 +854,9 @@
     <Content Include="Views\Responses2\Details.cshtml" />
     <Content Include="Views\Responses2\Edit.cshtml" />
     <Content Include="Views\Responses2\Index.cshtml" />
+    <Content Include="Views\Home\MentorSignIn.cshtml" />
+    <Content Include="Views\Home\Getin.cshtml" />
+    <Content Include="Views\Home\FYMKMentorDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

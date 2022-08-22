@@ -1,13 +1,14 @@
 ﻿@model FYMKWebApplication4.Models.Mentor
+
 @{
-    ViewBag.Title = "SignIn";
+    ViewBag.Title = "MentorSignIn";
     Layout = "~/Views/Login_LayoutPage2.cshtml";
 }
 
 <body class="text-center">
 
     <main class="form-signin">
-        <form action="#" method="post">
+        <form action="@Url.Action("MentorSignInClick", "Home")" method="post">
             <img src="~/img/FYMK-Square-512.png" alt="" width="150" style="margin-top: 2rem;" />
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
@@ -29,7 +30,7 @@
 
             <div class="checkbox mb-3">
                 <label>
-                    <input type="checkbox" value="remember-me"> Remember me
+                    <input type="checkbox" value="remember-me" required> Remember me
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
@@ -40,5 +41,4 @@
 
 
 </body>
-
 

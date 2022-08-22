@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FYMKWebApplication5.Properties {
+namespace FYMKWebApplication4.Properties {
     using System;
     
     

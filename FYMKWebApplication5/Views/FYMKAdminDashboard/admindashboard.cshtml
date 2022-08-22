@@ -12,6 +12,9 @@
 
     List<FYMKWebApplication5.Models.MentorTable> ment = (List<FYMKWebApplication5.Models.MentorTable>)Session["MentorTable"];
 
+    List<FYMKWebApplication5.Models.MatchingRatio> ratio = (List<FYMKWebApplication5.Models.MatchingRatio>)Session["MatchingRatio"];
+
+
 
 
 
@@ -186,9 +189,9 @@
                             <h4>
                                 @{
 
-                                    foreach (var Data in mncnt)
+                                    foreach (var Data in ratio)
                                     {
-                                        @Data.Id;
+                                        @Data.Total_Matched;
 
                                     }
 

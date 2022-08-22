@@ -52,7 +52,7 @@ namespace FYMKWebApplication5.Controllers
         {
             //ILogger<FYMKAdminDashboardController> logger
             // _logger = logger;
-            con.ConnectionString = FYMKWebApplication5.Properties.Resources.ConnectionString2;
+            con.ConnectionString = FYMKWebApplication4.Properties.Resources.ConnectionString2;
         }
 
         public IEnumerable<object> Mentees1 { get; private set; }

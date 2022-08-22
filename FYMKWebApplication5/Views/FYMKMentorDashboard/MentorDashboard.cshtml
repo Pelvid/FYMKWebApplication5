@@ -1,5 +1,8 @@
 ﻿
 @{
+
+    string name = ViewBag.Username;
+
     ViewBag.Title = "MentorDashboard";
     Layout = "~/Views/Mentor_LayoutPage2.cshtml";
 }
@@ -7,32 +10,18 @@
 
 
 
-<style>
-    body {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 13px;
-        color: #555;
-        background: #ececec;
-        margin-top: 20px;
-    }
 
-    .project-list > tbody > tr > td {
-        padding: 12px 8px;
-    }
-
-        .project-list > tbody > tr > td .avatar {
-            width: 22px;
-            border: 1px solid #CCC;
-        }
-</style>
 <div class="container-fluid">
     <div class="row">
         <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150" style="margin-top: 2rem;" />
             </a>
+            <div>
+                <span><b>Welcome @name</b></span>
+            </div>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li>
@@ -93,9 +82,10 @@
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>mdo</strong>
+                    <strong>@name</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+
                     <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Index","FYMKMentorDashboard")">Notifications</a></li>
                     <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Setting","FYMKMentorDashboard")">Settings</a></li>
                     <li><a class="dropdown-item" aria-current="page" href="@Url.Action("MentorProfile","FYMKMentorDashboard")">Profile</a></li>
@@ -110,12 +100,13 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             @*<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Mentor Dashboard</h1>
+            <h1 class="h2">Mentor Dashboard</h1>
 
-            </div>*@
+        </div>*@
 
             <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
 
+            
 
 
 
@@ -128,119 +119,7 @@
 
 
 
-
-            <div class="container bootstrap snippets bootdey">
-                <div class="table-responsive">
-                    <!-- PROJECT TABLE -->
-                    <table class="table colored-header datatable project-list">
-                        <thead>
-                            <tr>
-                                <th>Mentee Name</th>
-                                <th>Date Start</th>
-                                <th>Mentee Programe</th>
-                                <th>Progress</th>
-                                <th>Priority</th>
-                                <th>Leader</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="#">Spot Media</a></td>
-                                <td>18-05-2014</td>
-                                <td>12 days</td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar" data-transitiongoal="95" aria-valuenow="95" style="width: 95%;">95%</div>
-                                    </div>
-                                </td>
-                                <td><span class="label label-warning">MEDIUM</span></td>
-                                <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Avatar" class="avatar img-circle"> <a href="#">Michael</a></td>
-                                <td><span class="label label-success">ACTIVE</span></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">E-Commerce Site</a></td>
-                                <td>24-05-2014</td>
-                                <td>30 days</td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar" data-transitiongoal="40" aria-valuenow="40" style="width: 40%;">40%</div>
-                                    </div>
-                                </td>
-                                <td><span class="label label-success">LOW</span></td>
-                                <td><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Avatar" class="avatar img-circle"> <a href="#">Antonius</a></td>
-                                <td><span class="label label-warning">PENDING</span></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Project 123GO</a></td>
-                                <td>20-09-2014</td>
-                                <td>50 days</td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar" data-transitiongoal="65" aria-valuenow="65" style="width: 65%;">65%</div>
-                                    </div>
-                                </td>
-                                <td><span class="label label-danger">HIGH</span></td>
-                                <td><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Avatar" class="avatar"> <a href="#">Antonius</a></td>
-                                <td><span class="label label-success">ACTIVE</span></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Wordpress Theme</a></td>
-                                <td>05-10-2014</td>
-                                <td>40 days</td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar" data-transitiongoal="77" aria-valuenow="77" style="width: 77%;">77%</div>
-                                    </div>
-                                </td>
-                                <td><span class="label label-warning">MEDIUM</span></td>
-                                <td><img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="Avatar" class="avatar"> <a href="#">Michael</a></td>
-                                <td><span class="label label-success">ACTIVE</span></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Redesign Landing Page</a></td>
-                                <td>15-11-2014</td>
-                                <td>30 days</td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar" data-transitiongoal="25" aria-valuenow="25" style="width: 25%;">25%</div>
-                                    </div>
-                                </td>
-                                <td><span class="label label-success">LOW</span></td>
-                                <td><img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="Avatar" class="avatar"> <a href="#">Jason</a></td>
-                                <td><span class="label label-success">ACTIVE</span></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Wordpress Theme</a></td>
-                                <td>05-10-2014</td>
-                                <td>N/A</td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-default" data-transitiongoal="100" aria-valuenow="100" style="width: 100%;">100%</div>
-                                    </div>
-                                </td>
-                                <td><span class="label label-default">MEDIUM</span></td>
-                                <td><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Avatar" class="avatar"> <a href="#">Michael</a></td>
-                                <td><span class="label label-default">CLOSED</span></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Redesign Landing Page</a></td>
-                                <td>15-11-2014</td>
-                                <td>30 days</td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar" data-transitiongoal="33" aria-valuenow="33" style="width: 33%;">33%</div>
-                                    </div>
-                                </td>
-                                <td><span class="label label-success">LOW</span></td>
-                                <td><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Avatar" class="avatar"> <a href="#">Jason</a></td>
-                                <td><span class="label label-warning">PENDING</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- END PROJECT TABLE -->
-                </div>
-            </div>
+          
 
 
 

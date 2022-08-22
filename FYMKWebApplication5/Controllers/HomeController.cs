@@ -5,12 +5,30 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FYMKWebApplication4.Models;
+using System.Data.SqlClient;
+using FYMKWebApplication5.Models;
 
 namespace Login.Controllers
 {
     public class HomeController : Controller
     {
-        FYMKWebApplication5Context db = new FYMKWebApplication5Context();
+
+
+        FYMKWebApplication5Context db = new FYMKWebApplication5Context();         
+        SqlCommand com = new SqlCommand();
+        SqlDataReader dr;
+        SqlConnection con = new SqlConnection();
+
+        List<GetMentorName> getMentorNames = new List<GetMentorName>();
+        public HomeController()
+        {
+            //ILogger<FYMKAdminDashboardController> logger
+            // _logger = logger;
+            con.ConnectionString = FYMKWebApplication4.Properties.Resources.ConnectionString2;
+        }
+
+        public IEnumerable<object> Mentees1 { get; private set; }
+
         // GET: Home
         [HttpGet]
         public ActionResult Index()
@@ -78,8 +96,10 @@ namespace Login.Controllers
         public ActionResult SignIn(Mentor mentor)
         {
             var obj = db.Mentors.Where(x => x.Email.Equals(mentor.Email) && x.LastName.Equals(mentor.LastName)).FirstOrDefault();
+            //if (obj != null)
             if (obj != null)
             {
+                Session["Name"] = mentor.FirstName;
                 return RedirectToAction("FYMKMentorDashboard");
             }
             else if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin")
@@ -87,12 +107,16 @@ namespace Login.Controllers
                 return RedirectToAction("FYMKAdminDashboards");
             }
 
-            return View();
+            return View("Tunji");
         }
 
         public ActionResult FYMKMentorDashboard()
         {
-            return View();
+            FetchData();
+            string myName = Session["Name"].ToString();
+            Session["GetMentorName"] = getMentorNames;
+            ViewBag.Username = myName;
+            return View(getMentorNames);
         }
 
         public ActionResult FYMKAdminDashboards()
@@ -101,6 +125,71 @@ namespace Login.Controllers
         }
 
 
+        public ActionResult MentorSignIn()
+        {
+
+            return View();
+
+        }
+
+
+        public ActionResult MentorSignInClick(Mentor mentor)
+        {
+
+            var obj = db.Mentors.Where(x => x.Email.Equals(mentor.Email) && x.LastName.Equals(mentor.LastName)).FirstOrDefault();
+            if (obj != null)
+            {
+                Session["Name"] = obj.FirstName;
+                Session["UserId"] = obj.MentorId;
+                return RedirectToAction("FYMKMentorDashboard");
+            }
+            else if (obj == null)
+            {
+                return RedirectToAction("FYMKAdminDashboard");
+            }
+            else if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin")
+            {
+                return RedirectToAction("FYMKAdminDashboard");
+            }
+
+            return View();
+         //   return View("vvv");
+        }
+
+
+        private void FetchData()
+        {
+
+
+            if (getMentorNames.Count > 0)
+
+            {
+                getMentorNames.Clear();
+
+            }
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "Select  FirstName From Mentors ";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    getMentorNames.Add(new GetMentorName()
+                    {
+                        FirstName = dr["FirstName"].ToString()
+                    });
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
 
     }
 
