@@ -170,6 +170,7 @@ namespace Login.Controllers
             {
                 Session["Name"] = obj.FirstName;
                 Session["UserId"] = obj.MentorId;
+                Session["MenteeUserId"] = obj.MenteeId;
                 return RedirectToAction("FYMKMentorDashboard");
             }
             else if (obj == null)

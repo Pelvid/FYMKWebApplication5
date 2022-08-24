@@ -20,6 +20,7 @@ namespace FYMKWebApplication5.Controllers
         public async Task<ActionResult> Index()
         {
             var mentees = db.Mentees.Include(m => m.Mentor);
+
             return View(await mentees.ToListAsync());
         }
 

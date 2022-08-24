@@ -1,7 +1,8 @@
-﻿
+﻿@model List<FYMKWebApplication4.Models.Mentor>
+
 @{
 
-    string name = ViewBag.Username;
+    //string name = ViewBag.Username;
 
     ViewBag.Title = "MentorDashboard";
     Layout = "~/Views/Mentor_LayoutPage2.cshtml";
@@ -20,8 +21,16 @@
                 <img src="~/img/FYMK-Square-512.png" alt="" width="150" style="margin-top: 2rem;" />
             </a>
             <div>
-                <span><b>Welcome @name</b></span>
+                @foreach (var item in Model)
+                {
+                    <p>
+                        <b>
+                            Welcome @item.FirstName @item.LastName
+                        </b>
+                    </p>
+                }
             </div>
+
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li>
@@ -60,29 +69,29 @@
                 </li>
 
                 @*<li>
-                <a class="nav-link text-white" href="@Url.Action("MentorProfile","FYMKMentorDashboard")">
-                    Profile
-                </a>
-            </li>
+                        <a class="nav-link text-white" href="@Url.Action("MentorProfile","FYMKMentorDashboard")">
+                            Profile
+                        </a>
+                    </li>
 
-            <li>
-                <a class="nav-link text-white" href="@Url.Action("MentorProgram","FYMKMentorDashboard")">
-                    Program
-                </a>
-            </li>
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("MentorProgram","FYMKMentorDashboard")">
+                            Program
+                        </a>
+                    </li>
 
-            <li>
-                <a class="nav-link text-white" href="@Url.Action("Setting","FYMKMentorDashboard")">
-                    Settings
-                </a>
-            </li>*@
+                    <li>
+                        <a class="nav-link text-white" href="@Url.Action("Setting","FYMKMentorDashboard")">
+                            Settings
+                        </a>
+                    </li>*@
 
             </ul>
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>@name</strong>
+                    @*<strong>@name</strong>*@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
 
@@ -106,7 +115,16 @@
 
             <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
 
-            
+            <div>
+                @foreach (var item in Model)
+                {
+                    <h3>
+                        <b>
+                            Welcome @item.FirstName @item.LastName
+                        </b>
+                    </h3>
+                }
+            </div>
 
 
 
@@ -119,7 +137,7 @@
 
 
 
-          
+
 
 
 

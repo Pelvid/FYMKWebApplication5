@@ -1,5 +1,4 @@
-﻿@model List<FYMKWebApplication4.Models.Mentor>
-
+﻿
 
 @{
     ViewBag.Title = "Program";
@@ -31,7 +30,7 @@
         <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150" style="margin-top: 2rem;" />
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -40,11 +39,11 @@
                         DashBoard
                     </a>
                 </li>
-                @*<li>
+                <li>
                         <a class="nav-link  text-white" href="@Url.Action("Mentor","FYMKMentee")">
                             Mentor
                         </a>
-                    </li>*@
+                </li>
                 <li>
                     <a class="nav-link active text-white" aria-current="page" href="@Url.Action("Program","FYMKMentee")">
                         Programs
@@ -98,7 +97,7 @@
 
 
 
-            <div class="container bootstrap snippets bootdey">
+            @*<div class="container bootstrap snippets bootdey">
                 <div class="table-responsive">
                     PROJECT TABLE
                     <table class="table colored-header datatable project-list">
@@ -119,7 +118,7 @@
                                 <tr>
                                     <td>@item.FirstName</td>
                                     <td>@item.LastName</td>
-                                    <td>@item.MyProperty</td>
+                                    <td>@item.Date</td>
                                     <td>
                                         <div class="progress">
                                             <div class="progress-bar" data-transitiongoal="95" aria-valuenow="95" style="width: 95%;">95%</div>
@@ -134,7 +133,7 @@
                     </table>
                     END PROJECT TABLE
                 </div>
-            </div>
+            </div>*@
 
 
 
@@ -144,6 +143,7 @@
 
 
         </main>
+        
         <footer id="footer" role="contentinfo">
             <div class="footer-container">
                 <hr>

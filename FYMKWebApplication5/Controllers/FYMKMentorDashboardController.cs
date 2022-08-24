@@ -22,7 +22,7 @@ namespace FYMKWebApplication5.Controllers
         {
 
             string userId = Session["UserId"].ToString();
-            if(userId == null)
+            if (userId == null)
             {
                 return RedirectToAction("MentorSignIn", "Home");
             }
@@ -40,8 +40,17 @@ namespace FYMKWebApplication5.Controllers
         }
         public ActionResult MentorDashboard()
         {
-            
-            return View();
+
+            string Name = Session["Name"].ToString();
+            if (Name == null)
+            {
+                return RedirectToAction("MentorDashboard", "FYMKMentorDashboard");
+
+            }
+
+            var Meobj = db.Mentors.Where(x => x.FirstName == Name).ToList();
+
+            return View(Meobj);
         }
         public ActionResult MentorProfile()
         {

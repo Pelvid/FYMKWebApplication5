@@ -108,7 +108,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Count (Id) as IdCount From Mentees ";
+                com.CommandText = "select Count (MenteeId) as IdCount From Mentees ";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -166,13 +166,13 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "SELECT (select count(Id)  from Mentees) / (select count(MentorId) from Mentors) as Total_Matched";
+                com.CommandText = "SELECT (select count(MenteeId)  from Mentees) / (select count(MentorId) from Mentors) as Total_Matched";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
                     matchingRatios.Add(new MatchingRatio()
                     {
-                        Id = dr["Total_Matched"].ToString()
+                        MenteeId = dr["Total_Matched"].ToString()
                     ,
                         MentorId = dr["Total_Matched"].ToString()
                     ,
@@ -200,13 +200,13 @@ namespace FYMKWebApplication5.Controllers
 
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [Id],[FirstName],[LastName],[Email],[MyProper] From Mentees";
+                com.CommandText = "select Top (1000) [MenteeId],[FirstName],[LastName],[Email],[MyProper] From Mentees";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
                     menteeTables.Add(new MenteeTable() 
                     {
-                        Id = dr["Id"].ToString()
+                        MenteeId = dr["MenteeId"].ToString()
                     ,
                         FirstName = dr["FirstName"].ToString() 
                     ,LastName = dr["LastName"].ToString()

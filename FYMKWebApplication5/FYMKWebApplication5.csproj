@@ -90,6 +90,7 @@
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -336,6 +337,26 @@
     <Compile Include="Migrations\202208220354023_mentordatt.cs" />
     <Compile Include="Migrations\202208220354023_mentordatt.Designer.cs">
       <DependentUpon>202208220354023_mentordatt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208222054101_nw.cs" />
+    <Compile Include="Migrations\202208222054101_nw.Designer.cs">
+      <DependentUpon>202208222054101_nw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208222153130_mentor.cs" />
+    <Compile Include="Migrations\202208222153130_mentor.Designer.cs">
+      <DependentUpon>202208222153130_mentor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208222207399_NewNewUpdate.cs" />
+    <Compile Include="Migrations\202208222207399_NewNewUpdate.Designer.cs">
+      <DependentUpon>202208222207399_NewNewUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208231929421_MenteeId.cs" />
+    <Compile Include="Migrations\202208231929421_MenteeId.Designer.cs">
+      <DependentUpon>202208231929421_MenteeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208232131381_latest.cs" />
+    <Compile Include="Migrations\202208232131381_latest.Designer.cs">
+      <DependentUpon>202208232131381_latest.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminCareerMatching.cs" />
@@ -960,6 +981,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208220354023_mentordatt.resx">
       <DependentUpon>202208220354023_mentordatt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208222054101_nw.resx">
+      <DependentUpon>202208222054101_nw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208222153130_mentor.resx">
+      <DependentUpon>202208222153130_mentor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208222207399_NewNewUpdate.resx">
+      <DependentUpon>202208222207399_NewNewUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208231929421_MenteeId.resx">
+      <DependentUpon>202208231929421_MenteeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208232131381_latest.resx">
+      <DependentUpon>202208232131381_latest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

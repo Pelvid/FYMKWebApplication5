@@ -18,18 +18,21 @@ namespace FYMKWebApplication5.Controllers
         }
         public ActionResult Dashoard()
         {
-            return View();
+            string MenteeName = Session["MenteeName"].ToString();
+            if ( MenteeName == null)
+            {
+                return RedirectToAction("Dashoard", "FYMKMentee");
+
+            }
+
+            var obj = db.Mentees.Where(x => x.FirstName == MenteeName).ToList();
+
+            return View(obj);
         }
         public ActionResult Program()
         {
-            string Mentee = Session["Mentee"].ToString();
-            if (Mentee == null)
-            {
-                return RedirectToAction("Login", "Home");
-            }
-            int id = Convert.ToInt32(Mentee);
-            var Mobj = db.Mentors.Where(x => x.MenteeId == id).ToList();
-            return View(Mobj);
+            return View();
+
         }
         public ActionResult Chat()
         {
@@ -57,8 +60,15 @@ namespace FYMKWebApplication5.Controllers
         }
         public ActionResult Mentor()
         {
-            return View();
-           
+            string Mentee = Session["Mentee"].ToString();
+            if (Mentee == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            int id = Convert.ToInt32(Mentee);
+            var Mobj = db.Mentors.Where(x => x.MenteeId == id).ToList();
+            return View(Mobj);
+
         }
         public ActionResult MenteeReg()
         {

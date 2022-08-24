@@ -7,7 +7,7 @@ namespace FYMKWebApplication5.Models
 {
     public class MenteeTable
     {
-        public string Id { get; set; }
+        public string MenteeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
