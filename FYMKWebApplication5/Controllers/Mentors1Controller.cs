@@ -65,16 +65,16 @@ namespace FYMKWebApplication5.Controllers
         }
 
 
-        //public ActionResult sendMail(string email)
-        //{
+        public ActionResult sendMail(string email)
+        {
 
-        //    string subject = "Welcome to FreshYouthMK Mentorship Program ";
-        //    string body = "Your Email is your UserName... And your LastName is the Password https://instagram.com/ishepelvid?r=nametag";
-        //    WebMail.Send(email, subject, body, null, null, null, true, null, null, null, null, null, null);
-        //    //WebMail.Send(useremail, subject, body, null, null, null, true, null, null, null, null, null, null);
-        //    ViewBag.msg = "email sent succesfully....";
-        //    return View();
-        //}
+            string subject = "Welcome to FreshYouthMK Mentorship Program ";
+            string body = "Your Email is your UserName... And your LastName is the Password https://instagram.com/ishepelvid?r=nametag";
+            WebMail.Send(email, subject, body, null, null, null, true, null, null, null, null, null, null);
+            //WebMail.Send(useremail, subject, body, null, null, null, true, null, null, null, null, null, null);
+            ViewBag.msg = "email sent succesfully....";
+            return View();
+        }
 
         // GET: Mentors1/Edit/5
         public async Task<ActionResult> Edit(int? id)
