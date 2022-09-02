@@ -786,7 +786,6 @@
     <Content Include="vendor\select2\select2.js" />
     <Content Include="vendor\select2\select2.min.css" />
     <Content Include="vendor\select2\select2.min.js" />
-    <Content Include="Views\FYMKAdminDashboard\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -887,6 +886,7 @@
     <Content Include="Views\Home\Getin.cshtml" />
     <Content Include="Views\Home\FYMKMentorDashboard.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

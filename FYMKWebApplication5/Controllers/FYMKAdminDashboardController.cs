@@ -422,13 +422,13 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees  where Mentees.Employment = 1";
+                com.CommandText = "select Top (1000) [MenteeId],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees  where Mentees.Employment = 1";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
                     adminMenteeMatchings.Add(new AdminMenteeMatching() 
                     {
-                        Id = dr["Id"].ToString()
+                        MenteeId = dr["MenteeId"].ToString()
                     ,
                         FirstName = dr["FirstName"].ToString()
 
@@ -477,13 +477,13 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees  where Career = 1";
+                com.CommandText = "select Top (1000) [MenteeId],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees  where Career = 1";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
                     cVMatchings.Add(new CVMatching()
                     {
-                        Id = dr["Id"].ToString()
+                        MenteeId = dr["MenteeId"].ToString()
                     ,
                         FirstName = dr["FirstName"].ToString()
 
@@ -531,13 +531,13 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "Select Mentees.Id, Mentees.FirstName,Case when Mentees.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentees.Employment = 1 then 'Yes' Else 'No' End AS Employment, Case when Mentees.University = 1 then 'Yes' Else 'No' End AS University, Case when Mentees.Building = 1 then 'Yes' Else 'No' End AS Building, Case when Mentees.Developing = 1 then 'Yes' Else 'No' End AS Developing, Case when Mentees.Resilence = 1 then 'Yes' Else 'No' End AS Resilence, Case when Mentees.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering, Case when Mentees.College = 1 then 'Yes' Else 'No' End AS College, Case when Mentees.Career = 1 then 'Yes' Else 'No' End AS Career, Case when Mentees.CareerOptions = 1 then 'Yes' Else 'No' End AS CareerOptions, Case when Mentees.CV = 1 then 'Yes' Else 'No' End AS CV, Case when Mentees.Education = 1 then 'Yes' Else 'No' End AS Education From Mentees";
+                com.CommandText = "Select Mentees.MenteeId, Mentees.FirstName,Case when Mentees.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentees.Employment = 1 then 'Yes' Else 'No' End AS Employment, Case when Mentees.University = 1 then 'Yes' Else 'No' End AS University, Case when Mentees.Building = 1 then 'Yes' Else 'No' End AS Building, Case when Mentees.Developing = 1 then 'Yes' Else 'No' End AS Developing, Case when Mentees.Resilence = 1 then 'Yes' Else 'No' End AS Resilence, Case when Mentees.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering, Case when Mentees.College = 1 then 'Yes' Else 'No' End AS College, Case when Mentees.Career = 1 then 'Yes' Else 'No' End AS Career, Case when Mentees.CareerOptions = 1 then 'Yes' Else 'No' End AS CareerOptions, Case when Mentees.CV = 1 then 'Yes' Else 'No' End AS CV, Case when Mentees.Education = 1 then 'Yes' Else 'No' End AS Education From Mentees";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
                     careerMatchings.Add(new CareerMatching()
                     {
-                        Id = dr["Id"].ToString()
+                        MenteeId = dr["MenteeId"].ToString()
                     ,
                         FirstName = dr["FirstName"].ToString()
 
@@ -615,7 +615,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Top (1000) [Id],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees where Mentees.CV = 1";
+                com.CommandText = "select Top (1000) [MenteeId],[FirstName],[Enterpreneurship],[Employment],[University],[Building],[Developing],[Resilence],[Volunteering],[College],[Career],[CareerOptions],[CV] from Mentees where Mentees.CV = 1";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {

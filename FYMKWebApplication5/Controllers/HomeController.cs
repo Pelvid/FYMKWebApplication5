@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using FYMKWebApplication4.Models;
 using System.Data.SqlClient;
 using FYMKWebApplication5.Models;
+using System.Net.Mail;
+using System.Net;
 
 namespace Login.Controllers
 {
@@ -66,7 +68,9 @@ namespace Login.Controllers
             }
             else if (Mobj == null)
             {
-                return RedirectToAction("FYMKAdminDashboard");
+                //ViewBag.Error = "Incorrect";
+                //return ViewBag();
+                return RedirectToAction("Error");
             }
             else if (mentee.Email == "admin@gmail.com" && mentee.LastName == "admin")
             {
@@ -175,7 +179,7 @@ namespace Login.Controllers
             }
             else if (obj == null)
             {
-                return RedirectToAction("FYMKAdminDashboard");
+                return RedirectToAction("Error");
             }
             else if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin")
             {
@@ -185,6 +189,16 @@ namespace Login.Controllers
             return View();
             //   return View("vvv");
         }
+
+
+        public ActionResult Error()
+        {
+
+            return View();
+
+        }
+
+
 
 
         private void FetchData()
