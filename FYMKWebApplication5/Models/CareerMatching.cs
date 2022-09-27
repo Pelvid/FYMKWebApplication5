@@ -10,6 +10,8 @@ namespace FYMKWebApplication5.Models
         public string MenteeId { get; set; }
 
         public string FirstName { get; set; }
+        public string MentorId { get; set; }
+
         public string Enterpreneurship { get; set; }
         public string Employment { get; set; }
         public string University { get; set; }

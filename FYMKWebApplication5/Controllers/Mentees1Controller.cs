@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using FYMKWebApplication4.Models;
 using FYMKWebApplication5.Data;
+using System.Web.Helpers;
 
 namespace FYMKWebApplication5.Controllers
 {
@@ -59,6 +60,12 @@ namespace FYMKWebApplication5.Controllers
             {
                 db.Mentees.Add(mentee);
                 await db.SaveChangesAsync();
+                string subject = "Welcome to FreshYouthMK Mentorship Program ";
+                string body = "Your Email is your UserName... And your LastName is the Password https://instagram.com/ishepelvid?r=nametag";
+                WebMail.Send(mentee.Email, subject, body, null, null, null, true, null, null, null, null, null, null);
+                //WebMail.Send(useremail, subject, body, null, null, null, true, null, null, null, null, null, null);
+                ViewBag.msg = "email sent succesfully....";
+                //return View();
                 return RedirectToAction("Index");
 
             }

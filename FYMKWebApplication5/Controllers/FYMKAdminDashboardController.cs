@@ -531,7 +531,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "Select Mentees.MenteeId, Mentees.FirstName,Case when Mentees.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentees.Employment = 1 then 'Yes' Else 'No' End AS Employment, Case when Mentees.University = 1 then 'Yes' Else 'No' End AS University, Case when Mentees.Building = 1 then 'Yes' Else 'No' End AS Building, Case when Mentees.Developing = 1 then 'Yes' Else 'No' End AS Developing, Case when Mentees.Resilence = 1 then 'Yes' Else 'No' End AS Resilence, Case when Mentees.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering, Case when Mentees.College = 1 then 'Yes' Else 'No' End AS College, Case when Mentees.Career = 1 then 'Yes' Else 'No' End AS Career, Case when Mentees.CareerOptions = 1 then 'Yes' Else 'No' End AS CareerOptions, Case when Mentees.CV = 1 then 'Yes' Else 'No' End AS CV, Case when Mentees.Education = 1 then 'Yes' Else 'No' End AS Education From Mentees";
+                com.CommandText = "Select Mentees.MenteeId, Mentees.FirstName, Mentees.MentorId, Case when Mentees.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentees.Employment = 1 then 'Yes' Else 'No' End AS Employment, Case when Mentees.University = 1 then 'Yes' Else 'No' End AS University,Case when Mentees.Building = 1 then 'Yes' Else 'No' End AS Building, Case when Mentees.Developing = 1 then 'Yes' Else 'No' End AS Developing, Case when Mentees.Resilence = 1 then 'Yes' Else 'No' End AS Resilence, Case when Mentees.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering,Case when Mentees.College = 1 then 'Yes' Else 'No' End AS College, Case when Mentees.Career = 1 then 'Yes' Else 'No' End AS Career, Case when Mentees.CareerOptions = 1 then 'Yes' Else 'No' End AS CareerOptions, Case when Mentees.CV = 1 then 'Yes' Else 'No' End AS CV, Case when Mentees.Education = 1 then 'Yes' Else 'No' End AS Education From Mentees ";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -540,7 +540,8 @@ namespace FYMKWebApplication5.Controllers
                         MenteeId = dr["MenteeId"].ToString()
                     ,
                         FirstName = dr["FirstName"].ToString()
-
+                    ,
+                        MentorId = dr["MentorId"].ToString()
                     ,
                         Enterpreneurship = dr["Enterpreneurship"].ToString()
                     ,

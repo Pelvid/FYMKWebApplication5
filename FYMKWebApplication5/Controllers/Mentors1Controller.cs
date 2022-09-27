@@ -57,6 +57,11 @@ namespace FYMKWebApplication5.Controllers
             {
                 db.Mentors.Add(mentor);
                 await db.SaveChangesAsync();
+                string subject = "Welcome to FreshYouthMK Mentorship Program ";
+                string body = "Your Email is your UserName... And your LastName is the Password https://instagram.com/ishepelvid?r=nametag";
+                WebMail.Send(mentor.Email, subject, body, null, null, null, true, null, null, null, null, null, null);
+                //WebMail.Send(useremail, subject, body, null, null, null, true, null, null, null, null, null, null);
+                ViewBag.msg = "email sent succesfully....";
                 return RedirectToAction("Index");
                 //return RedirectToAction("Index", "Mentors1");
             }

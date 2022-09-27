@@ -145,11 +145,19 @@ namespace Login.Controllers
 
         public ActionResult FYMKMentorDashboard()
         {
+
             FetchData();
             string myName = Session["Name"].ToString();
-            Session["GetMentorName"] = getMentorNames;
+            Session["GetmentorName"] = getMentorNames;
             ViewBag.Username = myName;
             return View(getMentorNames);
+
+
+            //FetchData();
+            //string myName = Session["Name"].ToString();
+            //Session["GetMentorName"] = getMentorNames;
+            //ViewBag.Username = myName;
+            //return View(getMentorNames);
         }
 
         public ActionResult FYMKAdminDashboards()
