@@ -64,36 +64,17 @@ namespace Login.Controllers
             {
                 Session["MenteeName"] = Mobj.FirstName;
                 Session["Mentee"] = Mobj.MenteeId;
-                return RedirectToAction("FYMKMentee");
+                return RedirectToAction("Dashoard", "FYMKMentee");
             }
-            else if (Mobj == null)
+            
+            else if (mentee.Email == "admin@gmail.com" && mentee.LastName == "admin1234")
             {
-                //ViewBag.Error = "Incorrect";
-                //return ViewBag();
-                return RedirectToAction("Error");
-            }
-            else if (mentee.Email == "admin@gmail.com" && mentee.LastName == "admin")
-            {
-                return RedirectToAction("FYMKAdminDashboard");
+                return RedirectToAction("admindashboard", "FYMKAdminDashboard");
             }
 
             return View();
 
 
-
-            //var obj = db.Mentees.Where(x => x.Email.Equals(mentee.Email) && x.LastName.Equals(mentee.LastName)).FirstOrDefault();
-            //if (obj != null)
-            //{
-            //    Session["Name"] = obj.FirstName;
-            //    Session["UserId"] = obj.Id; 
-            //    return RedirectToAction("FYMKMentee");
-            //}
-            //else if (mentee.Email == "admin@gmail.com" && mentee.LastName == "admin")
-            //{
-            //    return RedirectToAction("FYMKAdminDashboard");
-            //}
-
-            //return View();
         }
 
         public ActionResult FYMKMentee()
@@ -106,10 +87,10 @@ namespace Login.Controllers
             //return View();
         }
 
-        public ActionResult FYMKAdminDashboard()
-        {
-            return View();
-        }
+        //public ActionResult FYMKAdminDashboard()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public ActionResult Front(Mentor mentor)
@@ -120,28 +101,28 @@ namespace Login.Controllers
         }
 
         [HttpGet]
-        public ActionResult SignIn()
-        {
-            return View();
-        }
+        //public ActionResult SignIn()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public ActionResult SignIn(Mentor mentor)
-        {
-            var obj = db.Mentors.Where(x => x.Email.Equals(mentor.Email) && x.LastName.Equals(mentor.LastName)).FirstOrDefault();
-            //if (obj != null)
-            if (obj != null)
-            {
-                Session["Name"] = mentor.FirstName;
-                return RedirectToAction("FYMKMentorDashboard");
-            }
-            else if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin")
-            {
-                return RedirectToAction("FYMKAdminDashboards");
-            }
+        //[HttpPost]
+        //public ActionResult SignIn(Mentor mentor)
+        //{
+        //    //var obj = db.Mentors.Where(x => x.Email.Equals(mentor.Email) && x.LastName.Equals(mentor.LastName)).FirstOrDefault();
+        //    ////if (obj != null)
+        //    //if (obj != null)
+        //    //{
+        //    //    Session["Name"] = mentor.FirstName;
+        //    //    return RedirectToAction("FYMKMentorDashboard");
+        //    //}
+        //     if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin")
+        //    {
+        //        return RedirectToAction("admindashboard", "FYMKAdminDashboard");
+        //    }
 
-            return View("Tunji");
-        }
+        //    return View("Tunji");
+        //}
 
         public ActionResult FYMKMentorDashboard()
         {
@@ -160,10 +141,10 @@ namespace Login.Controllers
             //return View(getMentorNames);
         }
 
-        public ActionResult FYMKAdminDashboards()
-        {
-            return View();
-        }
+        //public ActionResult FYMKAdminDashboards()
+        //{
+        //    return View();
+        //}
 
 
         public ActionResult MentorSignIn()
@@ -183,19 +164,15 @@ namespace Login.Controllers
                 Session["Name"] = obj.FirstName;
                 Session["UserId"] = obj.MentorId;
                 Session["MenteeUserId"] = obj.MenteeId;
-                return RedirectToAction("FYMKMentorDashboard");
+                return RedirectToAction("MentorDashboard", "FYMKMentorDashboard");
             }
-            else if (obj == null)
+            
+            else if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin1234")
             {
-                return RedirectToAction("Error");
-            }
-            else if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin")
-            {
-                return RedirectToAction("FYMKAdminDashboard");
+                return RedirectToAction ("admindashboard", "FYMKAdminDashboard");
             }
 
             return View();
-            //   return View("vvv");
         }
 
 

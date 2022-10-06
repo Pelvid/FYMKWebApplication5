@@ -839,7 +839,6 @@
     <Content Include="Views\LandingPage\LandingPage.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\Successful_Created.cshtml" />
     <Content Include="Views\Login_LayoutPage2.cshtml" />
-    <Content Include="Views\Home\FYMKAdminDashboard.cshtml" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
@@ -888,6 +887,7 @@
     <Content Include="Views\Home\FYMKMentorDashboard.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Shared\Mentee_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
