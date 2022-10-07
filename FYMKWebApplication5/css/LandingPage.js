@@ -1,14 +1,19 @@
-$l = $('.left')
-$r = $('.right')
+const left = document.querySelector(".left");
+const right = document.querySelector(".right");
+const container = document.querySelector(".container");
 
-$l.mouseenter(function() {
-    $('.container').addClass('left-is-hovered');
-}).mouseleave(function() {
-    $('.container').removeClass('left-is-hovered');
+left.addEventListener("mouseenter", () => {
+    container.classList.add("hover-left");
 });
 
-$r.mouseenter(function() {
-    $('.container').addClass('right-is-hovered');
-}).mouseleave(function() {
-    $('.container').removeClass('right-is-hovered');
+left.addEventListener("mouseleave", () => {
+    container.classList.remove("hover-left");
+});
+
+right.addEventListener("mouseenter", () => {
+    container.classList.add("hover-right");
+});
+
+right.addEventListener("mouseleave", () => {
+    container.classList.remove("hover-right");
 });
