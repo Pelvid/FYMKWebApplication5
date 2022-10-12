@@ -888,6 +888,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Shared\Mentee_Layout.cshtml" />
+    <Content Include="Views\Home\Mentee_Error_View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

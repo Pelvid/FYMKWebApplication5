@@ -72,6 +72,12 @@ namespace Login.Controllers
                 return RedirectToAction("admindashboard", "FYMKAdminDashboard");
             }
 
+            else if (mentee.Email != "admin@gmail.com" || mentee.LastName != "admin1234")
+            {
+                return RedirectToAction("Mentee_Error_View", "Home");
+
+            }
+
             return View();
 
 
@@ -166,11 +172,21 @@ namespace Login.Controllers
                 Session["MenteeUserId"] = obj.MenteeId;
                 return RedirectToAction("MentorDashboard", "FYMKMentorDashboard");
             }
-            
+
+            else if (mentor.Email != "admin@gmail.com" || mentor.LastName != "admin1234")
+            {
+                return RedirectToAction("Error", "Home");
+
+            }
+
             else if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin1234")
             {
                 return RedirectToAction ("admindashboard", "FYMKAdminDashboard");
             }
+
+           
+
+            
 
             return View();
         }
@@ -183,7 +199,12 @@ namespace Login.Controllers
 
         }
 
+        public ActionResult Mentee_Error_View()
+        {
 
+            return View();
+
+        }
 
 
         private void FetchData()
