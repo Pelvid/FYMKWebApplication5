@@ -66,7 +66,7 @@ namespace Login.Controllers
                 Session["Mentee"] = Mobj.MenteeId;
                 return RedirectToAction("Dashoard", "FYMKMentee");
             }
-            
+
             else if (mentee.Email == "admin@gmail.com" && mentee.LastName == "admin1234")
             {
                 return RedirectToAction("admindashboard", "FYMKAdminDashboard");
@@ -181,12 +181,12 @@ namespace Login.Controllers
 
             else if (mentor.Email == "admin@gmail.com" && mentor.LastName == "admin1234")
             {
-                return RedirectToAction ("admindashboard", "FYMKAdminDashboard");
+                return RedirectToAction("admindashboard", "FYMKAdminDashboard");
             }
 
-           
 
-            
+
+
 
             return View();
         }
@@ -205,6 +205,8 @@ namespace Login.Controllers
             return View();
 
         }
+
+
 
 
         private void FetchData()
