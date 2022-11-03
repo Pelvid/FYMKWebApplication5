@@ -358,6 +358,14 @@
     <Compile Include="Migrations\202208232131381_latest.Designer.cs">
       <DependentUpon>202208232131381_latest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211030113454_PhonePostalChange.cs" />
+    <Compile Include="Migrations\202211030113454_PhonePostalChange.Designer.cs">
+      <DependentUpon>202211030113454_PhonePostalChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211030147441_MentorPhonePostalChange.cs" />
+    <Compile Include="Migrations\202211030147441_MentorPhonePostalChange.Designer.cs">
+      <DependentUpon>202211030147441_MentorPhonePostalChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminCareerMatching.cs" />
     <Compile Include="Models\AdminCVMatching.cs" />
@@ -886,7 +894,7 @@
     <Content Include="Views\Home\Getin.cshtml" />
     <Content Include="Views\Home\FYMKMentorDashboard.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\LoginError.cshtml" />
     <Content Include="Views\Shared\Mentee_Layout.cshtml" />
     <Content Include="Views\Home\Mentee_Error_View.cshtml" />
   </ItemGroup>
@@ -998,6 +1006,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208232131381_latest.resx">
       <DependentUpon>202208232131381_latest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211030113454_PhonePostalChange.resx">
+      <DependentUpon>202211030113454_PhonePostalChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211030147441_MentorPhonePostalChange.resx">
+      <DependentUpon>202211030147441_MentorPhonePostalChange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

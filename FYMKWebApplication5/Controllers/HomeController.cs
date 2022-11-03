@@ -175,7 +175,7 @@ namespace Login.Controllers
 
             else if (mentor.Email != "admin@gmail.com" || mentor.LastName != "admin1234")
             {
-                return RedirectToAction("Error", "Home");
+                return RedirectToAction("LoginError", "Home");
 
             }
 
@@ -192,7 +192,7 @@ namespace Login.Controllers
         }
 
 
-        public ActionResult Error()
+        public ActionResult LoginError()
         {
 
             return View();

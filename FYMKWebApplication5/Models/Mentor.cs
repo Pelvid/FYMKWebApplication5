@@ -22,7 +22,7 @@ namespace FYMKWebApplication4.Models
         public string PostalCode { get; set; }
         public string Country { get; set; }
         [DataType(DataType.PhoneNumber)]
-        public int Telephone { get; set; }
+        public string Telephone { get; set; }
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
@@ -169,7 +169,7 @@ namespace FYMKWebApplication4.Models
         public string Countryy { get; set; }
         [Display(Name = "Telephone")]
         [DataType(DataType.PhoneNumber)]
-        public int Telephonee { get; set; }
+        public string Telephonee { get; set; }
 
         [Display(Name = "Name")]
         public string Refenrence2 { get; set; }
@@ -187,7 +187,7 @@ namespace FYMKWebApplication4.Models
         public string Countryyy { get; set; }
         [Display(Name = "Telephone")]
         [DataType(DataType.PhoneNumber)]
-        public int Telephoneee { get; set; }
+        public string Telephoneee { get; set; }
         [Display(Name = "Final Note")]
         public string FinalNote { get; set; }
         [Display(Name = "GDPR Agreement")]

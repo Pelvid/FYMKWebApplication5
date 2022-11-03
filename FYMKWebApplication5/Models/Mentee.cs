@@ -24,9 +24,12 @@ namespace FYMKWebApplication4.Models
         public string City { get; set; }
         [Display(Name = "State / Province / Region")]
         public string State { get; set; }
-        public int PostalCode { get; set; }
+
+        [DataType(DataType.PostalCode)]
+        public string PostalCode { get; set; }
         public string Countries { get; set; }
-        public int Telephone { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        public string Telephone { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Compare("Email", ErrorMessage = "Pleasea confirm your Email.")]
@@ -79,7 +82,7 @@ namespace FYMKWebApplication4.Models
         public string Province { get; set; }
         [DataType(DataType.PostalCode)]
         [Display(Name = "Postal Code")]
-        public int PostalCod { get; set; }
+        public string PostalCod { get; set; }
         [Required]
         [Display(Name = "Country")]
         public string SelectedCountryIso32 { get; set; }
@@ -217,7 +220,7 @@ namespace FYMKWebApplication4.Models
         public string Region { get; set; }
         [DataType(DataType.PostalCode)]
         [Display(Name = "PostalCode")]
-        public int Postal { get; set; }
+        public string Postal { get; set; }
         [Required]
         [Display(Name = "Country")]
         public string SelectedCountryIso3 { get; set; }
@@ -237,7 +240,7 @@ namespace FYMKWebApplication4.Models
         [Display(Name = "State / Province / Region")]
         public string Regio { get; set; }
         [Display(Name = "PostalCode")]
-        public int PostalCo { get; set; }
+        public string PostalCo { get; set; }
         [Required]
         [Display(Name = "Country")]
         public string SelectedCountryIso33 { get; set; }
@@ -245,7 +248,7 @@ namespace FYMKWebApplication4.Models
         [DataType(DataType.EmailAddress)]
         public string Emaill { get; set; }
         [Display(Name = "Telephone")]
-        public int Telephonee { get; set; }
+        public string Telephonee { get; set; }
         [Display(Name = "Final Note")]
         public string Note { get; set; }
 

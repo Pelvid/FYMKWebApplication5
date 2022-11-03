@@ -716,7 +716,7 @@
 
 
                                         <div class="col-md-6">
-                                            <label class="form-label"><i class="fab fa-fw fa-facebook me-2 text-facebook"></i>ProfessionalInterestt </label>
+                                            <label class="form-label"><i class="fab fa-fw fa-facebook me-2 text-facebook"></i>Professional Interest </label>
 
                                             @Html.EditorFor(model => model.ProfessionalInterestt)
                                             @Html.ValidationMessageFor(model => model.ProfessionalInterestt, "", new { @class = "text-danger" })
@@ -751,7 +751,7 @@
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label class="form-label"><i class="fab fa-fw fa-facebook me-2 text-facebook"></i>Construtive </label>
+                                            <label class="form-label"><i class="fab fa-fw fa-facebook me-2 text-facebook"></i>Constructive </label>
 
                                             @Html.EditorFor(model => model.Construtive)
                                             @Html.ValidationMessageFor(model => model.Construtive, "", new { @class = "text-danger" })
@@ -804,7 +804,7 @@
 
                                 <div class="bg-secondary-soft px-4 py-5 rounded">
                                     <div class="row g-3">
-                                        <h4 class="my-4" style=" background-color: #033347; border-radius: 0.4vw; padding-top: 2%; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; font-size: 2vw; color: #ffffff;">Change Password</h4>
+                                        <h4 class="my-4" style=" background-color: #033347; border-radius: 0.4vw; padding-top: 2%; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; font-size: 2vw; color: #ffffff;">Address</h4>
 
 
 
@@ -872,15 +872,15 @@
                                             @Html.ValidationMessageFor(model => model.MyProper, "", new { @class = "text-danger" })
                                         </div>
 
-                                        <div class="col-md-6">
+                                        @*<div class="col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">Volunteer Or Community Services *</label>
 
                                             @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
-                                        </div>
+                                        </div>*@
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Please tell us what yo hope to gain *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Please tell us what you hope to gain *</label>
 
                                             @Html.EditorFor(model => model.PleaseTellUs, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.PleaseTellUs, "", new { @class = "text-danger" })
@@ -896,46 +896,39 @@
 
 
                                     <div class="row g-3">
-                                        <h4 class="my-4" style=" background-color: #033347; border-radius: 0.4vw; padding-top: 2%; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; font-size: 2vw; color: #ffffff;"><strong>Others Please Specify</strong></h4>
+                                        <h4 class="my-4" style=" background-color: #033347; border-radius: 0.4vw; padding-top: 2%; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; font-size: 2vw; color: #ffffff;"><strong>Reference</strong></h4>
 
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Criminal *</label>
-
-                                            @Html.EditorFor(model => model.Criminal, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Criminal, "", new { @class = "text-danger" })
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">References *</label>
+                                            <label for="exampleInputPassword1" class="form-label">FirstName *</label>
 
                                             @Html.EditorFor(model => model.References, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.References, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Refenrece *</label>
+                                            <label for="exampleInputPassword1" class="form-label">LastName *</label>
 
                                             @Html.EditorFor(model => model.Refenrece, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Refenrece, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Addres *</label>
+                                            <label for="exampleInputPassword1" class="form-label">First Address *</label>
 
                                             @Html.EditorFor(model => model.Addres, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Addres, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Addre *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Second Address *</label>
 
                                             @Html.EditorFor(model => model.Addre, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Addre, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Sity *</label>
+                                            <label for="exampleInputPassword1" class="form-label">City *</label>
 
                                             @Html.EditorFor(model => model.Sity, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Sity, "", new { @class = "text-danger" })
@@ -949,98 +942,125 @@
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Postal Code *</label>
 
                                             @Html.EditorFor(model => model.Postal, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Postal, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Telephone *</label>
 
                                             @Html.EditorFor(model => model.SelectedCountryIso3, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.SelectedCountryIso3, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Email *</label>
 
                                             @Html.EditorFor(model => model.Emai, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Emai, "", new { @class = "text-danger" })
                                         </div>
 
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                    <div class="row g-3">
+                                        <h4 class="my-4" style=" background-color: #033347; border-radius: 0.4vw; padding-top: 2%; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; font-size: 2vw; color: #ffffff;"><strong>Second Reference</strong></h4>
+
+
+
+
+
+
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">FirstName *</label>
 
                                             @Html.EditorFor(model => model.Reference, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Reference, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">LastName *</label>
 
                                             @Html.EditorFor(model => model.Refenrec, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Refenrec, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">First Address *</label>
 
                                             @Html.EditorFor(model => model.Adde, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Adde, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Second Address *</label>
 
                                             @Html.EditorFor(model => model.Addr, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Addr, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">City *</label>
 
                                             @Html.EditorFor(model => model.zity, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.zity, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Region *</label>
 
                                             @Html.EditorFor(model => model.Regio, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Regio, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Postal Code *</label>
 
                                             @Html.EditorFor(model => model.PostalCo, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.PostalCo, "", new { @class = "text-danger" })
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                        @*<div class="col-md-6">
+                                                <label for="exampleInputPassword1" class="form-label">Nill *</label>
 
-                                            @Html.EditorFor(model => model.SelectedCountryIso33, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.SelectedCountryIso33, "", new { @class = "text-danger" })
-                                        </div>
+                                                @Html.EditorFor(model => model.SelectedCountryIso33, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.SelectedCountryIso33, "", new { @class = "text-danger" })
+                                            </div>*@
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Email *</label>
 
                                             @Html.EditorFor(model => model.Emaill, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Emaill, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Telephone *</label>
 
                                             @Html.EditorFor(model => model.Telephonee, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Telephonee, "", new { @class = "text-danger" })
                                         </div>
 
+
+
+
+
+
                                         <div class="col-md-6">
-                                            <label for="exampleInputPassword1" class="form-label">Nill *</label>
+                                            <label for="exampleInputPassword1" class="form-label">Final Note *</label>
 
                                             @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
@@ -1049,12 +1069,16 @@
                                     </div>
 
 
-                                    <div class="gap-3 d-md-flex justify-content-md-end text-center">
-
-                                        <input type="submit" name="sent" value="Create" class="btn btn-success btn-lg" />
 
 
-                                    </div>
+
+                                </div>
+
+
+                                <div class="gap-3 d-md-flex justify-content-md-end text-center">
+
+                                    <input type="submit" name="sent" value="Submit" class="btn btn-success btn-lg" />
+
 
                                 </div>
 
