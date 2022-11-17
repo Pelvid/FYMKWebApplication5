@@ -59,7 +59,7 @@ namespace Login.Controllers
         public ActionResult Loginclick(Mentee mentee)
         {
 
-            var Mobj = db.Mentees.Where(x => x.Email.Equals(mentee.Email) && x.LastName.Equals(mentee.LastName)).FirstOrDefault();
+            var Mobj = db.Mentees.Where(x => x.Username.Equals(mentee.Username) && x.Password.Equals(mentee.Password)).FirstOrDefault();
             if (Mobj != null)
             {
                 Session["MenteeName"] = Mobj.FirstName;

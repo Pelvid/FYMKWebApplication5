@@ -37,7 +37,7 @@ namespace FYMKWebApplication4.Models
         [DataType(DataType.EmailAddress)]
         public string Confirm { get; set; }
 
-        [Required(ErrorMessage = "Choose date of birth")]
+        //[Required(ErrorMessage = "Choose date of birth")]
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
         public DateTime MyProperty { get; set; }
@@ -86,11 +86,11 @@ namespace FYMKWebApplication4.Models
         [Required]
         [Display(Name = "Country")]
         public string SelectedCountryIso32 { get; set; }
-        [Required(ErrorMessage = "Choose date of birth")]
+        //[Required(ErrorMessage = "Choose date of birth")]
         [Display(Name = "Date started in school")]
         [DataType(DataType.Date)]
         public DateTime MyPropert { get; set; }
-        [Required(ErrorMessage = "Choose date of birth")]
+        //[Required(ErrorMessage = "Choose date of birth")]
         [Display(Name = "End date in school")]
         [DataType(DataType.Date)]
         public DateTime MyProper { get; set; }
@@ -251,6 +251,19 @@ namespace FYMKWebApplication4.Models
         public string Telephonee { get; set; }
         [Display(Name = "Final Note")]
         public string Note { get; set; }
+
+
+        public bool Male { get; set; }
+        public bool Female { get; set; }
+        public bool MentorMale { get; set; }
+        public bool MentorFemale { get; set; }
+
+        public string Username { get; set; }
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        [Compare("Password", ErrorMessage = "Please confirm your Password.")]
+        [DataType(DataType.Password)]
+        public string Re_TypePassword { get; set; }
 
 
         //Foreign Key

@@ -60,7 +60,7 @@ namespace FYMKWebApplication5.Controllers
                 WebMail.Send(newMente.email, subject, body, null, null, null, true, null, null, null, null, null, null);
                 //WebMail.Send(useremail, subject, body, null, null, null, true, null, null, null, null, null, null);
                 ViewBag.msg = "email sent succesfully....";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "NewMentes1");
             }
 
             return View(newMente);
@@ -92,7 +92,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 db.Entry(newMente).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "NewMentes1");
             }
             return View(newMente);
         }
@@ -120,7 +120,7 @@ namespace FYMKWebApplication5.Controllers
             NewMente newMente = await db.NewMentes.FindAsync(id);
             db.NewMentes.Remove(newMente);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "NewMentes1");
         }
 
         protected override void Dispose(bool disposing)

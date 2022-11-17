@@ -30,10 +30,6 @@ namespace FYMKWebApplication5.Data
 
         public System.Data.Entity.DbSet<FYMKWebApplication5.Models.Response> Responses { get; set; }
 
-
-
-
-
-
+        public System.Data.Entity.DbSet<FYMKWebApplication5.Models.C_Mentee> C_Mentee { get; set; }
     }
 }

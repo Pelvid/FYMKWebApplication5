@@ -18,9 +18,9 @@ namespace FYMKWebApplication5.Models
         public string city { get; set; }
         public string stateProvinceRegion { get; set; }
         [DataType(DataType.PostalCode)]
-        public int postalCode { get; set; }
+        public string postalCode { get; set; }
         public string country { get; set; }
-        public int telephone { get; set; }
+        public string telephone { get; set; }
         [DataType(DataType.EmailAddress)]
         public string email { get; set; }
         [DataType(DataType.Date)]
@@ -40,7 +40,7 @@ namespace FYMKWebApplication5.Models
         public string stateProvinceRegionn { get; set; }
         [DataType(DataType.PostalCode)]
 
-        public int postalCodee { get; set; }
+        public string postalCodee { get; set; }
         public string countryy { get; set; }
         public string skills_and_hobbies { get; set; }
         public bool visual_art { get; set; }

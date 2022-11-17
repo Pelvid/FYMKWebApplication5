@@ -62,7 +62,7 @@ namespace FYMKWebApplication5.Controllers
                 WebMail.Send(mentor.Email, subject, body, null, null, null, true, null, null, null, null, null, null);
                 //WebMail.Send(useremail, subject, body, null, null, null, true, null, null, null, null, null, null);
                 ViewBag.msg = "email sent succesfully....";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Mentors1");
                 //return RedirectToAction("Index", "Mentors1");
             }
 

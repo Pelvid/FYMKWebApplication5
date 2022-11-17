@@ -34,7 +34,7 @@
                             <div class="bg-secondary-soft px-4 py-5 rounded">
 
                                 <div class="row g-3">
-                                    <h4 class="mb-4 mt-0" style="background-color: #033347; border-radius: 0.4vw; padding-top: 2%; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; font-size: 2vw; color: #ffffff;">Personal detail</h4>
+                                    <h4 class="mb-4 mt-0" style="background-color: #033347; border-radius: 0.4vw; padding-top: 2%; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; font-size: 2vw; color: #ffffff;">Personal Details</h4>
 
                                     <div class="col-md-6">
                                         <label class="form-label">First Name *</label>
@@ -229,43 +229,43 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Volunteer Exprience *</label><br />
 
-                                        @Html.TextAreaFor(model => model.Volunteer, 5, 30, new { htmlAttributes = new { @class = "form-control ", style = "max-width:75% !important;" } })
+                                        @Html.TextAreaFor(model => model.Volunteer, 10, 40, new { htmlAttributes = new { @class = "form-control ", style = "max-width:75% !important;" } })
                                         @Html.ValidationMessageFor(model => model.Volunteer, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Please tell us why you want to <br /> mentor through our organisation? *</label><br />
 
-                                        @Html.TextAreaFor(model => model.WhyYouWantToMentor, 5, 30, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
+                                        @Html.TextAreaFor(model => model.WhyYouWantToMentor, 10, 40, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
                                         @Html.ValidationMessageFor(model => model.WhyYouWantToMentor, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Please tell us what you hope to gain <br /> from your experience with us as a mentor? *</label><br />
 
-                                        @Html.TextAreaFor(model => model.YourExperience, 5, 30, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
+                                        @Html.TextAreaFor(model => model.YourExperience, 10, 40, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
                                         @Html.ValidationMessageFor(model => model.YourExperience, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">When will you be available to mentor ? *</label><br />
 
-                                        @Html.TextAreaFor(model => model.WhenAreYouAvailable, 5, 30, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
+                                        @Html.TextAreaFor(model => model.WhenAreYouAvailable, 10, 40, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
                                         @Html.ValidationMessageFor(model => model.WhenAreYouAvailable, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Skills, Hobbies and Special Interest *</label><br />
 
-                                        @Html.TextAreaFor(model => model.SkillHobbies, 5, 30, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
+                                        @Html.TextAreaFor(model => model.SkillHobbies, 10, 40, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
                                         @Html.ValidationMessageFor(model => model.SkillHobbies, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Do you have any special <br /> needs you would like to share? *</label><br />
 
-                                        @Html.TextAreaFor(model => model.SpecialNeed, 5, 30, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
+                                        @Html.TextAreaFor(model => model.SpecialNeed, 10, 40, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
                                         @Html.ValidationMessageFor(model => model.SpecialNeed, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Any other comments or information *</label><br />
 
-                                        @Html.TextAreaFor(model => model.Comment, 5, 30, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
+                                        @Html.TextAreaFor(model => model.Comment, 10, 40, new { htmlAttributes = new { @class = "form-control", style = "max-width:75% !important;" } })
                                         @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
                                     </div>
 

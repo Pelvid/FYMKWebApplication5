@@ -237,6 +237,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminDashboardsController.cs" />
+    <Compile Include="Controllers\C_Mentee1Controller.cs" />
+    <Compile Include="Controllers\C_MenteeController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\FYMKAdminDashboardController.cs" />
     <Compile Include="Controllers\FYMKMenteeController.cs" />
@@ -366,6 +368,34 @@
     <Compile Include="Migrations\202211030147441_MentorPhonePostalChange.Designer.cs">
       <DependentUpon>202211030147441_MentorPhonePostalChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211041847320_PrefrenceOnGender.cs" />
+    <Compile Include="Migrations\202211041847320_PrefrenceOnGender.Designer.cs">
+      <DependentUpon>202211041847320_PrefrenceOnGender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211050642593_DropPrefrenceUpdate.cs" />
+    <Compile Include="Migrations\202211050642593_DropPrefrenceUpdate.Designer.cs">
+      <DependentUpon>202211050642593_DropPrefrenceUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211060823269_UpdateNewMentee.cs" />
+    <Compile Include="Migrations\202211060823269_UpdateNewMentee.Designer.cs">
+      <DependentUpon>202211060823269_UpdateNewMentee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211061804139_UpdateAll.cs" />
+    <Compile Include="Migrations\202211061804139_UpdateAll.Designer.cs">
+      <DependentUpon>202211061804139_UpdateAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211072046585_C_Mentee.cs" />
+    <Compile Include="Migrations\202211072046585_C_Mentee.Designer.cs">
+      <DependentUpon>202211072046585_C_Mentee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211091747113_RemoveRequiredFromMenteeDateTime.cs" />
+    <Compile Include="Migrations\202211091747113_RemoveRequiredFromMenteeDateTime.Designer.cs">
+      <DependentUpon>202211091747113_RemoveRequiredFromMenteeDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211091759533_AddingPasswordAndUsernameToMentee.cs" />
+    <Compile Include="Migrations\202211091759533_AddingPasswordAndUsernameToMentee.Designer.cs">
+      <DependentUpon>202211091759533_AddingPasswordAndUsernameToMentee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminCareerMatching.cs" />
     <Compile Include="Models\AdminCVMatching.cs" />
@@ -375,6 +405,7 @@
     <Compile Include="Models\AdminMenteeReview.cs" />
     <Compile Include="Models\AdminMentorReview.cs" />
     <Compile Include="Models\CareerMatching.cs" />
+    <Compile Include="Models\C_Mentee.cs" />
     <Compile Include="Models\GetMenteeName.cs" />
     <Compile Include="Models\GetMentorName.cs" />
     <Compile Include="Models\MatchingRatio.cs" />
@@ -897,6 +928,11 @@
     <Content Include="Views\Home\LoginError.cshtml" />
     <Content Include="Views\Shared\Mentee_Layout.cshtml" />
     <Content Include="Views\Home\Mentee_Error_View.cshtml" />
+    <Content Include="Views\C_Mentee1\Create.cshtml" />
+    <Content Include="Views\C_Mentee1\Delete.cshtml" />
+    <Content Include="Views\C_Mentee1\Details.cshtml" />
+    <Content Include="Views\C_Mentee1\Edit.cshtml" />
+    <Content Include="Views\C_Mentee1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1012,6 +1048,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211030147441_MentorPhonePostalChange.resx">
       <DependentUpon>202211030147441_MentorPhonePostalChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211041847320_PrefrenceOnGender.resx">
+      <DependentUpon>202211041847320_PrefrenceOnGender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211050642593_DropPrefrenceUpdate.resx">
+      <DependentUpon>202211050642593_DropPrefrenceUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211060823269_UpdateNewMentee.resx">
+      <DependentUpon>202211060823269_UpdateNewMentee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211061804139_UpdateAll.resx">
+      <DependentUpon>202211061804139_UpdateAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211072046585_C_Mentee.resx">
+      <DependentUpon>202211072046585_C_Mentee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211091747113_RemoveRequiredFromMenteeDateTime.resx">
+      <DependentUpon>202211091747113_RemoveRequiredFromMenteeDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211091759533_AddingPasswordAndUsernameToMentee.resx">
+      <DependentUpon>202211091759533_AddingPasswordAndUsernameToMentee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
