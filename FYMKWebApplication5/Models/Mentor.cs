@@ -193,6 +193,19 @@ namespace FYMKWebApplication4.Models
         [Display(Name = "GDPR Agreement")]
         public bool GDPR { get; set; }
 
+
+        public bool Male { get; set; }
+        public bool Female { get; set; }
+        public bool MentorMale { get; set; }
+        public bool MentorFemale { get; set; }
+
+        public string Username { get; set; }
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        [Compare("Password", ErrorMessage = "Please confirm your Password.")]
+        [DataType(DataType.Password)]
+        public string Re_TypePassword { get; set; }
+
         //Foreign Key
         public int MenteeId { get; set; }
         //public int MenteeId { get; set; }

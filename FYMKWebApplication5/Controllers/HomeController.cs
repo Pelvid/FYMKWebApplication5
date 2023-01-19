@@ -35,6 +35,7 @@ namespace Login.Controllers
 
         // GET: Home
         [HttpGet]
+
         public ActionResult Index()
         {
 
@@ -67,12 +68,12 @@ namespace Login.Controllers
                 return RedirectToAction("Dashoard", "FYMKMentee");
             }
 
-            else if (mentee.Email == "admin@gmail.com" && mentee.LastName == "admin1234")
+            else if (mentee.Email == "admin@gmail.com" && mentee.Password == "admin1234")
             {
                 return RedirectToAction("admindashboard", "FYMKAdminDashboard");
             }
 
-            else if (mentee.Email != "admin@gmail.com" || mentee.LastName != "admin1234")
+            else if (mentee.Email != "admin@gmail.com" || mentee.Password != "admin1234")
             {
                 return RedirectToAction("Mentee_Error_View", "Home");
 
@@ -164,7 +165,7 @@ namespace Login.Controllers
         public ActionResult MentorSignInClick(Mentor mentor)
         {
 
-            var obj = db.Mentors.Where(x => x.Email.Equals(mentor.Email) && x.LastName.Equals(mentor.LastName)).FirstOrDefault();
+            var obj = db.Mentors.Where(x => x.Username.Equals(mentor.Username) && x.Password.Equals(mentor.Password)).FirstOrDefault();
             if (obj != null)
             {
                 Session["Name"] = obj.FirstName;

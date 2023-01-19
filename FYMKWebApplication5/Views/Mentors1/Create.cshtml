@@ -94,7 +94,7 @@
                                         @Html.ValidationMessageFor(model => model.ConrirmEmail, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">Date of birth.. *</label>
+                                    s    <label class="form-label">Date of birth.. *</label>
 
                                         @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
                                         @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
@@ -104,6 +104,18 @@
 
                                         @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
                                         @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Male </label>
+                                        @Html.EditorFor(model => model.Male)
+                                        @Html.ValidationMessageFor(model => model.Male, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Female </label>
+                                        @Html.EditorFor(model => model.Female)
+                                        @Html.ValidationMessageFor(model => model.Female, "", new { @class = "text-danger" })
                                     </div>
 
 
@@ -759,6 +771,33 @@
 
 
 
+
+                                </div>
+
+                                <div class="row g-3">
+                                    <h4 class="mb-4 mt-0" style="background-color: #033347; border-radius: 0.4vw; padding-top: 2%; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; font-size: 2vw; color: #ffffff;">Login Details </h4>
+
+
+
+
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Username </label>
+                                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", placeholder = "username" } })
+                                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Password </label>
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "password" } })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Confirm Password </label>
+                                        @Html.EditorFor(model => model.Re_TypePassword, new { htmlAttributes = new { @class = "form-control", placeholder = "confirm password" } })
+                                        @Html.ValidationMessageFor(model => model.Re_TypePassword, "", new { @class = "text-danger" })
+                                    </div>
 
                                 </div>
 

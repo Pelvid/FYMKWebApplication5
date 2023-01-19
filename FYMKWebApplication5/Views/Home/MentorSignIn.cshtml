@@ -247,11 +247,11 @@
                 <img src="~/img/FYMK-Square-512.png" alt="" width="130" style="margin-left: 5rem;" />
 
 
-                <p class="formLabel">  Email</p>
+                <p class="formLabel">  Username</p>
 
                 <div class="form-item">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-style" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-style" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
 
 
                 </div>
@@ -259,8 +259,8 @@
                 <p class="formLabel">Password</p>
 
                 <div class="form-item">
-                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-style" } })
-                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-style" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
 
                 </div>

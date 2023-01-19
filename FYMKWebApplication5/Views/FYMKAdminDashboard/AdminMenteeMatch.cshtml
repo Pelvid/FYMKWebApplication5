@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewBag.Title = "AdminMenteeMatch";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+
+    List<FYMKWebApplication5.Models.CareerMatching> careerMatchings = (List<FYMKWebApplication5.Models.CareerMatching>)Session["CareerMatching"];
+    List<FYMKWebApplication5.Models.AdminMatch> Admt = (List<FYMKWebApplication5.Models.AdminMatch>)Session["AdminMatch"];
+
+
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
+        <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
+
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150" style="margin-top: 2rem;" />
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="@Url.Action("admindashboard","FYMKAdminDashboard")">
+                        Admin Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("adminmentorreview","FYMKAdminDashboard")">
+                        Mentor Review
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("adminmenteereview","FYMKAdminDashboard")">
+                        Mentee Review
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("adminmatch","FYMKAdminDashboard")">
+                        AdminMatch
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("adminprogram","FYMKAdminDashboard")">
+                        Program
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("adminmentor","FYMKAdminDashboard")">
+                        AdminMentor
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("adminmentee","FYMKAdminDashboard")">
+                        AdminMentee
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link  text-white" href="@Url.Action("MenteeFeedBack","FYMKAdminDashboard")">
+                        MenteeFeedBack
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("chat","FYMKAdminDashboard")">
+                        Chat
+                    </a>
+                </li>
+
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("admincalender","FYMKAdminDashboard")">
+                        Calender
+                    </a>
+                </li>
+
+
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("helpcentre","FYMKAdminDashboard")">
+                        Help Centre
+                    </a>
+                </li>
+
+                <li>
+                    <a class="nav-link active text-white" aria-current="page" href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard")">
+                        AdminMenteeMatch
+                    </a>
+                </li>
+
+            </ul>
+            <hr>
+            <div class="dropdown ">
+                <a href="# " class="d-flex align-items-center text-white text-decoration-none dropdown-toggle " id="dropdownUser1 " data-bs-toggle="dropdown " aria-expanded="true">
+                    <img src="https://github.com/mdo.png " alt=" " width="32 " height="32 " class="rounded-circle me-2 ">
+                    <strong>mdo</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow " aria-labelledby="dropdownUser1 ">
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Index","FYMKMentorDashboard")">Notifications</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Create","ProfileSettings")">Settings</a></li>
+                    <li><a class="dropdown-item" aria-current="page" href="@Url.Action("Details","ProfileSettings")">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider ">
+                    </li>
+                    <li><a class="dropdown-item " href="# ">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 ">
+
+
+
+
+
+            <table class="table" id="firsttable">
+                <thead>
+                    <tr>
+                        <th><label>FirstName</label></th>
+                        <th><label>Email</label></th>
+                        <th><label>Enterpreneurship</label></th>
+                        <th><label>Education</label></th>
+                        <th><label>Employment</label></th>
+                        <th><label>Match</label></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    @{
+                        foreach (var careerMatchin in careerMatchings)
+                        {
+                            <tr>
+                                <td>@careerMatchin.FirstName</td>
+                                <td>@careerMatchin.Employment</td>
+                                <td>@careerMatchin.Career</td>
+                                <td>@careerMatchin.Enterpreneurship</td>
+                                <td>@careerMatchin.Education</td>
+                                <td>
+
+                                    <div>
+                                        <input type="checkbox" id="@careerMatchin.MenteeId">
+
+                                        <button onclick="disable('@careerMatchin.MenteeId')" type="button" id="mybtn" class="btn btn-success">Match</button>
+
+                                        @*<button onclick="undisable('@careerMatchin.Id')">Undisable checkbox</button>*@
+
+
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+                                </td>
+
+                            </tr>
+
+                        }
+
+                    }
+
+
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+            <div>
+                <a href="@Url.Action("adminmatch","FYMKAdminDashboard")" type="button">Back</a>
+
+            </div>
+
+
+
+        </main>
+
+      
+    </div>
+</div>
+
+<script>
+    function disable(TheId) {
+        document.getElementById(TheId).disabled = true;
+
+        //if ((document.getElementById(TheId).checked)) {
+        //    document.getElementById("mybtn").
+        //        innerText = "Marched";
+        //}
+        //else {
+        //    document.getElementById("mybtn").
+        //        innerText = "Match";
+        //}
+    }
+
+    function undisable(TheId) {
+        document.getElementById(TheId).disabled = false;
+    }
+
+
+
+
+
+</script>
+

@@ -28,7 +28,7 @@
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-                <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
+                <img src="~/img/FYMK-Square-512.png" alt="" width="150" style="margin-top: 2rem;" />
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -101,6 +101,12 @@
                     </a>
                 </li>
 
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard")">
+                        AdminMenteeMatch
+                    </a>
+                </li>
+
             </ul>
             <hr>
             <div class="dropdown">
@@ -133,14 +139,15 @@
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <div class="panel panel-primary filterable ">
-            @*<div class="panel panel-primary filterable">*@
-                <table class="table">
+                @*<div class="panel panel-primary filterable">*@
+                <table class="table" id="firsttable">
                     <thead>
                         <tr class="filters">
                             <th><input type="text" placeholder="FirstName"></th>
                             <th><input type="text" placeholder="LastName"></th>
                             <th><input type="text" placeholder="Email"></th>
                             <th><input type="text" placeholder="Enterpreneurship"></th>
+
                             <th><input type="text" placeholder="Education"></th>
                             <th><input type="text" placeholder="Employment"></th>
                             <th><input type="text" placeholder="Match"></th>
@@ -148,6 +155,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
 
                         @{
                             foreach (var Mentor in Admt)
@@ -157,104 +165,24 @@
                                     <td>@Mentor.LastName</td>
                                     <td>@Mentor.Email</td>
                                     <td>@Mentor.Enterpreneurship</td>
+
                                     <td>@Mentor.Education</td>
                                     <td>@Mentor.Employement</td>
+                                    
+                                    
+                                    @*Second Table*@
+                                   
+                                    
                                     <td>
-
-                                        <div class="container mt-3">
+                                        <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MentorId })">Match</a>
+                                        @*<a href="@string.Concat("~/FYMKAdminDashboard/AdminMenteeMatch/?XYZ=",Mentor.MentorId)">Match 2</a>*@
+                                        @*<div class="container mt-3">
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                                 Match
                                             </button>
-                                        </div>
+                                        </div>*@
 
-                                        <!-- The Modal -->
-                                        <div class="modal" id="myModal">
-                                            <div class="modal-dialog modal-fullscreen">
-                                                <div class="modal-content">
-
-                                                    <!-- Modal Header -->
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Mentee Filtering</h4>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                    </div>
-
-                                                    <!-- Modal body -->
-                                                    <div class="modal-body">
-
-                                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                                                        <div class="panel panel-primary filterable">
-                                                            <table class="table">
-                                                                <thead>
-                                                                    <tr class="filters">
-                                                                        <th><input type="text" placeholder="First Name"></th>
-                                                                        <th><input type="text" placeholder="Employment"></th>
-                                                                        <th><input type="text" placeholder="Career"></th>
-                                                                        <th><input type="text" placeholder="Enterpreneurship"></th>
-                                                                        <th><input type="text" placeholder="Education"></th>
-                                                                        <th><input type="text" placeholder="Match-Status"></th>
-
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-
-                                                                    @{
-                                                                        foreach (var careerMatchin in careerMatchings)
-                                                                        {
-                                                                            <tr>
-                                                                                <td>@careerMatchin.FirstName</td>
-                                                                                <td>@careerMatchin.Employment</td>
-                                                                                <td>@careerMatchin.Career</td>
-                                                                                <td>@careerMatchin.Enterpreneurship</td>
-                                                                                <td>@careerMatchin.Education</td>
-                                                                                <td>
-
-                                                                                    <div>
-                                                                                        <input type="checkbox" id="@careerMatchin.MentorId">
-
-                                                                                        <button onclick="disable('@careerMatchin.MentorId')" type="button" id="mybtn" class="btn btn-success">Match</button>
-
-                                                                                        @*<button onclick="undisable('@careerMatchin.Id')">Undisable checkbox</button>*@
-
-
-
-
-
-
-                                                                                    </div>
-
-
-                                                                                </td>
-                                                                            </tr>
-
-                                                                        }
-
-                                                                    }
-
-
-                                                                </tbody>
-                                                            </table>
-                                                            <nav class="paginatortable1">
-                                                                <ul class="pagination">
-                                                                    <li class="page-item"><a class="page-link firstpage" title="First" href="#">┃⏴</a></li>
-                                                                    <li class="page-item"><a class="page-link prevpage" title="Previous" href="#">⏴</a></li>
-                                                                    <li class="page-item active"><a class="page-link gotopage" title="Goto Page" href="javascript:void(0)">1 / 10</a></li>
-                                                                    <li class="page-item"><a class="page-link nextpage" title="Next" href="#">⏵</a></li>
-                                                                    <li class="page-item"><a class="page-link lastpage" title="Last" href="#">⏵┃</a></li>
-                                                                </ul>
-                                                            </nav>
-                                                            <p>No.of Rows : <span id="rowcount"></span></p>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <!-- Modal footer -->
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
 
 
                                     </td>
@@ -269,7 +197,7 @@
 
                     </tbody>
                 </table>
-                <nav class="paginatortable1">
+                @*<nav class="paginatortable1">
                     <ul class="pagination">
                         <li class="page-item"><a class="page-link firstpage" title="First" href="#">┃⏴</a></li>
                         <li class="page-item"><a class="page-link prevpage" title="Previous" href="#">⏴</a></li>
@@ -278,7 +206,7 @@
                         <li class="page-item"><a class="page-link lastpage" title="Last" href="#">⏵┃</a></li>
                     </ul>
                 </nav>
-                <p>No.of Rows : <span id="rowcount"></span></p>
+                <p>No.of Rows : <span id="rowcount"></span></p>*@
             </div>
             <script>
 
@@ -424,7 +352,7 @@
 <script>
     function disable(TheId) {
         document.getElementById(TheId).disabled = true;
-        
+
         //if ((document.getElementById(TheId).checked)) {
         //    document.getElementById("mybtn").
         //        innerText = "Marched";
@@ -441,7 +369,7 @@
 
 
 
-   
+
 
 </script>
 @*<script>

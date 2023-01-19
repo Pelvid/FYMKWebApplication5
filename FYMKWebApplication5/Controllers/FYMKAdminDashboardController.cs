@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 
 namespace FYMKWebApplication5.Controllers
 {
-   
+
     public class FYMKAdminDashboardController : Controller
     {
 
@@ -90,13 +90,13 @@ namespace FYMKWebApplication5.Controllers
             Session["MentorTable"] = mentorTables;
             Session["MatchingRatio"] = matchingRatios;
             return View(mentorCounts);
-            
+
         }
 
 
         private void FetchData()
         {
-           
+
 
             if (menteeCounts.Count > 0)
 
@@ -204,13 +204,15 @@ namespace FYMKWebApplication5.Controllers
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    menteeTables.Add(new MenteeTable() 
+                    menteeTables.Add(new MenteeTable()
                     {
                         MenteeId = dr["MenteeId"].ToString()
                     ,
-                        FirstName = dr["FirstName"].ToString() 
-                    ,LastName = dr["LastName"].ToString()
-                    ,Email = dr["Email"].ToString()
+                        FirstName = dr["FirstName"].ToString()
+                    ,
+                        LastName = dr["LastName"].ToString()
+                    ,
+                        Email = dr["Email"].ToString()
                     ,
                         MyProper = dr["MyProper"].ToString()
                     });
@@ -225,7 +227,7 @@ namespace FYMKWebApplication5.Controllers
             }
 
 
-            if(mentorTables.Count > 0)
+            if (mentorTables.Count > 0)
             {
                 mentorTables.Clear();
             }
@@ -239,8 +241,9 @@ namespace FYMKWebApplication5.Controllers
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    mentorTables.Add(new MentorTable() { 
-                     FirstName = dr["FirstName"].ToString()
+                    mentorTables.Add(new MentorTable()
+                    {
+                        FirstName = dr["FirstName"].ToString()
                     ,
                         LastName = dr["LastName"].ToString()
                     ,
@@ -248,7 +251,7 @@ namespace FYMKWebApplication5.Controllers
                     ,
                         Date = dr["Date"].ToString()
                     });
-                   
+
                 }
                 con.Close();
 
@@ -274,15 +277,15 @@ namespace FYMKWebApplication5.Controllers
             Session["MenteeCV"] = menteeCVs;
             Session["AdminCVMatching"] = adminCVMatchings;
             Session["AdminCareerMatching"] = adminCareerMatchings;
-            Session["CareerMatching"] = careerMatchings;
+            //Session["CareerMatching"] = careerMatchings;
 
             return View(adminMatches);
         }
 
         private void GetData()
         {
-
-            if(adminMatches.Count > 0)
+            //string MentorID = Request["XYZ"].ToString().Trim();
+            if (adminMatches.Count > 0)
             {
                 adminMatches.Clear();
             }
@@ -290,17 +293,19 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "Select Mentors.FirstName, Mentors.LastName, Mentors.Email, Mentors.Country, Case when Mentors.[Education] = 1 then 'Yes' Else 'No' End AS Education, Case when Mentors.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentors.Employement = 1 then 'Yes' Else 'No' End AS Employement, Case when Mentors.Developing_Resilence = 1 then 'Yes' Else 'No' End AS Developing_Resilence, Case when Mentors.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering From Mentors";
+                com.CommandText = "Select Mentors.FirstName, Mentors.MentorId, Mentors.LastName, Mentors.Email, Mentors.Country, Case when Mentors.[Education] = 1 then 'Yes' Else 'No' End AS Education, Case when Mentors.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentors.Employement = 1 then 'Yes' Else 'No' End AS Employement, Case when Mentors.Developing_Resilence = 1 then 'Yes' Else 'No' End AS Developing_Resilence, Case when Mentors.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering From Mentors /*where MentorId ='*/ " /*+ MentorID + "'"*/;
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    adminMatches.Add(new AdminMatch() 
+                    adminMatches.Add(new AdminMatch()
                     {
                         FirstName = dr["FirstName"].ToString()
 
-                    ,   LastName = dr["LastName"].ToString()
+                    ,
+                        LastName = dr["LastName"].ToString()
 
-                    ,   Email = dr["Email"].ToString()
+                    ,
+                        Email = dr["Email"].ToString()
                     ,
                         Country = dr["Country"].ToString()
                     ,
@@ -313,6 +318,8 @@ namespace FYMKWebApplication5.Controllers
                         Developing_Resilence = dr["Developing_Resilence"].ToString()
                     ,
                         Volunteering = dr["Volunteering"].ToString()
+                    ,
+                        MentorId = dr["MentorId"].ToString()
 
                     });
                 }
@@ -368,6 +375,7 @@ namespace FYMKWebApplication5.Controllers
 
                 throw;
             }
+
 
             if (adminCareerMatchings.Count > 0)
             {
@@ -426,13 +434,14 @@ namespace FYMKWebApplication5.Controllers
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    adminMenteeMatchings.Add(new AdminMenteeMatching() 
+                    adminMenteeMatchings.Add(new AdminMenteeMatching()
                     {
                         MenteeId = dr["MenteeId"].ToString()
                     ,
                         FirstName = dr["FirstName"].ToString()
 
-                    ,   Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
                     ,
                         Employment = dr["Employment"].ToString()
                     ,
@@ -522,61 +531,68 @@ namespace FYMKWebApplication5.Controllers
                 throw;
             }
 
-            if (careerMatchings.Count > 0)
-            {
-                careerMatchings.Clear();
-            }
 
-            try
-            {
-                con.Open();
-                com.Connection = con;
-                com.CommandText = "Select Mentees.MenteeId, Mentees.FirstName, Mentees.MentorId, Case when Mentees.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentees.Employment = 1 then 'Yes' Else 'No' End AS Employment, Case when Mentees.University = 1 then 'Yes' Else 'No' End AS University,Case when Mentees.Building = 1 then 'Yes' Else 'No' End AS Building, Case when Mentees.Developing = 1 then 'Yes' Else 'No' End AS Developing, Case when Mentees.Resilence = 1 then 'Yes' Else 'No' End AS Resilence, Case when Mentees.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering,Case when Mentees.College = 1 then 'Yes' Else 'No' End AS College, Case when Mentees.Career = 1 then 'Yes' Else 'No' End AS Career, Case when Mentees.CareerOptions = 1 then 'Yes' Else 'No' End AS CareerOptions, Case when Mentees.CV = 1 then 'Yes' Else 'No' End AS CV, Case when Mentees.Education = 1 then 'Yes' Else 'No' End AS Education From Mentees ";
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    careerMatchings.Add(new CareerMatching()
-                    {
-                        MenteeId = dr["MenteeId"].ToString()
-                    ,
-                        FirstName = dr["FirstName"].ToString()
-                    ,
-                        MentorId = dr["MentorId"].ToString()
-                    ,
-                        Enterpreneurship = dr["Enterpreneurship"].ToString()
-                    ,
-                        Employment = dr["Employment"].ToString()
-                    ,
-                        University = dr["University"].ToString()
-                    ,
-                        Building = dr["Building"].ToString()
-                    ,
-                        Developing = dr["Developing"].ToString()
-                    ,
-                        Resilence = dr["Resilence"].ToString()
-                    ,
-                        Volunteering = dr["Volunteering"].ToString()
-                    ,
-                        College = dr["College"].ToString()
-                    ,
-                        Career = dr["Career"].ToString()
-                    ,
-                        CareerOptions = dr["CareerOptions"].ToString()
-                    ,
-                        CV = dr["CV"].ToString()
-                    ,
-                        Education = dr["Education"].ToString()
 
-                    });
-                }
-                con.Close();
 
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
+
+
+
+            //if (careerMatchings.Count > 0)
+            //{
+            //    careerMatchings.Clear();
+            //}
+
+            //try
+            //{
+            //    con.Open();
+            //    com.Connection = con;
+            //    com.CommandText = "Select Mentees.MenteeId, Mentees.FirstName, Mentees.MentorId, Case when Mentees.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentees.Employment = 1 then 'Yes' Else 'No' End AS Employment, Case when Mentees.University = 1 then 'Yes' Else 'No' End AS University,Case when Mentees.Building = 1 then 'Yes' Else 'No' End AS Building, Case when Mentees.Developing = 1 then 'Yes' Else 'No' End AS Developing, Case when Mentees.Resilence = 1 then 'Yes' Else 'No' End AS Resilence, Case when Mentees.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering,Case when Mentees.College = 1 then 'Yes' Else 'No' End AS College, Case when Mentees.Career = 1 then 'Yes' Else 'No' End AS Career, Case when Mentees.CareerOptions = 1 then 'Yes' Else 'No' End AS CareerOptions, Case when Mentees.CV = 1 then 'Yes' Else 'No' End AS CV, Case when Mentees.Education = 1 then 'Yes' Else 'No' End AS Education From Mentees ";
+            //    dr = com.ExecuteReader();
+            //    while (dr.Read())
+            //    {
+            //        careerMatchings.Add(new CareerMatching()
+            //        {
+            //            MenteeId = dr["MenteeId"].ToString()
+            //        ,
+            //            FirstName = dr["FirstName"].ToString()
+            //        ,
+            //            MentorId = dr["MentorId"].ToString()
+            //        ,
+            //            Enterpreneurship = dr["Enterpreneurship"].ToString()
+            //        ,
+            //            Employment = dr["Employment"].ToString()
+            //        ,
+            //            University = dr["University"].ToString()
+            //        ,
+            //            Building = dr["Building"].ToString()
+            //        ,
+            //            Developing = dr["Developing"].ToString()
+            //        ,
+            //            Resilence = dr["Resilence"].ToString()
+            //        ,
+            //            Volunteering = dr["Volunteering"].ToString()
+            //        ,
+            //            College = dr["College"].ToString()
+            //        ,
+            //            Career = dr["Career"].ToString()
+            //        ,
+            //            CareerOptions = dr["CareerOptions"].ToString()
+            //        ,
+            //            CV = dr["CV"].ToString()
+            //        ,
+            //            Education = dr["Education"].ToString()
+
+            //        });
+            //    }
+            //    con.Close();
+
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
 
 
             if (matchingCheckboxes.Count > 0)
@@ -622,7 +638,7 @@ namespace FYMKWebApplication5.Controllers
                 {
                     menteeCVs.Add(new MenteeCV()
                     {
-                       
+
 
 
                     });
@@ -637,7 +653,83 @@ namespace FYMKWebApplication5.Controllers
 
         }
 
-      
+
+
+
+
+
+
+
+
+
+
+        public ActionResult AdminMenteeMatch()
+        {
+            string MentorID = Request["XYZ"].ToString().Trim();
+            GetDataMentee(MentorID);
+            Session["CareerMatching"] = careerMatchings;
+
+            return View(careerMatchings);
+        }
+        private void GetDataMentee(string MentorID)
+        {
+            if (careerMatchings.Count > 0)
+            {
+                careerMatchings.Clear();
+            }
+
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "Select Mentees.MenteeId, Mentees.FirstName, Mentees.MentorId, Case when Mentees.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentees.Employment = 1 then 'Yes' Else 'No' End AS Employment, Case when Mentees.University = 1 then 'Yes' Else 'No' End AS University,Case when Mentees.Building = 1 then 'Yes' Else 'No' End AS Building, Case when Mentees.Developing = 1 then 'Yes' Else 'No' End AS Developing, Case when Mentees.Resilence = 1 then 'Yes' Else 'No' End AS Resilence, Case when Mentees.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering,Case when Mentees.College = 1 then 'Yes' Else 'No' End AS College, Case when Mentees.Career = 1 then 'Yes' Else 'No' End AS Career, Case when Mentees.CareerOptions = 1 then 'Yes' Else 'No' End AS CareerOptions, Case when Mentees.CV = 1 then 'Yes' Else 'No' End AS CV, Case when Mentees.Education = 1 then 'Yes' Else 'No' End AS Education From Mentees where MentorId='" + MentorID + "' ";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    careerMatchings.Add(new CareerMatching()
+                    {
+                        MenteeId = dr["MenteeId"].ToString()
+                    ,
+                        FirstName = dr["FirstName"].ToString()
+                    ,
+                        MentorId = dr["MentorId"].ToString()
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Employment = dr["Employment"].ToString()
+                    ,
+                        University = dr["University"].ToString()
+                    ,
+                        Building = dr["Building"].ToString()
+                    ,
+                        Developing = dr["Developing"].ToString()
+                    ,
+                        Resilence = dr["Resilence"].ToString()
+                    ,
+                        Volunteering = dr["Volunteering"].ToString()
+                    ,
+                        College = dr["College"].ToString()
+                    ,
+                        Career = dr["Career"].ToString()
+                    ,
+                        CareerOptions = dr["CareerOptions"].ToString()
+                    ,
+                        CV = dr["CV"].ToString()
+                    ,
+                        Education = dr["Education"].ToString()
+
+                    });
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
 
         public ActionResult adminmentee()
         {
@@ -690,6 +782,15 @@ namespace FYMKWebApplication5.Controllers
 
         }
 
+        //public IActionResult Index(int? page)//add page parameters  
+        //{
+        //    var pageNumber = page ?? 1;
+        //    int pageSize = 25;
+        //    var onePageOfMentors = Data.FYMKWebApplication5Context.T.ToPageList(pageNumber, pageSize);
+        //    return View(onePageOfMentors);
+        //}
+
+
         public ActionResult adminmentor()
         {
             return View();
@@ -700,7 +801,7 @@ namespace FYMKWebApplication5.Controllers
             Session["AdminMentorReview"] = adminMentorReviews;
             return View(adminMentorReviews);
         }
-         private void PullData()
+        private void PullData()
         {
 
 
@@ -727,7 +828,8 @@ namespace FYMKWebApplication5.Controllers
                     ,
                         Email = dr["Email"].ToString()
 
-                    ,   Country = dr["Country"].ToString()
+                    ,
+                        Country = dr["Country"].ToString()
                     ,
                         Education = dr["Education"].ToString()
                     ,
@@ -842,8 +944,8 @@ namespace FYMKWebApplication5.Controllers
                     ,
                         Mentee_LastName = dr["Mentee_LastName"].ToString()
                     ,
-                        MentorName = dr["MentorName"].ToString()  
-                    ,   
+                        MentorName = dr["MentorName"].ToString()
+                    ,
                         Comment = dr["Comment"].ToString()
 
 

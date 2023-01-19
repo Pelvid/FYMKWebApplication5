@@ -170,9 +170,15 @@
                     </a>
                 </li>
 
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard")">
+                        AdminMenteeMatch
+                    </a>
+                </li>
+
             </ul>
 
-            
+
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -196,44 +202,42 @@
 
 
             <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
-
-
             @*<div class="col-md">
 
-                <h2>Mentor List</h2>
-                <table class="table" id="customers">
-                    <thead class="table-dark">
-                        <tr>
+                    <h2>Mentor List</h2>
+                    <table class="table" id="customers">
+                        <thead class="table-dark">
+                            <tr>
 
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                    </thead>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        @{
+                        <tbody>
+                            @{
 
-                            foreach (var Dtt in mentorTables)
-                            {
+                                foreach (var Dtt in mentorTables)
+                                {
 
-                                <tr>
+                                    <tr>
 
-                                    <td>@Dtt.FirstName</td>
-                                    <td>@Dtt.LastName</td>
-                                    <td>@Dtt.Email</td>
+                                        <td>@Dtt.FirstName</td>
+                                        <td>@Dtt.LastName</td>
+                                        <td>@Dtt.Email</td>
 
-                                </tr>
+                                    </tr>
+
+                                }
 
                             }
 
-                        }
 
+                        </tbody>
+                    </table>
 
-                    </tbody>
-                </table>
-
-            </div>*@
+                </div>*@
 
 
 
@@ -272,6 +276,7 @@
                                                 foreach (var Dtt in mentorTables)
                                                 {
                                                     <tr>
+
                                                         <td>
                                                             <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
                                                             <a href="#" class="user-link">@Dtt.FirstName @Dtt.LastName</a>
@@ -281,8 +286,8 @@
                                                         </td>
                                                         <td>@Dtt.Date</td>
                                                         @*<td class="text-center">
-                        <span class="label label-default">pending</span>
-                    </td>*@
+                                                                <span class="label label-default">pending</span>
+                                                            </td>*@
                                                         <td>
                                                             <a href="#">@Dtt.Email</a>
                                                         </td>
