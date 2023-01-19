@@ -39,6 +39,8 @@ namespace FYMKWebApplication5.Controllers
         List<MatchRatio> MatchRatios = new List<MatchRatio>();
         List<MenteeFeedBack> MenteeFeedBacks = new List<MenteeFeedBack>();
         List<MatchingRatio> matchingRatios = new List<MatchingRatio>();
+        List<PendingMatch> pendingMatches = new List<PendingMatch>();
+        List<PendingMentorMatch> pendingMentorMatches = new List<PendingMentorMatch>();
 
 
 
@@ -735,8 +737,113 @@ namespace FYMKWebApplication5.Controllers
 
         public ActionResult PendingMatch()
         {
+            Request["XYZ"].ToString().Trim();
+            Session["CurMentor"] = Request["XYZ"].ToString().Trim();
+            PendingMatching();
+            Session["PendingMatch"] = pendingMatches;
+
             return View();
         }
+
+        private void PendingMatching()
+        {
+            if (pendingMatches.Count > 0)
+            {
+                pendingMatches.Clear();
+            }
+
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Mentees.FirstName, Mentees.LastName, Mentees.Email, Mentees.Enterpreneurship, Mentees.Employment, Mentees.Education, Mentees.MenteeId, Mentees.MentorId From Mentees where Mentees.MentorId = 0 ";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    pendingMatches.Add(new PendingMatch()
+                    {
+                        FirstName = dr["FirstName"].ToString()
+                    ,
+                        LastName = dr["LastName"].ToString()
+                    ,
+                        Email = dr["Email"].ToString()
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Employment = dr["Employment"].ToString()
+                    ,
+                        MenteeId = dr["MenteeId"].ToString()
+                    ,
+                        MentorId = dr["MentorId"].ToString()
+                    ,
+                        Education = dr["Education"].ToString()
+
+                    });
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+
+        public ActionResult PendingMentorMatch()
+        {
+            PendingMentorMatching();
+            Session["PendingMentorMatch"] = pendingMentorMatches;
+
+            return View();
+        }
+
+        private void PendingMentorMatching()
+        {
+            if (pendingMentorMatches.Count > 0)
+            {
+                pendingMentorMatches.Clear();
+            }
+
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = "select Mentors.FirstName, Mentors.LastName, Mentors.Email, Mentors.Enterpreneurship, Mentors.Education, Mentors.MenteeId, Mentors.MentorId From Mentors where Mentors.MenteeId = 0 ";
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    pendingMentorMatches.Add(new PendingMentorMatch()
+                    {
+                        FirstName = dr["FirstName"].ToString()
+                    ,
+                        LastName = dr["LastName"].ToString()
+                    ,
+                        Email = dr["Email"].ToString()
+                    ,
+                        Enterpreneurship = dr["Enterpreneurship"].ToString()
+                    ,
+                        Education = dr["Education"].ToString()
+                    ,
+                        MenteeId = dr["MenteeId"].ToString()
+                    ,
+                        MentorId = dr["MentorId"].ToString()
+
+                    });
+                }
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
 
 
         public ActionResult adminmentee()

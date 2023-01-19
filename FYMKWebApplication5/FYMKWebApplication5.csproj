@@ -703,6 +703,8 @@
     <Compile Include="Models\MentorCount.cs" />
     <Compile Include="Models\MentorTable.cs" />
     <Compile Include="Models\NewMente.cs" />
+    <Compile Include="Models\PendingMatch.cs" />
+    <Compile Include="Models\PendingMentorMatch.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\ProfileSettings.cs" />
     <Compile Include="Models\Response.cs" />
@@ -1216,6 +1218,7 @@
     <Content Include="Views\C_Mentee1\Index.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\AdminMenteeMatch.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\PendingMatch.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\PendingMentorMatch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

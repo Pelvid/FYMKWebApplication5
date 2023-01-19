@@ -1,6 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "PendingMatch";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+
+    List<FYMKWebApplication5.Models.PendingMatch> pendings = (List<FYMKWebApplication5.Models.PendingMatch>)Session["PendingMatch"];
+
+
 }
 
 <div class="container-fluid">
@@ -106,11 +111,80 @@
 
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 ">
-           
 
 
 
 
+
+            <div>
+
+                <div>
+                    <a href="@Url.Action("adminmatch","FYMKAdminDashboard")" type="button">Back</a>
+
+                </div>
+
+                <table class="table" id="firsttable">
+                    <thead>
+                        <tr class="filters">
+
+                            <th><label> Match</label></th>
+                            <th><label> FirstName</label></th>
+                            <th><label> LastName</label></th>
+                            <th><label> Email</label></th>
+                            <th><label> Enterpreneurship</label></th>
+                            <th><label> Education</label></th>
+                            @*<th><label> Match</label></th>*@
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        @{
+                            foreach (var pen in pendings)
+                            {
+                                <tr>
+                                    <td>
+
+                                                                <div>
+                                                                    <input type="checkbox" id="@pen.MenteeId">
+
+                                                                    <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {MenteeID =pen.MenteeId, MentorId= Session["CurMentor"] })">Match</a>
+                                                                </div>
+
+                                    </td>
+                                    <td>@pen.FirstName</td>
+                                    <td>@pen.LastName</td>
+                                    <td>@pen.Email</td>
+                                    <td>@pen.Enterpreneurship</td>
+                                    <td>@pen.Education</td>
+
+
+
+
+                                    <!--<td>
+                                    <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {MenteeID =pen.MenteeId, MentorId= "" })">Match</a><br />-->
+                                    @*<a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MenteeId })">Match</a>*@
+                                    @*<a href="@string.Concat("~/FYMKAdminDashboard/AdminMenteeMatch/?XYZ=",Mentor.MentorId)">Match 2</a>*@
+
+
+
+
+                                    <!--</td>-->
+
+
+                                </tr>
+
+                            }
+
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
 
 
 

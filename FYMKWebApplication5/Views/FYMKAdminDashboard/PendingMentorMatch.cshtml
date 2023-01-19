@@ -1,9 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "admincalender";
+    ViewBag.Title = "PendingMentorMatch";
     Layout = "~/Views/_LayoutPage1.cshtml";
-
     List<FYMKWebApplication5.Models.PendingMentorMatch> pendingMentors = (List<FYMKWebApplication5.Models.PendingMentorMatch>)Session["PendingMentorMatch"];
+
 
 }
 
@@ -72,11 +72,16 @@
                     <a class="nav-link text-white" href="@Url.Action("chat","FYMKAdminDashboard")">
                         Chat
                     </a>
+                </li> 
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("admincalender","FYMKAdminDashboard")">
+                        Calender
+                    </a>
                 </li>
 
                 <li>
-                    <a class="nav-link active text-white" aria-current="page" href="@Url.Action("admincalender","FYMKAdminDashboard")">
-                        Calender
+                    <a class="nav-link active text-white" aria-current="page" href="@Url.Action("PendingMentorMatch","FYMKAdminDashboard")">
+                        PendingMentorMatch
                     </a>
                 </li>
 
@@ -128,7 +133,7 @@
             <div>
 
                 <div>
-                    <a href="@Url.Action("adminmatch","FYMKAdminDashboard")" type="button">Back</a>
+                    <a href="@Url.Action("PendingMatch","FYMKAdminDashboard")" type="button">Back</a>
 
                 </div>
 
@@ -140,7 +145,6 @@
                             <th><label> Email</label></th>
                             <th><label> Enterpreneurship</label></th>
                             <th><label> Education</label></th>
-                            <th><label> Employment</label></th>
                             <th><label> Match</label></th>
 
 
@@ -164,7 +168,7 @@
 
 
                                     <td>
-                                        <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =pending.MenteeId })">Match</a><br />
+                                        <a href="@Url.Action("PendingMatch","FYMKAdminDashboard", new {XYZ =pending.MentorId })">Match</a><br />
                                         @*<a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MenteeId })">Match</a>*@
                                         @*<a href="@string.Concat("~/FYMKAdminDashboard/AdminMenteeMatch/?XYZ=",Mentor.MentorId)">Match 2</a>*@
 
