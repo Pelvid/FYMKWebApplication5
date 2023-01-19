@@ -1215,6 +1215,7 @@
     <Content Include="Views\C_Mentee1\Edit.cshtml" />
     <Content Include="Views\C_Mentee1\Index.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\AdminMenteeMatch.cshtml" />
+    <Content Include="Views\FYMKAdminDashboard\PendingMatch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

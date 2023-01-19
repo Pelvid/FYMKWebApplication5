@@ -293,7 +293,7 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "Select Mentors.FirstName, Mentors.MentorId, Mentors.LastName, Mentors.Email, Mentors.Country, Case when Mentors.[Education] = 1 then 'Yes' Else 'No' End AS Education, Case when Mentors.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentors.Employement = 1 then 'Yes' Else 'No' End AS Employement, Case when Mentors.Developing_Resilence = 1 then 'Yes' Else 'No' End AS Developing_Resilence, Case when Mentors.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering From Mentors /*where MentorId ='*/ " /*+ MentorID + "'"*/;
+                com.CommandText = "Select Mentors.FirstName, Mentors.MentorId, Mentors.MenteeId, Mentors.LastName, Mentors.Email, Mentors.Country, Case when Mentors.[Education] = 1 then 'Yes' Else 'No' End AS Education, Case when Mentors.Enterpreneurship = 1 then 'Yes' Else 'No' End AS Enterpreneurship, Case when Mentors.Employement = 1 then 'Yes' Else 'No' End AS Employement, Case when Mentors.Developing_Resilence = 1 then 'Yes' Else 'No' End AS Developing_Resilence, Case when Mentors.Volunteering = 1 then 'Yes' Else 'No' End AS Volunteering From Mentors /*where MentorId ='*/ " /*+ MentorID + "'"*/;
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -320,6 +320,8 @@ namespace FYMKWebApplication5.Controllers
                         Volunteering = dr["Volunteering"].ToString()
                     ,
                         MentorId = dr["MentorId"].ToString()
+                    ,
+                        MenteeId = dr["MenteeId"].ToString()
 
                     });
                 }
@@ -728,6 +730,12 @@ namespace FYMKWebApplication5.Controllers
 
                 throw;
             }
+        }
+
+
+        public ActionResult PendingMatch()
+        {
+            return View();
         }
 
 

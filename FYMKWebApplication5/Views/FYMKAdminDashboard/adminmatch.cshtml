@@ -107,6 +107,12 @@
                     </a>
                 </li>
 
+                <li>
+                    <a class="nav-link text-white" href="@Url.Action("PendingMatch","FYMKAdminDashboard")">
+                        PendingMatch
+                    </a>
+                </li>
+
             </ul>
             <hr>
             <div class="dropdown">
@@ -134,9 +140,10 @@
 
 
 
-
+            
             <h3>Mentor Filtering</h3>
-
+            <a  href="@Url.Action("PendingMatch","FYMKAdminDashboard")">PendingMatch</a>
+               
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <div class="panel panel-primary filterable ">
                 @*<div class="panel panel-primary filterable">*@
@@ -168,21 +175,16 @@
 
                                     <td>@Mentor.Education</td>
                                     <td>@Mentor.Employement</td>
-                                    
-                                    
-                                    @*Second Table*@
-                                   
-                                    
-                                    <td>
-                                        <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MentorId })">Match</a>
-                                        @*<a href="@string.Concat("~/FYMKAdminDashboard/AdminMenteeMatch/?XYZ=",Mentor.MentorId)">Match 2</a>*@
-                                        @*<div class="container mt-3">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                                                Match
-                                            </button>
-                                        </div>*@
 
-                                       
+
+
+
+                                    <td>
+                                        <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MentorId })">Matched Mentee</a><br />
+                                        <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MenteeId })">Match</a>
+                                        @*<a href="@string.Concat("~/FYMKAdminDashboard/AdminMenteeMatch/?XYZ=",Mentor.MentorId)">Match 2</a>*@
+
+
 
 
                                     </td>
@@ -198,15 +200,15 @@
                     </tbody>
                 </table>
                 @*<nav class="paginatortable1">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link firstpage" title="First" href="#">┃⏴</a></li>
-                        <li class="page-item"><a class="page-link prevpage" title="Previous" href="#">⏴</a></li>
-                        <li class="page-item active"><a class="page-link gotopage" title="Goto Page" href="javascript:void(0)">1 / 10</a></li>
-                        <li class="page-item"><a class="page-link nextpage" title="Next" href="#">⏵</a></li>
-                        <li class="page-item"><a class="page-link lastpage" title="Last" href="#">⏵┃</a></li>
-                    </ul>
-                </nav>
-                <p>No.of Rows : <span id="rowcount"></span></p>*@
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link firstpage" title="First" href="#">┃⏴</a></li>
+                    <li class="page-item"><a class="page-link prevpage" title="Previous" href="#">⏴</a></li>
+                    <li class="page-item active"><a class="page-link gotopage" title="Goto Page" href="javascript:void(0)">1 / 10</a></li>
+                    <li class="page-item"><a class="page-link nextpage" title="Next" href="#">⏵</a></li>
+                    <li class="page-item"><a class="page-link lastpage" title="Last" href="#">⏵┃</a></li>
+                </ul>
+            </nav>
+            <p>No.of Rows : <span id="rowcount"></span></p>*@
             </div>
             <script>
 

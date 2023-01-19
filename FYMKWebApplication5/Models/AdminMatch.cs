@@ -17,5 +17,6 @@ namespace FYMKWebApplication5.Models
         public string Developing_Resilence { get; set; }
         public string Volunteering { get; set; }
         public string MentorId { get; set; }
+        public string MenteeId { get; set; }
     }
 }
