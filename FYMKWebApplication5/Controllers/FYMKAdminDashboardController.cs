@@ -41,6 +41,7 @@ namespace FYMKWebApplication5.Controllers
         List<MatchingRatio> matchingRatios = new List<MatchingRatio>();
         List<PendingMatch> pendingMatches = new List<PendingMatch>();
         List<PendingMentorMatch> pendingMentorMatches = new List<PendingMentorMatch>();
+        List<UpdateMatching> updateMatchings = new List<UpdateMatching>();
 
 
 
@@ -843,6 +844,40 @@ namespace FYMKWebApplication5.Controllers
             }
         }
 
+
+
+        public ActionResult UpdateMatching()
+        {
+
+            UpdateMatchinging(Request["MentorID"], Request["MenteeID"]);
+            Session["UpdateMatching"] = updateMatchings;
+            return View();
+            //return View("AdminMenteeMatch");
+        }
+
+        private void UpdateMatchinging(string mentorid, string menteeid)
+        {
+            if (updateMatchings.Count > 0)
+            {
+                updateMatchings.Clear();
+            }
+
+            try
+            {
+                con.Open();
+                com.Connection = con;
+                com.CommandText = " UPDATE Mentees SET MentorId='"+ mentorid + "' WHERE MenteeId='"+ menteeid + "' ";
+                
+                int res = com.ExecuteNonQuery();
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
 
 

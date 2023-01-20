@@ -148,9 +148,9 @@
                                     <td>
 
                                                                 <div>
-                                                                    <input type="checkbox" id="@pen.MenteeId">
+                                                                    @*<input type="checkbox" id="@pen.MenteeId">*@
 
-                                                                    <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {MenteeID =pen.MenteeId, MentorId= Session["CurMentor"] })">Match</a>
+                                                                    <a href="@Url.Action("UpdateMatching","FYMKAdminDashboard", new {MenteeID =pen.MenteeId, MentorId= Session["CurMentor"] })">Match</a>
                                                                 </div>
 
                                     </td>
