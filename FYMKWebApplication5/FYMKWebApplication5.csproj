@@ -514,6 +514,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminDashboardsController.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\C_Mentee1Controller.cs" />
     <Compile Include="Controllers\C_MenteeController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
@@ -677,7 +678,12 @@
     <Compile Include="Migrations\202301052301068_AddingPasswordToMentor.Designer.cs">
       <DependentUpon>202301052301068_AddingPasswordToMentor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301220436397_Admin.cs" />
+    <Compile Include="Migrations\202301220436397_Admin.Designer.cs">
+      <DependentUpon>202301220436397_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\AdminCareerMatching.cs" />
     <Compile Include="Models\AdminCVMatching.cs" />
     <Compile Include="Models\AdminDashboard.cs" />
@@ -1221,6 +1227,12 @@
     <Content Include="Views\FYMKAdminDashboard\PendingMatch.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\PendingMentorMatch.cshtml" />
     <Content Include="Views\FYMKAdminDashboard\UpdateMatching.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Home\AdminSignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1360,6 +1372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301052301068_AddingPasswordToMentor.resx">
       <DependentUpon>202301052301068_AddingPasswordToMentor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301220436397_Admin.resx">
+      <DependentUpon>202301220436397_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

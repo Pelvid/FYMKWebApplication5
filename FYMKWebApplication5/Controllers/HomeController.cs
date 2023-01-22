@@ -193,6 +193,53 @@ namespace Login.Controllers
         }
 
 
+
+
+
+
+        public ActionResult AdminSignIn()
+        {
+
+            return View();
+
+        }
+
+        public ActionResult AdminSignInClick(Admin admin)
+        {
+
+            var obj = db.Admins.Where(x => x.Username.Equals(admin.Username) && x.Password.Equals(admin.Password)).FirstOrDefault();
+            if (obj != null)
+            {
+                //Session["Name"] = obj.FirstName;
+                //Session["UserId"] = obj.MentorId;
+                //Session["MenteeUserId"] = obj.MenteeId;
+                return RedirectToAction("admindashboard", "FYMKAdminDashboard");
+            }
+
+            
+
+
+
+
+
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public ActionResult LoginError()
         {
 
