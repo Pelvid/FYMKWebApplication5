@@ -214,6 +214,7 @@ namespace Login.Controllers
                 //Session["UserId"] = obj.MentorId;
                 //Session["MenteeUserId"] = obj.MenteeId;
                 return RedirectToAction("admindashboard", "FYMKAdminDashboard");
+
             }
 
             
@@ -222,7 +223,7 @@ namespace Login.Controllers
 
 
 
-            return View();
+            return View("admindashboard", "FYMKAdminDashboard");
         }
 
 

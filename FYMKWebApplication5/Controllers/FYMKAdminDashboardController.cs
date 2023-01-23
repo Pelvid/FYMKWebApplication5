@@ -78,14 +78,6 @@ namespace FYMKWebApplication5.Controllers
         {
 
 
-            //int MentorCount = 6;
-            //int Menteecount = 3;
-            //int MatchRatio = 1;
-
-
-            //Session["MentorCount"] = MentorCount;
-
-            //Session["MatchRatio"] = MatchRatio;
             FetchData();
             Session["Menteecount"] = menteeCounts;
             Session["Mentorcount"] = mentorCounts;
@@ -111,13 +103,13 @@ namespace FYMKWebApplication5.Controllers
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "select Count (MenteeId) as IdCount From Mentees ";
+                com.CommandText = "select Count (MenteeId) as MenteeId From Mentees ";
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
                     menteeCounts.Add(new MenteeCount()
                     {
-                        Id = dr["IdCount"].ToString()
+                        MenteeId = dr["MenteeId"].ToString()
                     });
                 }
                 con.Close();

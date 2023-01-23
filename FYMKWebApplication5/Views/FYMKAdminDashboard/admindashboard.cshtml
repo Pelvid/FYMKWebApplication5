@@ -1,4 +1,5 @@
 ﻿
+
 @{
 
     ViewBag.Title = "admindashboard";
@@ -18,12 +19,12 @@
 
 
 
-    string[] TableHeaders = new string[] 
-    { 
+    string[] TableHeaders = new string[]
+    {
         "First Name"
         ,"Last Name"
         ,"Email"
-    };
+                    };
 }
 
 <div class="container-fluid">
@@ -189,7 +190,7 @@
 
                                     foreach (var Data in mncnt)
                                     {
-                                        @Data.Id;
+                                        @Data.MenteeId;
 
                                     }
 

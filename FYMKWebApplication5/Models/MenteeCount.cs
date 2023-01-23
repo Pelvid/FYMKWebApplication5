@@ -8,6 +8,7 @@ namespace FYMKWebApplication5.Models
 {
     public class MenteeCount
     {
-        public string Id { get; set; }
+        public string MenteeId { get; set; }
+
     }
 }
