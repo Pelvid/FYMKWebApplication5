@@ -5,11 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using FYMKWebApplication5.Models;
 using System.Data.SqlClient;
-
-
-
-
-
+using System.Configuration;
 
 namespace FYMKWebApplication5.Controllers
 {
@@ -55,8 +51,8 @@ namespace FYMKWebApplication5.Controllers
         {
             //ILogger<FYMKAdminDashboardController> logger
             // _logger = logger;
-            //con.ConnectionString = FYMKWebApplication4.Properties.Resources.ConnectionString2;  /*Previous Connection*/
-            con.ConnectionString = FYMKWebApplication4.Properties.Resources.ConnectionString;
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["FYMKWebApplication5Context"].ConnectionString;
+            //FYMKWebApplication4.Properties.Resources.ConnectionString2;  
         }
 
         public IEnumerable<object> Mentees1 { get; private set; }

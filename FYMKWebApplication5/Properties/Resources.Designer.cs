@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FYMKWebApplication4.Properties {
+namespace FYMKWebApplication5.Properties {
     using System;
     
     
@@ -57,24 +57,6 @@ namespace FYMKWebApplication4.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Data Source &quot;(localdb)\MSSQLLocalDB&quot;; database &quot;FYMKWebApplication5Context&quot;; integrated security = True;.
-        /// </summary>
-        internal static string ConnectionString {
-            get {
-                return ResourceManager.GetString("ConnectionString", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Data Source=&quot;(localdb)\MSSQLLocalDB&quot;; database=&quot;FYMKWebApplication5Context-20220215133650&quot;; integrated security = True;.
-        /// </summary>
-        internal static string ConnectionString2 {
-            get {
-                return ResourceManager.GetString("ConnectionString2", resourceCulture);
             }
         }
     }

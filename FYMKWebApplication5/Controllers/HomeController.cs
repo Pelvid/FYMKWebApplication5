@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using FYMKWebApplication5.Models;
 using System.Net.Mail;
 using System.Net;
+using System.Configuration;
 
 namespace Login.Controllers
 {
@@ -28,7 +29,7 @@ namespace Login.Controllers
         {
             //ILogger<FYMKAdminDashboardController> logger
             // _logger = logger;
-            con.ConnectionString = FYMKWebApplication4.Properties.Resources.ConnectionString2;
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["FYMKWebApplication5Context"].ConnectionString;
         }
 
         public IEnumerable<object> Mentees1 { get; private set; }
@@ -223,7 +224,7 @@ namespace Login.Controllers
 
 
 
-            return View("admindashboard", "FYMKAdminDashboard");
+            return RedirectToAction("admindashboard", "FYMKAdminDashboard");
         }
 
 
