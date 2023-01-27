@@ -12,7 +12,7 @@
         <!--<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
         <div id="sidebarMenu" class="col-md-3 col-lg-2 flex-column d-md-block align-items-stretch flex-shrink-0 p-3 text-white bg-dark sidebar collapse">
 
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <a href="@Url.Action("admindashboard","FYMKAdminDashboard")" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
                 <img src="~/img/FYMK-Square-512.png" alt="" width="150px" style="margin-top: 2rem;" />
             </a>
@@ -72,7 +72,7 @@
                     <a class="nav-link text-white" href="@Url.Action("chat","FYMKAdminDashboard")">
                         Chat
                     </a>
-                </li> 
+                </li>
                 <li>
                     <a class="nav-link text-white" href="@Url.Action("admincalender","FYMKAdminDashboard")">
                         Calender
@@ -133,7 +133,7 @@
             <div>
 
                 <div>
-                    <a href="@Url.Action("PendingMatch","FYMKAdminDashboard")" type="button">Back</a>
+                    <a href="@Url.Action("adminmatch","FYMKAdminDashboard")" type="button">Back</a>
 
                 </div>
 
