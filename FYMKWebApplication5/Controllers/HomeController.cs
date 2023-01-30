@@ -218,20 +218,39 @@ namespace Login.Controllers
 
             }
 
-            
+
+
+            var rem = db.Admins.Where(x => x.Username != (admin.Username) && x.Password != (admin.Password) || x.Username.Equals(admin.Username) && x.Password !=(admin.Password)  || x.Username !=(admin.Username) && x.Password.Equals(admin.Password)).FirstOrDefault();
+             if (rem != null)
+            {
+                //Session["Name"] = obj.FirstName;
+                //Session["UserId"] = obj.MentorId;
+                //Session["MenteeUserId"] = obj.MenteeId;
+                return RedirectToAction("AdminLoginError", "Home");
+
+            }
 
 
 
 
 
-            return RedirectToAction("admindashboard", "FYMKAdminDashboard");
+
+
+
+            //return RedirectToAction("admindashboard", "FYMKAdminDashboard");
+            return View();
         }
 
 
 
 
 
+        public ActionResult AdminLoginError()
+        {
 
+            return View();
+
+        }
 
 
 
