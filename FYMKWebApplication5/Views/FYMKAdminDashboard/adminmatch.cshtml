@@ -139,67 +139,67 @@
 
 
 
+            <div class="container">
 
-            
-            <h3>Mentor Filtering</h3>
-            <a  href="@Url.Action("PendingMentorMatch","FYMKAdminDashboard")">PendingMatch</a>
-               
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <div class="panel panel-primary filterable ">
-                @*<div class="panel panel-primary filterable">*@
-                <table class="table" id="firsttable">
-                    <thead>
-                        <tr class="filters">
-                            <th><input type="text" placeholder="FirstName"></th>
-                            <th><input type="text" placeholder="LastName"></th>
-                            <th><input type="text" placeholder="Email"></th>
-                            <th><input type="text" placeholder="Enterpreneurship"></th>
+                <h3>Mentor Filtering</h3>
+                <a href="@Url.Action("PendingMentorMatch","FYMKAdminDashboard")">PendingMatch</a>
 
-                            <th><input type="text" placeholder="Education"></th>
-                            <th><input type="text" placeholder="Employment"></th>
-                            <th><input type="text" placeholder="Match"></th>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <div class="panel panel-primary filterable ">
+                    @*<div class="panel panel-primary filterable">*@
+                    <table class="table" id="firsttable">
+                        <thead>
+                            <tr class="filters">
+                                <th><input type="text" placeholder="FirstName"></th>
+                                <th><input type="text" placeholder="LastName"></th>
+                                <th><input type="text" placeholder="Email"></th>
+                                <th><input type="text" placeholder="Enterpreneurship"></th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
+                                <th><input type="text" placeholder="Education"></th>
+                                <th><input type="text" placeholder="Employment"></th>
+                                <th><input type="text" placeholder="Match"></th>
 
-
-                        @{
-                            foreach (var Mentor in Admt)
-                            {
-                                <tr>
-                                    <td>@Mentor.FirstName</td>
-                                    <td>@Mentor.LastName</td>
-                                    <td>@Mentor.Email</td>
-                                    <td>@Mentor.Enterpreneurship</td>
-
-                                    <td>@Mentor.Education</td>
-                                    <td>@Mentor.Employement</td>
+                            </tr>
+                        </thead>
+                        <tbody>
 
 
+                            @{
+                                foreach (var Mentor in Admt)
+                                {
+                                    <tr>
+                                        <td>@Mentor.FirstName</td>
+                                        <td>@Mentor.LastName</td>
+                                        <td>@Mentor.Email</td>
+                                        <td>@Mentor.Enterpreneurship</td>
 
-
-                                    <td>
-                                        <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MentorId })">Matched Mentee</a><br />
-                                        @*<a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MenteeId })">Match</a>*@
-                                        @*<a href="@string.Concat("~/FYMKAdminDashboard/AdminMenteeMatch/?XYZ=",Mentor.MentorId)">Match 2</a>*@
+                                        <td>@Mentor.Education</td>
+                                        <td>@Mentor.Employement</td>
 
 
 
 
-                                    </td>
+                                        <td>
+                                            <a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MentorId })">Matched Mentee</a><br />
+                                            @*<a href="@Url.Action("AdminMenteeMatch","FYMKAdminDashboard", new {XYZ =Mentor.MenteeId })">Match</a>*@
+                                            @*<a href="@string.Concat("~/FYMKAdminDashboard/AdminMenteeMatch/?XYZ=",Mentor.MentorId)">Match 2</a>*@
 
 
-                                </tr>
+
+
+                                        </td>
+
+
+                                    </tr>
+
+                                }
 
                             }
 
-                        }
 
-
-                    </tbody>
-                </table>
-                @*<nav class="paginatortable1">
+                        </tbody>
+                    </table>
+                    @*<nav class="paginatortable1">
                 <ul class="pagination">
                     <li class="page-item"><a class="page-link firstpage" title="First" href="#">┃⏴</a></li>
                     <li class="page-item"><a class="page-link prevpage" title="Previous" href="#">⏴</a></li>
@@ -209,9 +209,9 @@
                 </ul>
             </nav>
             <p>No.of Rows : <span id="rowcount"></span></p>*@
+                </div>
+
             </div>
-
-
 
             <script>
 

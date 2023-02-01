@@ -1,4 +1,5 @@
-﻿
+﻿@model FYMKWebApplication4.Models.Mentor
+
 @{
     ViewBag.Title = "Settings";
     Layout = "~/Views/Shared/Mentee_Layout.cshtml";
@@ -19,10 +20,10 @@
                     </a>
                 </li>
                 @*<li>
-                    <a class="nav-link  text-white" href="@Url.Action("Mentor","FYMKMentee")">
-                        Mentor
-                    </a>
-                </li>*@
+                        <a class="nav-link  text-white" href="@Url.Action("Mentor","FYMKMentee")">
+                            Mentor
+                        </a>
+                    </li>*@
                 <li>
                     <a class="nav-link  text-white" href="@Url.Action("Program","FYMKMentee")">
                         Programs
@@ -96,37 +97,37 @@
                                             <!-- First Name -->
                                             <div class="col-md-6">
                                                 <label class="form-label">First Name *</label>
-                                                <input type="text" class="form-control" placeholder="First name" aria-label="First name" value="" required>
+                                                <input type="text" class="form-control" placeholder="First name" aria-label="First name" value="" readonly >
                                             </div>
                                             <!-- Last name -->
                                             <div class="col-md-6">
                                                 <label class="form-label">Last Name *</label>
-                                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" value="" required>
+                                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" value="" readonly>
                                             </div>
                                             <!-- Phone number -->
                                             <div class="col-md-6">
                                                 <label class="form-label">Phone number *</label>
-                                                <input type="text" class="form-control" placeholder="(000) 000 000" aria-label="Phone number" value="">
+                                                <input type="text" class="form-control" placeholder="(000) 000 000" aria-label="Phone number" value="" readonly>
                                             </div>
                                             <!-- Mobile number -->
                                             <div class="col-md-6">
                                                 <label class="form-label">Mobile number *</label>
-                                                <input type="text" class="form-control" placeholder="+00 0000 0000 000" aria-label="Phone number" value="">
+                                                <input type="text" class="form-control" placeholder="+00 0000 0000 000" aria-label="Phone number" value="" readonly>
                                             </div>
                                             <!-- Email -->
                                             <div class="col-md-6">
                                                 <label for="inputEmail4" class="form-label">Email *</label>
-                                                <input type="email" class="form-control" id="inputEmail4" placeholder="username@example.com" value="" required>
+                                                <input type="email" class="form-control" id="inputEmail4" placeholder="username@example.com" value="" readonly>
                                             </div>
                                             <!-- Country -->
                                             <div class="col-md-6">
                                                 <label for="inputCountry" class="form-label">Country *</label>
-                                                <input type="country" class="form-control" id="inputCountry" placeholder="Country" value="" required>
+                                                <input type="country" class="form-control" id="inputCountry" placeholder="Country" value="" readonly>
                                             </div>
                                             <!-- Language -->
                                             <div class="col-md-6">
                                                 <label for="inputLang" class="form-label">Language *</label>
-                                                <input type="text" class="form-control" id="inputLang" placeholder="Language" value="" required>
+                                                <input type="text" class="form-control" id="inputLang" placeholder="Language" value="" readonly>
                                             </div>
                                             <!-- Programme -->
                                             <h6>Select your programme duration</h6>
@@ -140,7 +141,7 @@
                                             <!-- Bio -->
                                             <div class="col-md-12">
                                                 <label for="inputBio" class="form-label">Bio *</label>
-                                                <input type="textarea" class="form-control" id="inputBio" placeholder="Tell us about you" value="" required>
+                                                <input type="textarea" class="form-control" id="inputBio" placeholder="Tell us about you" value="" readonly>
                                             </div>
                                             <!-- interests -->
                                             <div class="col-md-12">

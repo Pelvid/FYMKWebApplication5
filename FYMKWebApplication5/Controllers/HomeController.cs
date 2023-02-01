@@ -69,6 +69,20 @@ namespace Login.Controllers
                 return RedirectToAction("Dashoard", "FYMKMentee");
             }
 
+
+            var rem = db.Mentees.Where(x => x.Username != (mentee.Username) && x.Password != (mentee.Password) || x.Username.Equals(mentee.Username) && x.Password != (mentee.Password) || x.Username != (mentee.Username) && x.Password.Equals(mentee.Password)).FirstOrDefault();
+            if (rem != null)
+            {
+                //Session["Name"] = obj.FirstName;
+                //Session["UserId"] = obj.MentorId;
+                //Session["MenteeUserId"] = obj.MenteeId;
+                return RedirectToAction("Mentee_Error_View", "Home");
+
+            }
+
+
+
+
             else if (mentee.Email == "admin@gmail.com" && mentee.Password == "admin1234")
             {
                 return RedirectToAction("admindashboard", "FYMKAdminDashboard");
@@ -174,6 +188,21 @@ namespace Login.Controllers
                 Session["MenteeUserId"] = obj.MenteeId;
                 return RedirectToAction("MentorDashboard", "FYMKMentorDashboard");
             }
+
+
+            var rem = db.Mentors.Where(x => x.Username != (mentor.Username) && x.Password != (mentor.Password) || x.Username.Equals(mentor.Username) && x.Password != (mentor.Password) || x.Username != (mentor.Username) && x.Password.Equals(mentor.Password)).FirstOrDefault();
+            if (rem != null)
+            {
+                //Session["Name"] = obj.FirstName;
+                //Session["UserId"] = obj.MentorId;
+                //Session["MenteeUserId"] = obj.MenteeId;
+                return RedirectToAction("LoginError", "Home");
+
+            }
+
+
+
+
 
             else if (mentor.Email != "admin@gmail.com" || mentor.LastName != "admin1234")
             {
